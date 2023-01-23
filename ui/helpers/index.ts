@@ -1,4 +1,4 @@
-import { baseFontSize } from "../tokens/typography";
+import { baseFontSize } from "~ui/tokens/typography";
 
 /** Converts number to px */
 export const px = (pixels: number) => `${pixels}px`;

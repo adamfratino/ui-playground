@@ -15,8 +15,9 @@ const Template: Story = (args) => <BoxPrimitive {...args} />;
 export const Box = Template.bind({});
 Box.args = {
   backgroundColor: {
-    xs: "primary",
+    default: "black",
+    sm: "primary",
     md: "secondary",
-    xl: "tertiary",
+    lg: "tertiary",
   },
 };
