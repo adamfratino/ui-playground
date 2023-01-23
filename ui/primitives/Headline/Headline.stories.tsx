@@ -1,20 +1,23 @@
 import { Meta, Story } from "@storybook/react";
-import HeadlinePrimitive, { Props } from "./Headline";
-import { headlines } from "~ui/theme";
+import Headline, { Props } from "./Headline";
 
 export default {
   title: "Primitives/Headline",
   parameters: {
     layout: "fullscreen",
   },
-  // argTypes: {
-  //   variant: {
-  //     control: "select",
-  //     options: Object.keys(headlines),
-  //   },
-  // },
 } as Meta;
 
-export const Default: Story<Props> = (args) => (
-  <HeadlinePrimitive {...args}>This is a headline</HeadlinePrimitive>
+const Template: Story<Props> = (args) => (
+  <Headline {...args}>This is a headline</Headline>
 );
+
+export const ResponsiveColor = Template.bind({});
+ResponsiveColor.args = {
+  color: {
+    default: "black",
+    sm: "blue",
+    md: "green",
+    lg: "red",
+  },
+};

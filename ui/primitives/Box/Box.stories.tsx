@@ -1,5 +1,5 @@
 import { Meta, Story } from "@storybook/react";
-import { Box as BoxPrimitive } from "./Box";
+import { Box } from "./Box";
 
 export default {
   title: "Primitives/Box",
@@ -10,14 +10,14 @@ export default {
   },
 } as Meta;
 
-const Template: Story = (args) => <BoxPrimitive {...args} />;
+const Template: Story = (args) => <Box {...args} />;
 
-export const Box = Template.bind({});
-Box.args = {
+export const ResponsiveBackgroundColor = Template.bind({});
+ResponsiveBackgroundColor.args = {
   backgroundColor: {
     default: "black",
-    sm: "primary",
-    md: "secondary",
-    lg: "tertiary",
+    sm: "blue",
+    md: "green",
+    lg: "red",
   },
 };

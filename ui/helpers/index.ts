@@ -1,3 +1,4 @@
+import { breakpoints } from "~ui/tokens/breakpoints";
 import { baseFontSize } from "~ui/tokens/typography";
 
 /** Converts number to px */
@@ -9,3 +10,20 @@ export const rem = (pixels: number, base: number = baseFontSize) =>
 
 /** Converts a string to a number */
 export const num = (string: string) => +string.match(/(\d+)/)![0];
+
+/** Converts a breakpoint object to a breakpoint array */
+export const toBreakpointArray = (customBreakpoints: {}) => {
+  let array: any[] = [];
+  let customCount = 0;
+
+  Object.entries(breakpoints).map(([key, value], i) => {
+    if (key === Object.keys(customBreakpoints)[customCount]) {
+      array.push(Object.values(customBreakpoints)[customCount]);
+      customCount++;
+    } else {
+      array.push(null);
+    }
+  });
+
+  return array;
+};

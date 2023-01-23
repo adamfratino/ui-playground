@@ -6,4 +6,4 @@ export default {
   parameters: { layout: "fullscreen" },
 } as Meta;
 
-export const Details: Story = () => <span>baseFontSize: {baseFontSize}</span>;
+const Details: Story = () => <span>baseFontSize: {baseFontSize}</span>;
