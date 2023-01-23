@@ -1,4 +1,5 @@
+import * as breakpoints from "./breakpoints";
 import * as colors from "./colors";
 import * as typography from "./typography";
 
-export { colors, typography };
+export { breakpoints, colors, typography };

@@ -9,14 +9,14 @@ import {
   SpaceProps,
   TypographyProps,
 } from "styled-system";
-import { themes } from "./themes";
+import { headlines } from "../../theme";
 
 type StyledProps = ColorProps & SpaceProps & TypographyProps;
 
 export type Props = StyledProps & {
   as?: React.ElementType;
   children: React.ReactNode;
-  variant?: keyof typeof themes;
+  variant?: keyof typeof headlines;
 };
 
 const Headline: React.FC<Props> = ({ as, children, variant, ...props }) => (
@@ -33,6 +33,6 @@ const StyledHeadline = styled.h1<StyledProps>(
   typography,
   variant({
     scale: "headlines",
-    variants: { ...themes },
+    variants: { ...headlines },
   })
 );

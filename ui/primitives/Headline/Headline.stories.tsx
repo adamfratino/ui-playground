@@ -1,6 +1,6 @@
 import { Meta, Story } from "@storybook/react";
 import HeadlinePrimitive, { Props } from "./Headline";
-import { themes } from "./themes";
+import { headlines } from "../../theme";
 
 export default {
   title: "Primitives/Headline",
@@ -10,7 +10,7 @@ export default {
   argTypes: {
     variant: {
       control: "select",
-      options: Object.keys(themes),
+      options: Object.keys(headlines),
     },
   },
 } as Meta;
