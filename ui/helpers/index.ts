@@ -12,16 +12,18 @@ export const rem = (pixels: number, base: number = baseFontSize) =>
 export const num = (string: string) => +string.match(/(\d+)/)![0];
 
 /** Converts a breakpoint object to a breakpoint array */
-export const toBreakpointArray = (customBreakpoints: {}) => {
+export const toBreakpointsArray = (customBreakpoints: {}) => {
   let array: any[] = [];
   let customCount = 0;
 
-  Object.entries(breakpoints).map(([key, value], i) => {
-    if (key === Object.keys(customBreakpoints)[customCount]) {
-      array.push(Object.values(customBreakpoints)[customCount]);
-      customCount++;
-    } else {
-      array.push(null);
+  Object.entries(breakpoints).map((bp, i) => {
+    if (i > breakpoints.length - 1) {
+      if (bp[0] === Object.keys(customBreakpoints)[customCount]) {
+        array.push(Object.values(customBreakpoints)[customCount]);
+        customCount++;
+      } else {
+        array.push(null);
+      }
     }
   });
 

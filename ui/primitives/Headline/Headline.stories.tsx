@@ -12,6 +12,11 @@ const Template: Story<Props> = (args) => (
   <Headline {...args}>This is a headline</Headline>
 );
 
+export const PrimaryVariant = Template.bind({});
+PrimaryVariant.args = {
+  variant: "primary",
+};
+
 export const ResponsiveColor = Template.bind({});
 ResponsiveColor.args = {
   color: {

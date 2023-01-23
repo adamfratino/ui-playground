@@ -12,12 +12,17 @@ export default {
 
 const Template: Story = (args) => <Box {...args} />;
 
-export const ResponsiveBackgroundColor = Template.bind({});
-ResponsiveBackgroundColor.args = {
+export const ResponsivePropsObject = Template.bind({});
+ResponsivePropsObject.args = {
   backgroundColor: {
     default: "black",
     sm: "blue",
     md: "green",
     lg: "red",
   },
+};
+
+export const ResponsivePropsArray = Template.bind({});
+ResponsivePropsArray.args = {
+  backgroundColor: ["black", "blue", "green", "red"],
 };
