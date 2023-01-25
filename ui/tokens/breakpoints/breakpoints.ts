@@ -2,20 +2,25 @@ import { px } from "~ui/helpers";
 
 /**
  * @see: https://github.com/styled-system/styled-system/issues/1318
- * @todo: add option for breakpoints object (for props only, no variants)?
  */
 
-type Breakpoints = Array<string> & {
-  sm?: string;
-  md?: string;
-  lg?: string;
-  xl?: string;
+export type BreakpointsType = {
+  sm?: any;
+  md?: any;
+  lg?: any;
+  xl?: any;
 };
 
-const breakpoints: Breakpoints = [px(414), px(768), px(1024), px(1440)];
+const breakpoints: Array<string> & BreakpointsType = [
+  px(414),
+  px(768),
+  px(1024),
+  px(1440),
+];
+
 breakpoints.sm = breakpoints[0];
 breakpoints.md = breakpoints[1];
 breakpoints.lg = breakpoints[2];
 breakpoints.xl = breakpoints[3];
 
-export { breakpoints };
+export default breakpoints;

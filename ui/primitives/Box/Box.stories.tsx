@@ -1,8 +1,8 @@
 import { Meta, Story } from "@storybook/react";
-import { Box } from "./Box";
+import Box, { Props } from "./Box";
 
 export default {
-  title: "Primitives/Box",
+  title: "Primitives/Layout/Box",
   parameters: { layout: "fullscreen" },
   args: {
     width: 300,
@@ -10,7 +10,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story = (args) => <Box {...args} />;
+const Template: Story<Props> = (args) => <Box {...args} />;
 
 export const ResponsivePropsObject = Template.bind({});
 ResponsivePropsObject.args = {

@@ -1,5 +1,12 @@
 import styled from "styled-components";
-import { color, flexbox, layout, space, typography } from "styled-system";
+import {
+  color,
+  flexbox,
+  layout,
+  space,
+  typography,
+  variant,
+} from "styled-system";
 import type {
   ColorProps,
   FlexboxProps,
@@ -21,18 +28,19 @@ export type Props = StyledProps & {
   variant?: keyof typeof variants;
 };
 
-const Box: React.FC<Props> = ({ as, children, variant, ...props }) => (
-  <StyledBox as={as} variant={variant} {...props}>
+const Banner: React.FC<Props> = ({ as, children, variant, ...props }) => (
+  <StyledBanner as={as} variant={variant} {...props}>
     {children}
-  </StyledBox>
+  </StyledBanner>
 );
 
-const StyledBox = styled.div<StyledProps>(
+const StyledBanner = styled.div<StyledProps>(
   color,
   flexbox,
   layout,
   space,
-  typography
+  typography,
+  variant({ variants: variants })
 );
 
-export default Box;
+export default Banner;
