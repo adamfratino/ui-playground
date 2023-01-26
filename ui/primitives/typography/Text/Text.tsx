@@ -1,4 +1,4 @@
-import React from "react";
+import { forwardRef } from "react";
 import styled from "styled-components";
 import { color, space, typography, variant } from "styled-system";
 import type { ColorProps, SpaceProps, TypographyProps } from "styled-system";
@@ -12,11 +12,15 @@ export type Props = StyledProps & {
   variant?: keyof typeof variants;
 };
 
-const Text: React.FC<Props> = ({ as, variant, children, ...props }) => (
-  <StyledText as={as} variant={variant} {...props}>
-    {children}
-  </StyledText>
+const Text = forwardRef<HTMLElement, Props>(
+  ({ as, variant, children, ...props }, ref) => (
+    <StyledText as={as} variant={variant} ref={ref} {...props}>
+      {children}
+    </StyledText>
+  )
 );
+
+Text.displayName = "Text";
 
 export default Text;
 

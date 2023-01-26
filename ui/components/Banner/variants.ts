@@ -4,6 +4,7 @@ const variants = {
     backgroundColor: "red",
     color: "white",
     fontWeight: "bold",
+    padding: "thick",
   },
 };
 
