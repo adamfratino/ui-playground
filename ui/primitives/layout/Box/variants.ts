@@ -6,6 +6,10 @@ const variants = {
     margin: "0 auto",
     padding: "16px",
   },
+  columns: {
+    display: "flex",
+    flexDirection: "column",
+  },
 };
 
 export default variants;

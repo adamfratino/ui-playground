@@ -1,10 +1,22 @@
 import { forwardRef } from "react";
 import styled from "styled-components";
-import { color, space, typography, variant } from "styled-system";
-import type { ColorProps, SpaceProps, TypographyProps } from "styled-system";
+import {
+  color,
+  space,
+  shadow,
+  typography,
+  compose,
+  variant,
+} from "styled-system";
+import type {
+  ColorProps,
+  ShadowProps,
+  SpaceProps,
+  TypographyProps,
+} from "styled-system";
 import variants from "./variants";
 
-type StyledProps = ColorProps & SpaceProps & TypographyProps;
+type StyledProps = ColorProps & ShadowProps & SpaceProps & TypographyProps;
 
 export type Props = StyledProps & {
   children: React.ReactNode;
@@ -25,8 +37,5 @@ Text.displayName = "Text";
 export default Text;
 
 const StyledText = styled.h1<StyledProps>(
-  color,
-  space,
-  typography,
-  variant({ variants: variants })
+  compose(color, shadow, space, typography, variant({ variants: variants }))
 );

@@ -1,9 +1,5 @@
 import { CSSProperties } from "react";
 
-type ThemeType = {
-  textColor?: CSSProperties["color"];
-};
-
 export type ColorType = {
   darkest?: CSSProperties["color"];
   darker?: CSSProperties["color"];
@@ -14,4 +10,6 @@ export type ColorType = {
   lightest?: CSSProperties["color"];
 };
 
-export type ColorsType = ThemeType & { [name: string]: {} };
+export type ColorsType = {
+  [name: string]: any;
+};

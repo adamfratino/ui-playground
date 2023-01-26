@@ -10,6 +10,11 @@ const variants = {
     fontWeight: 700,
   },
   description: {},
+  label: {
+    fontSize: "12px",
+    fontFamily: "Helvetica Neue",
+    fontWeight: "bold",
+  },
 };
 
 export default variants;

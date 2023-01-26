@@ -4,7 +4,7 @@ import yellow from "./yellow";
 import green from "./green";
 import blue from "./blue";
 import purple from "./purple";
-import type { ColorsType } from "./types";
+import type { ColorsType } from "./colors.types";
 
 const colors: ColorsType = { red, orange, yellow, green, blue, purple };
 

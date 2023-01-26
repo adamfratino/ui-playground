@@ -23,7 +23,13 @@ ResponsivePropsObject.args = {
 export const ResponsivePropsArray = Template.bind({});
 ResponsivePropsArray.args = {
   ...ResponsivePropsObject.args,
-  backgroundColor: ["black", "blue", "green", "red"],
+  backgroundColor: [
+    "yellow.base",
+    "blue.dark",
+    "green.light",
+    "red.base",
+    "orange.lightest",
+  ],
 };
 
 export const Section = () => <Box variant="section">Section</Box>;

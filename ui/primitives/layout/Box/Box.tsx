@@ -1,26 +1,33 @@
 import { forwardRef } from "react";
 import styled from "styled-components";
 import {
+  border,
   color,
   flexbox,
   layout,
+  shadow,
   space,
   typography,
+  compose,
   variant,
 } from "styled-system";
 import type {
+  BorderProps,
   ColorProps,
   FlexboxProps,
   LayoutProps,
+  ShadowProps,
   SpaceProps,
   TypographyProps,
 } from "styled-system";
 import variants from "./variants";
 
-type StyledProps = ColorProps &
+type StyledProps = BorderProps &
+  ColorProps &
   FlexboxProps &
   LayoutProps &
   SpaceProps &
+  ShadowProps &
   TypographyProps;
 
 export type Props = StyledProps & {
@@ -39,12 +46,16 @@ const Box = forwardRef<HTMLDivElement, Props>(
 Box.displayName = "Box";
 
 const StyledBox = styled.div<StyledProps>(
-  color,
-  flexbox,
-  layout,
-  space,
-  typography,
-  variant({ variants: variants })
+  compose(
+    border,
+    color,
+    flexbox,
+    layout,
+    shadow,
+    space,
+    typography,
+    variant({ variants: variants })
+  )
 );
 
 export default Box;
