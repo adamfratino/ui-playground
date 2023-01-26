@@ -1,7 +1,7 @@
 import { Meta, Story } from "@storybook/react";
 import { Box } from "~ui/primitives/layout/Box";
 import { Text } from "~ui/primitives/typography/Text";
-import { reds, oranges, yellows, greens, blues, purples } from "./";
+import { red, orange, yellow, green, blue, purple } from "./";
 import type { ColorsType } from "./types";
 
 export default {
@@ -23,9 +23,9 @@ const ColorGrid: React.FC<{ spectrum: ColorsType }> = ({ spectrum }) => (
   </Box>
 );
 
-export const Red: Story = () => <ColorGrid spectrum={reds} />;
-export const Orange: Story = () => <ColorGrid spectrum={oranges} />;
-export const Yellow: Story = () => <ColorGrid spectrum={yellows} />;
-export const Green: Story = () => <ColorGrid spectrum={greens} />;
-export const Blue: Story = () => <ColorGrid spectrum={blues} />;
-export const Purple: Story = () => <ColorGrid spectrum={purples} />;
+export const Red: Story = () => <ColorGrid spectrum={red} />;
+export const Orange: Story = () => <ColorGrid spectrum={orange} />;
+export const Yellow: Story = () => <ColorGrid spectrum={yellow} />;
+export const Green: Story = () => <ColorGrid spectrum={green} />;
+export const Blue: Story = () => <ColorGrid spectrum={blue} />;
+export const Purple: Story = () => <ColorGrid spectrum={purple} />;

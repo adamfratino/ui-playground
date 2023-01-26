@@ -13,10 +13,10 @@ ResponsivePropsObject.args = {
   width: 300,
   height: 300,
   backgroundColor: {
-    default: "black",
-    sm: "blue",
-    md: "green",
-    lg: "red",
+    default: "red.base",
+    sm: "blue.darker",
+    md: "green.base",
+    lg: "orange.darkest",
   },
 };
 

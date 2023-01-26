@@ -1,8 +1,11 @@
-import reds from "./red";
-import oranges from "./orange";
-import yellows from "./yellow";
-import greens from "./green";
-import blues from "./blue";
-import purples from "./purple";
+import red from "./red";
+import orange from "./orange";
+import yellow from "./yellow";
+import green from "./green";
+import blue from "./blue";
+import purple from "./purple";
+import type { ColorsType } from "./types";
 
-export { reds, oranges, yellows, greens, blues, purples };
+const colors: ColorsType = { red, orange, yellow, green, blue, purple };
+
+export { colors, red, orange, yellow, green, blue, purple };

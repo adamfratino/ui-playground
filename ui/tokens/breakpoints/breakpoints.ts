@@ -1,9 +1,4 @@
-export type BreakpointsType = {
-  sm?: any;
-  md?: any;
-  lg?: any;
-  xl?: any;
-};
+import { BreakpointsType } from "./breakpoints.types";
 
 const breakpoints: string[] & BreakpointsType = [
   "414px",
