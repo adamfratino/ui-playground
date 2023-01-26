@@ -4,14 +4,23 @@ import { baseFontSize } from "~ui/tokens/typography";
 /** Converts number to px */
 export const px = (pixels: number) => `${pixels}px`;
 
-/** Converts number in px to rem using baseFontSize */
+/**
+ * Converts number in px to rem using baseFontSize
+ *
+ * @todo replace with polished
+ * @see https://polished.js.org/docs/#rem
+ * */
 export const rem = (pixels: number, base: number = baseFontSize) =>
   `${pixels / baseFontSize}rem`;
 
 /**
  * Converts a string to a number
+ *
  * @param string i.e. `48px`
  * @returns 48
+ *
+ * @todo replace with polished
+ * @see https://polished.js.org/docs/#stripunit
  * */
 export const num = (string: string) => +string.match(/(\d+)/)![0];
 

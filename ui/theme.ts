@@ -1,4 +1,5 @@
 import { breakpoints } from "~ui/tokens/breakpoints";
+import * as colors from "~ui/tokens/colors";
 import { space } from "~ui/tokens/space";
 
 breakpoints.sm = breakpoints[0];
@@ -10,6 +11,7 @@ space.thin = space[3];
 space.thick = space[5];
 
 const theme = {
+  ...colors,
   breakpoints,
   space,
 };
