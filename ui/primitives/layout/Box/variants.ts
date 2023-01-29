@@ -2,13 +2,16 @@ const variants = {
   section: {
     width: "100%",
     maxWidth: "1224px",
-    backgroundColor: "gold",
     margin: "0 auto",
-    padding: "16px",
+    padding: "thick",
   },
-  columns: {
+  outer: {
+    width: "100%",
+    minHeight: "100vh",
     display: "flex",
     flexDirection: "column",
+    paddingX: 8,
+    paddingY: 16,
   },
 };
 

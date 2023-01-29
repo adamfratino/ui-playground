@@ -1,6 +1,4 @@
-import { BreakpointsType } from "./breakpoints.types";
-
-const breakpoints: string[] & BreakpointsType = [
+const breakpoints: { [name: string]: any } = [
   "414px",
   "768px",
   "1024px",

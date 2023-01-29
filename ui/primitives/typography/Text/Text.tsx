@@ -1,4 +1,5 @@
 import { forwardRef } from "react";
+import ReactMarkdown from "react-markdown";
 import styled from "styled-components";
 import {
   color,
@@ -6,6 +7,7 @@ import {
   shadow,
   typography,
   compose,
+  system,
   variant,
 } from "styled-system";
 import type {
@@ -22,12 +24,17 @@ export type Props = StyledProps & {
   children: React.ReactNode;
   as?: React.ElementType;
   variant?: keyof typeof variants;
+  markdown?: boolean;
 };
 
 const Text = forwardRef<HTMLElement, Props>(
-  ({ as, variant, children, ...props }, ref) => (
+  ({ as, variant, markdown, children, ...props }, ref) => (
     <StyledText as={as} variant={variant} ref={ref} {...props}>
-      {children}
+      {markdown ? (
+        <ReactMarkdown>{children as string}</ReactMarkdown>
+      ) : (
+        children
+      )}
     </StyledText>
   )
 );
@@ -36,6 +43,17 @@ Text.displayName = "Text";
 
 export default Text;
 
-const StyledText = styled.h1<StyledProps>(
-  compose(color, shadow, space, typography, variant({ variants: variants }))
-);
+const StyledText = styled.p<StyledProps>`
+  ${variant({ variants: variants })}
+  ${color}
+  ${shadow}
+  ${space}
+  ${typography}
+  ${system({
+    textTransform: true,
+  })}
+
+  strong, b {
+    font-weight: bold;
+  }
+`;

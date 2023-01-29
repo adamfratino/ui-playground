@@ -1,4 +1,4 @@
-import { breakpoints, BreakpointsType } from "~ui/tokens/breakpoints";
+import { breakpoints } from "~ui/tokens";
 import { baseFontSize } from "~ui/tokens/typography";
 
 /** Converts number to px */
@@ -30,7 +30,7 @@ export const num = (string: string) => +string.match(/(\d+)/)![0];
  * @returns array of breakpoint values or `null` if a breakpoint key isn't present
  * @see https://styled-system.com/responsive-styles/
  * */
-export const toBreakpointsArray = (customBreakpoints: BreakpointsType) => {
+export const toBreakpointsArray = (customBreakpoints: {}) => {
   let array: any[] = [];
   let customCount = 0;
 

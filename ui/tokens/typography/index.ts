@@ -1,3 +1,10 @@
-import { baseFontSize, primaryFont, monospaceFont } from "./typography";
+import {
+  baseFontSize,
+  fontSizes,
+  condensed,
+  mono,
+  sans,
+  serif,
+} from "./typography";
 
-export { baseFontSize, primaryFont, monospaceFont };
+export { baseFontSize, fontSizes, condensed, mono, sans, serif };
