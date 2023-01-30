@@ -56,4 +56,9 @@ const StyledText = styled.p<StyledProps>`
   strong, b {
     font-weight: bold;
   }
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
 `;

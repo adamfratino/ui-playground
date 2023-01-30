@@ -1,5 +1,11 @@
-import { breakpoints, colors, space } from "~ui/tokens";
-import { fontSizes } from "~ui/tokens/typography";
+import {
+  breakpoints,
+  colors,
+  fonts,
+  fontSizes,
+  shadows,
+  space,
+} from "~ui/tokens";
 
 /** Breakpoints */
 breakpoints.sm = breakpoints[0];
@@ -16,10 +22,16 @@ colors.primaryColor = colors.reds.base;
 space.thin = space[3];
 space.thick = space[5];
 
+/** Typography */
+// fonts.eyebrow = fonts.condensed;
+// fontSizes.test = 64;
+
 const theme = {
   colors,
   breakpoints,
+  fonts,
   fontSizes,
+  shadows,
   space,
 };
 

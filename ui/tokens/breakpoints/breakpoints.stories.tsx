@@ -4,7 +4,7 @@ import { parameters } from "~ui/storybook";
 
 export default {
   title: "Tokens/Breakpoints",
-  ...parameters.tokens,
+  parameters: { ...parameters.tokens },
 } as Meta;
 
 export const Breakpoints = () => <BreakpointsGrid />;

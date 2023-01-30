@@ -1,17 +1,24 @@
 const variants = {
   section: {
-    width: "100%",
-    maxWidth: "1224px",
     margin: "0 auto",
+    maxWidth: "1224px",
     padding: "thick",
+    width: "100%",
   },
   outer: {
-    width: "100%",
-    minHeight: "100vh",
     display: "flex",
     flexDirection: "column",
+    minHeight: "100vh",
     paddingX: 8,
     paddingY: 16,
+    width: "100%",
+  },
+  insetShadow: {
+    boxShadow: "box.inset",
+    backgroundColor: "rgba(0,0,0,0.4)",
+    color: "white",
+    padding: "thin",
+    width: "fit-content",
   },
 };
 

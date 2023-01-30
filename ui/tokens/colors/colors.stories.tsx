@@ -6,7 +6,7 @@ const { reds, oranges, yellows, greens, blues, purples } = colors;
 
 export default {
   title: "Tokens/Colors",
-  ...parameters.tokens,
+  parameters: { ...parameters.tokens },
 } as Meta;
 
 export const Reds: Story = () => <ColorsGrid spectrum={reds} />;

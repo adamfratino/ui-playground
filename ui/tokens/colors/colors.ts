@@ -1,4 +1,5 @@
 import { darken, lighten } from "polished";
+import { TokensType } from "~ui/tokens/types";
 
 export const red = `#FF4949`;
 export const orange = `#FF8D29`;
@@ -19,7 +20,7 @@ export const generatePalette = (key: string, color: string) => ({
   },
 });
 
-const colors: { [name: string]: any } = {
+const colors: TokensType = {
   ...generatePalette("reds", red),
   ...generatePalette("oranges", orange),
   ...generatePalette("yellows", yellow),
