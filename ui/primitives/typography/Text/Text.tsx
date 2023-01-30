@@ -43,7 +43,9 @@ Text.displayName = "Text";
 
 export default Text;
 
-const StyledText = styled.p<StyledProps>`
+const StyledText = styled.span<StyledProps>`
+  display: block;
+
   ${variant({ variants: variants })}
   ${color}
   ${shadow}
@@ -55,6 +57,11 @@ const StyledText = styled.p<StyledProps>`
 
   strong, b {
     font-weight: bold;
+  }
+
+  em,
+  i {
+    font-style: italic;
   }
 
   a {

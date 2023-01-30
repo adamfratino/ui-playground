@@ -1,7 +1,5 @@
 import { TokensType } from "~ui/tokens/types";
 
-export const baseFontSize = 16 as const;
-
 export const condensed = '"IBM Plex Condensed", sans-serif';
 export const mono = '"IBM Plex Mono", monospace';
 export const sans = '"IBM Plex Sans", sans-serif';

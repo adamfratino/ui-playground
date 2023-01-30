@@ -4,17 +4,18 @@ import {
   border,
   color,
   flexbox,
+  grid,
   layout,
   shadow,
   space,
   typography,
-  compose,
   variant,
 } from "styled-system";
 import type {
   BorderProps,
   ColorProps,
   FlexboxProps,
+  GridProps,
   LayoutProps,
   ShadowProps,
   SpaceProps,
@@ -25,11 +26,13 @@ import variants from "./variants";
 type StyledProps = BorderProps &
   ColorProps &
   FlexboxProps &
+  GridProps &
   LayoutProps &
   SpaceProps &
   ShadowProps &
   TypographyProps & {
     trimEdges?: boolean;
+    centered?: boolean;
   };
 
 export type Props = StyledProps & {
@@ -39,11 +42,12 @@ export type Props = StyledProps & {
 };
 
 const Box = forwardRef<HTMLDivElement, Props>(
-  ({ as, children, variant, trimEdges, ...props }, ref) => (
+  ({ as, children, variant, trimEdges, centered, ...props }, ref) => (
     <StyledBox
       as={as}
       variant={variant}
       trimEdges={trimEdges}
+      centered={centered}
       ref={ref}
       {...props}
     >
@@ -58,6 +62,7 @@ const StyledBox = styled.div<StyledProps>`
   ${border}
   ${color}
   ${flexbox}
+  ${grid}
   ${layout}
   ${shadow}
   ${space}
@@ -82,6 +87,14 @@ const StyledBox = styled.div<StyledProps>`
         padding-bottom: 0 !important;
       }
     }
+  `}
+
+  ${({ centered }) =>
+    centered &&
+    `
+    display: flex;
+    align-items: center;
+    justify-content: center;
   `}
 `;
 

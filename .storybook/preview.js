@@ -1,5 +1,6 @@
 import { ThemeProvider } from "styled-components";
 import theme from "../ui/theme";
+import '../ui/global.css';
 
 export const parameters = {
   options: {

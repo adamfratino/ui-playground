@@ -14,17 +14,21 @@ breakpoints.lg = breakpoints[2];
 breakpoints.xl = breakpoints[3];
 
 /** Colors */
-colors.backgroundColor = { light: "#eee", dark: "#222" };
-colors.textColor = "black";
-colors.primaryColor = colors.reds.base;
+colors.background = { light: "#eee", dark: "#222" };
+colors.text = {
+  body: { light: "#eee", dark: "#222" },
+};
+colors.primary = colors.reds.dark;
 
 /** Space */
+space.superThin = space[1];
 space.thin = space[3];
-space.thick = space[5];
+space.thick = space[4];
+space.superthick = space[8];
 
 /** Typography */
-// fonts.eyebrow = fonts.condensed;
-// fontSizes.test = 64;
+fontSizes.base = fontSizes[4];
+fontSizes.body = fontSizes.base;
 
 const theme = {
   colors,

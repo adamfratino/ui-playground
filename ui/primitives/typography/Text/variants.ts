@@ -1,29 +1,29 @@
-import { sans } from "~ui/tokens/typography";
-import { toBreakpointsArray } from "~ui/helpers";
+import { toResponsiveVariants } from "~ui/helpers";
 
 const variants = {
   eyebrow: {
-    fontFamily: sans,
+    fontFamily: "sans",
     fontSize: 16,
     fontWeight: 900,
   },
   label: {
     fontSize: 2,
-    fontFamily: sans,
+    fontFamily: "sans",
     fontWeight: 600,
   },
   paragraph: {
-    fontFamily: sans,
-    fontSize: 14,
+    fontFamily: "sans",
+    fontSize: "body",
     lineHeight: 1.4,
   },
   title: {
-    fontSize: toBreakpointsArray({
+    fontFamily: "sans",
+    fontWeight: 900,
+    fontSize: toResponsiveVariants({
       sm: 48,
       md: 72,
       lg: 96,
     }),
-    fontWeight: 700,
   },
 };
 

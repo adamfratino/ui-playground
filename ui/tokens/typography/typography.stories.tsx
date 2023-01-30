@@ -1,53 +1,74 @@
 import { Meta } from "@storybook/react";
 import React from "react";
+import { Introduction, parameters } from "~ui/storybook";
 import { Box } from "~ui/primitives/layout";
 import { Text } from "~ui/primitives/typography";
-import { fontSizes, condensed, mono, sans, serif } from "./typography";
+import { condensed, mono, sans, serif } from "./typography";
 
 const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const numbers = "0123456789";
 
-const families = [condensed, mono, sans, serif];
+const families = { condensed, mono, sans, serif };
 const characters = [alphabet, alphabet.toLowerCase(), numbers];
 
 export default {
-  title: "Tokens/Typography",
-  parameters: { layout: "fullscreen" },
+  title: "Tokens",
+  parameters: { ...parameters.tokens },
 } as Meta;
 
-// export const Typography: React.FC = () => (
-//   <Box variant="outer" backgroundColor="backgroundColor.light" trimEdges>
-//     {families.map((family, i) => (
-//       <TypographyGrid font={family} key={i} />
-//     ))}
-//   </Box>
-// );
+export const Typography: React.FC = () => (
+  <Box variant="outer" backgroundColor="background.light">
+    <Introduction
+      title="Typography"
+      description="While the primary goal of typography is to **convey language**, elements of typography can also evoke **emotions** and illustrate the **vibe of the brand**. "
+    />
+    {Object.entries(families).map((family, i) => (
+      <TypographyGrid font={family[1]} family={family[0]} key={i} />
+    ))}
+  </Box>
+);
 
-// const TypographyGrid: React.FC<{ font: string }> = ({ font }) => (
-//   <Box display="flex" flexDirection="column" pb={12}>
-//     <Text fontFamily={sans} fontSize={14} fontWeight="normal" mb={2}>
-//       {font};
-//     </Text>
-//     {characters.map((chars, i) => (
-//       <Characters font={font} key={i}>
-//         {chars}
-//       </Characters>
-//     ))}
-//   </Box>
-// );
+const TypographyGrid: React.FC<{ font: string; family: string }> = ({
+  font,
+  family,
+}) => (
+  <Box display="flex" flexDirection="column" pb={12}>
+    <Text variant="eyebrow" fontSize={8} mb={2}>
+      {family}
+    </Text>
+    <Text fontFamily={sans} fontSize={14} fontWeight="normal" mb={6}>
+      <strong>font-family: </strong>
+      {font};
+    </Text>
+    <Box display="grid" gridTemplateColumns="repeat(10, 1fr)">
+      {characters.map((chars, i) => (
+        <Characters font={font} key={i} chars={chars.split("")} />
+      ))}
+    </Box>
+  </Box>
+);
 
-// const Characters: React.FC<{ font: string; children: React.ReactNode }> = ({
-//   font,
-//   children,
-// }) => (
-//   <Text
-//     variant="eyebrow"
-//     as="span"
-//     fontSize="64px"
-//     fontFamily={font}
-//     letterSpacing={1}
-//     pb={2}
-//   >
-//     {children}
-//   </Text>
-// );
+const Characters: React.FC<{ font: string; chars: string[] }> = ({
+  font,
+  chars,
+}) => (
+  <>
+    {chars.map((char, i) => (
+      <Box
+        margin={2}
+        boxShadow="box.shallow"
+        backgroundColor="white"
+        key={i}
+        centered
+        flex="1"
+        minHeight="100px"
+        minWidth="100px"
+        alignSelf="start"
+      >
+        <Text fontFamily={font} fontSize="44px" fontWeight="bold">
+          {char}
+        </Text>
+      </Box>
+    ))}
+  </>
+);

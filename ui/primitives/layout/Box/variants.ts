@@ -9,8 +9,7 @@ const variants = {
     display: "flex",
     flexDirection: "column",
     minHeight: "100vh",
-    paddingX: 8,
-    paddingY: 16,
+    padding: 8,
     width: "100%",
   },
   insetShadow: {
