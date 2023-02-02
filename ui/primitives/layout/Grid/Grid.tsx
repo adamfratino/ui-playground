@@ -15,16 +15,7 @@ export type Props = StyledProps & {
 
 const Grid = forwardRef<HTMLDivElement, Props>(
   ({ as, children, variant, gap, ...props }, ref) => (
-    <StyledGrid
-      display="grid"
-      gridAutoColumns="minmax(0, 1fr)"
-      gridAutoFlow="column"
-      gridGap={gap}
-      as={as}
-      variant={variant}
-      ref={ref}
-      {...props}
-    >
+    <StyledGrid gridGap={gap} variant={variant} as={as} ref={ref} {...props}>
       {children}
     </StyledGrid>
   )
@@ -32,10 +23,13 @@ const Grid = forwardRef<HTMLDivElement, Props>(
 Grid.displayName = "Grid";
 
 const StyledGrid = styled.div<StyledProps>`
-  ${grid}
-  ${layout}
-  ${space}
-  ${variant({ variants: variants })}}
+display: grid;
+grid-auto-columns: minmax(0, 1fr);
+grid-auto-flow: column;
+${variant({ variants: variants })}}
+${grid}
+${layout}
+${space}
 `;
 
 export default Grid;

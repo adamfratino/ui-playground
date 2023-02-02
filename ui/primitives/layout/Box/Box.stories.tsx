@@ -1,9 +1,10 @@
 import { Meta, Story } from "@storybook/react";
-import Box, { Props } from "./Box";
+import BoxComponent, { Props } from "./Box";
 import { themeTypes } from "~ui/storybook";
 
 export default {
   title: "Primitives/Layout",
+  component: BoxComponent,
   argTypes: { ...themeTypes },
   args: {
     backgroundColor: "primary",
@@ -13,7 +14,6 @@ export default {
   },
 } as Meta;
 
-const Template: Story<Props> = (args) => <Box {...args} />;
+const Template: Story<Props> = (args) => <BoxComponent {...args} />;
 
-export const Default = Template.bind({});
-Default.storyName = "Box";
+export const Box = Template.bind({});

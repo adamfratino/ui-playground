@@ -12,7 +12,7 @@ const families = { condensed, mono, sans, serif };
 const characters = [alphabet, alphabet.toLowerCase(), numbers];
 
 export default {
-  title: "Tokens",
+  title: "Tokens/Typography",
   parameters: { ...parameters.tokens },
 } as Meta;
 
@@ -20,7 +20,7 @@ export const Typography: React.FC = () => (
   <Box variant="outer" backgroundColor="background.light">
     <Introduction
       title="Typography"
-      description="While the primary goal of typography is to **convey language**, elements of typography can also evoke **emotions** and illustrate the **vibe of the brand**. "
+      description="While the primary goal of typography is to **convey language**, elements of typography can also evoke **emotions** and illustrate the **sentiment of the brand**."
     />
     {Object.entries(families).map((family, i) => (
       <TypographyGrid font={family[1]} family={family[0]} key={i} />

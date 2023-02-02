@@ -1,5 +1,13 @@
 import { TokensType } from "~ui/tokens/types";
 
-const breakpoints: TokensType = ["414px", "768px", "1024px", "1440px"];
+export const breakpointsWithKeys = {
+  xs: "360px",
+  sm: "580px",
+  md: "768px",
+  lg: "1024px",
+  xl: "1440px",
+};
+
+const breakpoints: TokensType = Object.values(breakpointsWithKeys);
 
 export default breakpoints;

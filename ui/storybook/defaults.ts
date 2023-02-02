@@ -1,3 +1,7 @@
+/**
+ * @todo: refactor to be `parameters.ts`
+ */
+
 export const parameters = {
   tokens: {
     layout: "fullscreen",

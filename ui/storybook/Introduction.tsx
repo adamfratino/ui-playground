@@ -1,5 +1,5 @@
 import React from "react";
-import { Box } from "~ui/primitives/layout";
+import { Box, Grid, Line } from "~ui/primitives/layout";
 import { Text } from "~ui/primitives/typography";
 
 type Props = {
@@ -8,26 +8,31 @@ type Props = {
 };
 
 const Introduction: React.FC<Props> = ({ title, description }) => (
-  <Box maxWidth="560px" mb={12}>
-    <Text variant="title" mb="superthick">
-      {title}
-    </Text>
-    {typeof description === "string" ? (
-      <Text variant="paragraph" markdown>
-        {description}
-      </Text>
-    ) : (
-      description.map((p, i) => (
-        <Text
-          variant="paragraph"
-          markdown
-          mb={description.length - 1 > i && 2}
-          key={i}
-        >
-          {p}
+  <>
+    <Grid>
+      <Box maxWidth="580px">
+        <Text variant="title" mb="superthick">
+          {title}
         </Text>
-      ))
-    )}
-  </Box>
+        {typeof description === "string" ? (
+          <Text variant="paragraph" markdown>
+            {description}
+          </Text>
+        ) : (
+          description.map((p, i) => (
+            <Text
+              variant="paragraph"
+              markdown
+              mb={(description.length - 1 > i && 2) as number}
+              key={i}
+            >
+              {p}
+            </Text>
+          ))
+        )}
+      </Box>
+    </Grid>
+    <Line variant="docs" />
+  </>
 );
 export default Introduction;
