@@ -15,6 +15,10 @@ export const parameters = {
       remount: { hidden: true },
       title: { hidden: true },
       zoom: { hidden: true },
+      disable: true,
+    },
+    backgrounds: {
+      disable: true,
     },
   },
 };

@@ -7,7 +7,7 @@ export default {
   component: BoxComponent,
   argTypes: { ...themeTypes },
   args: {
-    backgroundColor: "primary",
+    backgroundColor: "text.body.light",
     boxShadow: "box.shallow",
     width: 300,
     height: 300,

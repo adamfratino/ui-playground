@@ -58,7 +58,6 @@ const Box = forwardRef<HTMLDivElement, Props>(
 Box.displayName = "Box";
 
 const StyledBox = styled.div<StyledProps>`
-  ${variant({ variants: variants })}
   ${border}
   ${color}
   ${flexbox}
@@ -67,6 +66,7 @@ const StyledBox = styled.div<StyledProps>`
   ${shadow}
   ${space}
   ${typography}
+  ${variant({ variants: variants })}
 
   ${({ trimEdges }) =>
     trimEdges &&

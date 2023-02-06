@@ -19,6 +19,7 @@ colors.text = {
   body: { light: "#eee", dark: "#222" },
 };
 colors.primary = colors.reds.dark;
+colors.red = colors.blue;
 
 /** Space */
 space.superThin = space[1];
