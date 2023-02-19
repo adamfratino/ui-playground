@@ -1,8 +1,13 @@
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from './page.module.css'
+import Image from "next/image";
+import { Inter } from "@next/font/google";
+import styles from "./page.module.css";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
+
+/**
+ * 13 is too cutting edge for me! check here if styles don't work after the switch
+ * @see https://github.com/styled-components/styled-components/issues/3856
+ * */
 
 export default function Home() {
   return (
@@ -18,7 +23,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            By{' '}
+            By{" "}
             <Image
               src="/vercel.svg"
               alt="Vercel Logo"
@@ -87,5 +92,5 @@ export default function Home() {
         </a>
       </div>
     </main>
-  )
+  );
 }
