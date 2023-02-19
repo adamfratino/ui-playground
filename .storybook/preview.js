@@ -1,6 +1,6 @@
 import { ThemeProvider } from "styled-components";
-import theme from "../ui/theme";
-import '../ui/global.css';
+import theme from "~ui/theme";
+import '~ui/global.css';
 
 /**
  * @see https://jxnblk.com/blog/defining-component-apis-in-react/
