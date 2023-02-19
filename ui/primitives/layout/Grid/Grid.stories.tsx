@@ -4,7 +4,7 @@ import { colors } from "~ui/tokens";
 import Grid, { Props } from "./Grid";
 
 export default {
-  title: "Primitives/Layout/Grid",
+  title: "UI/Primitives/Layout/Grid",
   parameters: { layout: "fullscreen" },
 } as Meta;
 
