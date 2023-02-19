@@ -1,6 +1,7 @@
 import { Meta } from "@storybook/react";
 import React from "react";
-import { Introduction, parameters } from "~ui/storybook";
+import { Introduction } from "~storybook/components";
+import { tokens } from "~storybook/configs/parameters";
 import { Box } from "~ui/primitives/layout";
 import { Text } from "~ui/primitives/typography";
 import { condensed, mono, sans, serif } from "./typography";
@@ -13,7 +14,7 @@ const characters = [alphabet, alphabet.toLowerCase(), numbers];
 
 export default {
   title: "Tokens/Typography",
-  parameters: { ...parameters.tokens },
+  parameters: { ...tokens },
 } as Meta;
 
 export const Typography: React.FC = () => (

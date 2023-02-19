@@ -1,13 +1,14 @@
 import { Meta } from "@storybook/react";
 import React from "react";
-import { Text } from "~ui/primitives/typography";
+import { Introduction } from "~storybook/components";
+import { tokens } from "~storybook/configs/parameters";
 import { Box, Grid } from "~ui/primitives/layout";
-import { Introduction, parameters } from "~ui/storybook";
+import { Text } from "~ui/primitives/typography";
 import colors from "./colors";
 
 export default {
   title: "Tokens/Colors",
-  parameters: { ...parameters.tokens },
+  parameters: { ...tokens },
 } as Meta;
 
 /** We need to strip the color aliases added by the theme for some reason */

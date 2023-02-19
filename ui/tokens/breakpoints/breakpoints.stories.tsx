@@ -4,11 +4,12 @@ import { colors } from "~ui/tokens";
 import { breakpointsWithKeys } from "./breakpoints";
 import { Box } from "~ui/primitives/layout";
 import { Text } from "~ui/primitives/typography";
-import { Introduction, parameters } from "~ui/storybook";
+import { Introduction } from "~storybook/components";
+import { tokens } from "~storybook/configs/parameters";
 
 export default {
   title: "Tokens/Breakpoints",
-  parameters: { ...parameters.tokens },
+  parameters: { ...tokens },
 } as Meta;
 
 export const Breakpoints: React.FC = () => (
@@ -17,7 +18,7 @@ export const Breakpoints: React.FC = () => (
       title="Breakpoints"
       description="Breakpoints are the foundation of **responsive design.** Always consider the **different requirements** elements like visual heirarchy, page performance and accessibility might need **across devices**."
     />
-    <Box>
+    <div>
       {Object.entries(breakpointsWithKeys).map((breakpoint: any, i: number) => (
         <Box
           backgroundColor={Object.values(colors.greens)[i] as string}
@@ -35,7 +36,7 @@ export const Breakpoints: React.FC = () => (
           <Label>{breakpoint[1]}</Label>
         </Box>
       ))}
-    </Box>
+    </div>
   </Box>
 );
 

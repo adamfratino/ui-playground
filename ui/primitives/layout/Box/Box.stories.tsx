@@ -1,6 +1,6 @@
 import { Meta, Story } from "@storybook/react";
 import BoxComponent, { Props } from "./Box";
-import { themeTypes } from "~ui/storybook";
+import { themeTypes } from "~storybook/configs";
 
 export default {
   title: "Primitives/Layout",

@@ -38,7 +38,7 @@ type StyledProps = BorderProps &
 export type Props = StyledProps & {
   as?: React.ElementType;
   children?: React.ReactNode;
-  variant?: keyof typeof variants;
+  variant?: any;
 };
 
 const Box = forwardRef<HTMLDivElement, Props>(

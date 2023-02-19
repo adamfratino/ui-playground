@@ -19,11 +19,12 @@ const variants = {
   title: {
     fontFamily: "sans",
     fontWeight: 900,
-    fontSize: toResponsiveVariants({
-      sm: 48,
-      md: 72,
-      lg: 96,
-    }),
+    fontSize: [48, 72, 96],
+    // fontSize: toResponsiveVariants({
+    //   sm: 48,
+    //   md: 72,
+    //   lg: 96,
+    // }),
   },
 };
 
