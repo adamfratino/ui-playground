@@ -8,7 +8,7 @@ import { Introduction } from "~storybook/components";
 import { tokens } from "~storybook/configs/parameters";
 
 export default {
-  title: "Tokens/Breakpoints",
+  title: "UI/Tokens/Breakpoints",
   parameters: { ...tokens },
 } as Meta;
 

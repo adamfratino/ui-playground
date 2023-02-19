@@ -13,7 +13,7 @@ const families = { condensed, mono, sans, serif };
 const characters = [alphabet, alphabet.toLowerCase(), numbers];
 
 export default {
-  title: "Tokens/Typography",
+  title: "UI/Tokens/Typography",
   parameters: { ...tokens },
 } as Meta;
 

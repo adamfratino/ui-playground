@@ -7,7 +7,7 @@ import { Text } from "~ui/primitives/typography";
 import colors from "./colors";
 
 export default {
-  title: "Tokens/Colors",
+  title: "UI/Tokens/Colors",
   parameters: { ...tokens },
 } as Meta;
 

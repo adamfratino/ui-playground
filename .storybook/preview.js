@@ -12,7 +12,7 @@ import '~ui/global.css';
 export const parameters = {
   options: {
     storySort: {
-      order: ["Tokens", ["Breakpoints", "Colors", "Typography"], "Primitives", "Components", "Modules"],
+      order: ["UI", ["Tokens", ["Breakpoints", "Colors", "Typography"], "Primitives", "Components", "Modules"]],
     },
   },
   actions: { argTypesRegex: "^on[A-Z].*" },
