@@ -1,17 +1,23 @@
 import { Meta, Story } from "@storybook/react";
-import { Box } from "~ui/primitives";
 import { colors } from "~ui/tokens";
-import Grid, { Props } from "./Grid";
+import { Box } from "~ui/primitives";
+import { variantArgTypes } from "~storybook/configs";
+import variants from "./variants";
+
+import GridComponent, { Props } from "./Grid";
 
 export default {
-  title: "UI/Primitives/Grid",
+  title: "UI/Primitives",
   parameters: { layout: "fullscreen" },
+  argTypes: {
+    ...variantArgTypes(variants),
+  },
 } as Meta;
 
-const Template: Story<Props & { columns: number; columnHeight: number }> = (
+export const Grid: Story<Props & { columns: number; columnHeight: number }> = (
   args
 ) => (
-  <Grid {...args}>
+  <GridComponent {...args}>
     {Array.from({ length: args.columns }).map((_, i) => {
       const backgroundColor = Object.values(colors.blues)[
         i % Object.values(colors.blues).length
@@ -25,21 +31,8 @@ const Template: Story<Props & { columns: number; columnHeight: number }> = (
         />
       );
     })}
-  </Grid>
+  </GridComponent>
 );
-
-export const TwoColumns = Template.bind({});
-TwoColumns.args = {
+Grid.args = {
   columns: 2,
-};
-
-export const FourColumns = Template.bind({});
-FourColumns.args = {
-  columns: 4,
-};
-
-export const Stacked = Template.bind({});
-Stacked.args = {
-  columns: 8,
-  variant: "stacked",
 };

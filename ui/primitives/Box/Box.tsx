@@ -39,8 +39,7 @@ type StyledProps = BorderProps &
 
 export type Props = StyledProps & {
   children?: React.ReactNode;
-  /** @todo how do we get autocomplete? */
-  variant?: any;
+  variant?: {};
   onClick?: () => void;
 };
 

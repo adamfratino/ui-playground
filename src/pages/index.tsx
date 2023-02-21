@@ -1,6 +1,6 @@
-import { Events } from "~components";
 import { Box, Text } from "~ui/primitives";
-import { MOCK_EVENTS } from "../components/Events/__mockData";
+import { Events } from "~modules";
+import { MOCK_EVENTS } from "../modules/Events/__mockData";
 
 const Homepage: React.FC = () => (
   <Box variant="outer">

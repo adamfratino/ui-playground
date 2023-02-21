@@ -3,7 +3,7 @@ import Events from "./Events";
 import { MOCK_EVENTS } from "./__mockData";
 
 export default {
-  title: "App/Components/Events",
+  title: "App/Modules/Events",
   component: Events,
 } as Meta;
 

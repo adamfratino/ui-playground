@@ -14,7 +14,7 @@ breakpoints.lg = breakpoints[2];
 breakpoints.xl = breakpoints[3];
 
 /** Colors */
-colors.background = { light: "#fff", dark: "#222" };
+colors.background = { light: "#eee", dark: "#222" };
 colors.text = {
   body: { light: "#eee", dark: "#222" },
 };
