@@ -1,3 +1,4 @@
+import flattenVariant from "./flattenVariant";
 import toResponsiveVariants from "./toResponsiveVariants";
 
-export { toResponsiveVariants };
+export { flattenVariant, toResponsiveVariants };

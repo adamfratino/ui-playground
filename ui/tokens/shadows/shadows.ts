@@ -9,6 +9,7 @@ export const box = {
 
 export const text = {
   dark: `1px 1px 1px black`,
+  medium: `1px 1px 1px rgba(0,0,0,50%)`,
   light: `1px 1px 1px white`,
 };
 

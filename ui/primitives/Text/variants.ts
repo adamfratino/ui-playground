@@ -7,9 +7,8 @@ const variants = {
     fontWeight: 900,
   },
   label: {
-    fontSize: 2,
+    fontSize: 3,
     fontFamily: "sans",
-    fontWeight: 600,
   },
   paragraph: {
     fontFamily: "sans",

@@ -3,7 +3,7 @@ import Text, { Props } from "./Text";
 import variants from "./variants";
 
 export default {
-  title: "UI/Primitives/Typography/Text",
+  title: "UI/Primitives/Text",
   //   parameters: { layout: "fullscreen" },
   argTypes: {
     variant: { control: { type: "select", options: Object.keys(variants) } },

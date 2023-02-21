@@ -1,6 +1,5 @@
 import React from "react";
-import { Box, Grid, Line } from "~ui/primitives/layout";
-import { Text } from "~ui/primitives/typography";
+import { Box, Grid, Line, Text } from "~ui/primitives";
 
 type Props = {
   title: string;

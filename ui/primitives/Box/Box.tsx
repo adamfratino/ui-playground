@@ -21,7 +21,7 @@ import type {
   SpaceProps,
   TypographyProps,
 } from "styled-system";
-import variants from "./variants";
+import coreVariants from "./variants";
 
 type StyledProps = BorderProps &
   ColorProps &
@@ -31,23 +31,31 @@ type StyledProps = BorderProps &
   SpaceProps &
   ShadowProps &
   TypographyProps & {
+    variants?: {};
     trimEdges?: boolean;
     centered?: boolean;
+    as?: React.ElementType;
   };
 
 export type Props = StyledProps & {
-  as?: React.ElementType;
   children?: React.ReactNode;
+  /** @todo how do we get autocomplete? */
   variant?: any;
+  onClick?: () => void;
 };
 
 const Box = forwardRef<HTMLDivElement, Props>(
-  ({ as, children, variant, trimEdges, centered, ...props }, ref) => (
+  (
+    { as, children, variants, variant, trimEdges, centered, onClick, ...props },
+    ref
+  ) => (
     <StyledBox
       as={as}
+      variants={variants}
       variant={variant}
       trimEdges={trimEdges}
       centered={centered}
+      onClick={onClick}
       ref={ref}
       {...props}
     >
@@ -66,7 +74,8 @@ const StyledBox = styled.div<StyledProps>`
   ${shadow}
   ${space}
   ${typography}
-  ${variant({ variants: variants })}
+  ${({ variants }) =>
+    variant({ variants: { ...coreVariants, ...(variants && variants) } })}
 
   ${({ trimEdges }) =>
     trimEdges &&
@@ -95,6 +104,14 @@ const StyledBox = styled.div<StyledProps>`
     display: flex;
     align-items: center;
     justify-content: center;
+  `}
+
+  ${({ as }) =>
+    as === "button" &&
+    `
+    border: none;
+    appearance: none;
+    cursor: pointer;
   `}
 `;
 

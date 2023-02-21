@@ -1,10 +1,10 @@
 import { Meta, Story } from "@storybook/react";
-import { Box } from "~ui/primitives/layout";
+import { Box } from "~ui/primitives";
 import { colors } from "~ui/tokens";
 import Grid, { Props } from "./Grid";
 
 export default {
-  title: "UI/Primitives/Layout/Grid",
+  title: "UI/Primitives/Grid",
   parameters: { layout: "fullscreen" },
 } as Meta;
 

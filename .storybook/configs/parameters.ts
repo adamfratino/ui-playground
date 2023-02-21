@@ -16,3 +16,8 @@ export const tokens = {
     disable: true,
   },
 };
+
+export const pages = {
+  layout: "fullscreen",
+  options: { showPanel: false },
+};

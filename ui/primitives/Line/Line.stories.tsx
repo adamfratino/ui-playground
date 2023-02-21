@@ -2,7 +2,7 @@ import { Meta, Story } from "@storybook/react";
 import LineComponent, { Props } from "./Line";
 
 export default {
-  title: "UI/Primitives/Layout",
+  title: "UI/Primitives",
   component: LineComponent,
   args: {
     height: 50,
