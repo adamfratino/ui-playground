@@ -1,0 +1,29 @@
+import { EventProps } from "./Event";
+
+export const MOCK_EVENTS = [
+  {
+    id: 1,
+    type: "doubles",
+    players: [
+      ["Adam Fratino", "David Chester"],
+      ["Christopher Widgren", "Ian Ainley"],
+    ],
+    frames: 16,
+    cap: 75,
+    stakes: 10,
+  },
+  {
+    id: 2,
+    type: "singles",
+    players: [["Jeff Ziev"], ["Paul Assad"]],
+    frames: 16,
+    stakes: 5,
+  },
+  {
+    id: 3,
+    type: "round robin",
+    players: ["Mike Dunlap", "Mike Brady", "Eric Papa", "Matt Bird"],
+    frames: 8,
+    stakes: 2,
+  },
+] as EventProps[];

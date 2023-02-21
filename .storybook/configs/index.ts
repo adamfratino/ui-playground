@@ -1,4 +1,4 @@
-import { themeTypes } from "./argTypes";
+import { themeTypes, variantArgTypes } from "./argTypes";
 import { tokens } from "./parameters";
 
-export { themeTypes, tokens };
+export { themeTypes, variantArgTypes, tokens };

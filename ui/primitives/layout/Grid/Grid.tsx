@@ -2,20 +2,31 @@ import { forwardRef } from "react";
 import styled, { CSSProperties } from "styled-components";
 import { grid, layout, space, variant } from "styled-system";
 import type { GridProps, LayoutProps, SpaceProps } from "styled-system";
-import variants from "./variants";
+import coreVariants from "./variants";
 
-type StyledProps = GridProps & LayoutProps & SpaceProps;
+type StyledProps = GridProps &
+  LayoutProps &
+  SpaceProps & {
+    variants?: {};
+  };
 
 export type Props = StyledProps & {
   as?: React.ElementType;
   children: React.ReactNode;
-  variant?: keyof typeof variants;
+  variant?: any;
   gap?: CSSProperties["gap"];
 };
 
 const Grid = forwardRef<HTMLDivElement, Props>(
-  ({ as, children, variant, gap, ...props }, ref) => (
-    <StyledGrid gridGap={gap} variant={variant} as={as} ref={ref} {...props}>
+  ({ as, children, variants, variant, gap, ...props }, ref) => (
+    <StyledGrid
+      gridGap={gap}
+      variants={variants}
+      variant={variant}
+      as={as}
+      ref={ref}
+      {...props}
+    >
       {children}
     </StyledGrid>
   )
@@ -23,11 +34,12 @@ const Grid = forwardRef<HTMLDivElement, Props>(
 Grid.displayName = "Grid";
 
 const StyledGrid = styled.div<StyledProps>`
-display: grid;
-grid-auto-columns: minmax(0, 1fr);
-grid-auto-flow: column;
-${variant({ variants: variants })}}
-${grid}
+  display: grid;
+  grid-auto-columns: minmax(0, 1fr);
+  grid-auto-flow: column;
+  ${({ variants }) =>
+    variant({ variants: { ...coreVariants, ...(variants && variants) } })}
+  ${grid}
 ${layout}
 ${space}
 `;
