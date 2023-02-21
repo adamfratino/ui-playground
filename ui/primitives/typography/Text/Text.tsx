@@ -1,35 +1,38 @@
 import { forwardRef } from "react";
 import ReactMarkdown from "react-markdown";
 import styled from "styled-components";
-import {
-  color,
-  space,
-  shadow,
-  typography,
-  compose,
-  system,
-  variant,
-} from "styled-system";
+import { color, space, shadow, typography, variant } from "styled-system";
 import type {
   ColorProps,
   ShadowProps,
   SpaceProps,
   TypographyProps,
 } from "styled-system";
-import variants from "./variants";
+import coreVariants from "./variants";
 
-type StyledProps = ColorProps & ShadowProps & SpaceProps & TypographyProps;
+type StyledProps = ColorProps &
+  ShadowProps &
+  SpaceProps &
+  TypographyProps & {
+    variants?: {};
+  };
 
 export type Props = StyledProps & {
   children: React.ReactNode;
   as?: React.ElementType;
-  variant?: keyof typeof variants;
+  variant?: any;
   markdown?: boolean;
 };
 
 const Text = forwardRef<HTMLElement, Props>(
-  ({ as, variant, markdown, children, ...props }, ref) => (
-    <StyledText as={as} variant={variant} ref={ref} {...props}>
+  ({ as, variant, variants, markdown, children, ...props }, ref) => (
+    <StyledText
+      as={as}
+      variants={variants}
+      variant={variant}
+      ref={ref}
+      {...props}
+    >
       {markdown ? (
         <ReactMarkdown>{children as string}</ReactMarkdown>
       ) : (
@@ -46,14 +49,12 @@ export default Text;
 const StyledText = styled.span<StyledProps>`
   display: block;
 
-  ${variant({ variants: variants })}
   ${color}
   ${shadow}
   ${space}
   ${typography}
-  ${system({
-    textTransform: true,
-  })}
+  ${({ variants }) =>
+    variant({ variants: { ...coreVariants, ...(variants && variants) } })}
 
   strong, b {
     font-weight: bold;

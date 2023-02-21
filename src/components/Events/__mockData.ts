@@ -17,13 +17,19 @@ export const MOCK_EVENTS = [
     type: "singles",
     players: [["Jeff Ziev"], ["Paul Assad"]],
     frames: 16,
-    stakes: 5,
   },
   {
     id: 3,
-    type: "round robin",
-    players: ["Mike Dunlap", "Mike Brady", "Eric Papa", "Matt Bird"],
+    type: "singles",
+    players: [["Missy Kayko"]],
     frames: 8,
-    stakes: 2,
+    stakes: 1,
+  },
+  {
+    id: 4,
+    type: "doubles",
+    players: [["Mike Dunlap", "Mike Brady"]],
+    frames: 4,
+    stakes: 100,
   },
 ] as EventProps[];

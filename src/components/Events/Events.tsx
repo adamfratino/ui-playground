@@ -1,15 +1,16 @@
-import { flattenVariant } from "~ui/helpers";
+import styled from "styled-components";
+import { colors } from "~ui/tokens";
 import { Box } from "~ui/primitives/layout";
 import { Event, EventRow, EventText, EventProps } from "./Event";
-import variants from "./variants";
 
 export type Props = {
-  variant?: keyof typeof variants;
   events?: EventProps[];
 };
 
-const Events: React.FC<Props> = ({ variant, events }) => (
-  <Box as="table" width="100%">
+const { grey } = colors;
+
+const Events: React.FC<Props> = ({ events }) => (
+  <Box as="table" width="100%" border="1px solid #ccc" boxShadow="box.shallow">
     <thead>
       <EventRow>
         <EventText isHeader>Match Type</EventText>
@@ -20,12 +21,23 @@ const Events: React.FC<Props> = ({ variant, events }) => (
         <EventText isHeader>Stakes?</EventText>
       </EventRow>
     </thead>
-    <tbody>
-      {events?.map((event) => (
-        <Event key={event.id} {...event} />
+    <TBody>
+      {events?.map((event, i) => (
+        <EventRow
+          key={event.id}
+          backgroundColor={i % 2 === 0 ? "#eee" : "#fff"}
+        >
+          <Event {...event} />
+        </EventRow>
       ))}
-    </tbody>
+    </TBody>
   </Box>
 );
 
 export default Events;
+
+const TBody = styled.tbody`
+  & > *:nth-child(even) {
+    background-color: ${grey};
+  }
+`;

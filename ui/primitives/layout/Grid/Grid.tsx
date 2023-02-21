@@ -1,10 +1,16 @@
 import { forwardRef } from "react";
 import styled, { CSSProperties } from "styled-components";
-import { grid, layout, space, variant } from "styled-system";
-import type { GridProps, LayoutProps, SpaceProps } from "styled-system";
+import { color, grid, layout, space, variant } from "styled-system";
+import type {
+  ColorProps,
+  GridProps,
+  LayoutProps,
+  SpaceProps,
+} from "styled-system";
 import coreVariants from "./variants";
 
-type StyledProps = GridProps &
+type StyledProps = ColorProps &
+  GridProps &
   LayoutProps &
   SpaceProps & {
     variants?: {};
@@ -39,9 +45,10 @@ const StyledGrid = styled.div<StyledProps>`
   grid-auto-flow: column;
   ${({ variants }) =>
     variant({ variants: { ...coreVariants, ...(variants && variants) } })}
+  ${color}
   ${grid}
-${layout}
-${space}
+  ${layout}
+  ${space}
 `;
 
 export default Grid;

@@ -1,3 +1,4 @@
-import { Events } from "./Events";
+import Button from "./Button/Button";
+import Events from "./Events/Events";
 
-export { Events };
+export { Button, Events };
