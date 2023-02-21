@@ -2,8 +2,7 @@ import { Meta } from "@storybook/react";
 import React from "react";
 import { Introduction } from "~storybook/components";
 import { tokens } from "~storybook/configs/parameters";
-import { Box, Grid } from "~ui/primitives/layout";
-import { Text } from "~ui/primitives/typography";
+import { Box, Grid, Text } from "~ui/primitives";
 import colors from "./colors";
 
 export default {

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { colors } from "~ui/tokens";
-import { Box } from "~ui/primitives/layout";
+import { Box } from "~ui/primitives";
 import { Event, EventRow, EventText, EventProps } from "./Event";
 
 export type Props = {

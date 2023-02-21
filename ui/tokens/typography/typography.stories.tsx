@@ -2,8 +2,7 @@ import { Meta } from "@storybook/react";
 import React from "react";
 import { Introduction } from "~storybook/components";
 import { tokens } from "~storybook/configs/parameters";
-import { Box } from "~ui/primitives/layout";
-import { Text } from "~ui/primitives/typography";
+import { Box, Text } from "~ui/primitives";
 import { condensed, mono, sans, serif } from "./typography";
 
 const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";

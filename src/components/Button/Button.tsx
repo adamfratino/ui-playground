@@ -1,6 +1,5 @@
 import { flattenVariant } from "~ui/helpers";
-import { Box } from "~ui/primitives/layout";
-import { Text } from "~ui/primitives/typography";
+import { Box, Text } from "~ui/primitives";
 import variants from "./variants";
 
 type Props = {

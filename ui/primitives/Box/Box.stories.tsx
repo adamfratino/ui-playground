@@ -4,7 +4,7 @@ import { themeTypes, variantArgTypes } from "~storybook/configs";
 import variants from "./variants";
 
 export default {
-  title: "UI/Primitives/Layout",
+  title: "UI/Primitives",
   component: BoxComponent,
   argTypes: {
     /** @todo clean all this up somewhere DRY */

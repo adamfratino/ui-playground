@@ -1,6 +1,5 @@
 import { Events } from "~components";
-import { Box } from "~ui/primitives/layout";
-import { Text } from "~ui/primitives/typography";
+import { Box, Text } from "~ui/primitives";
 import { MOCK_EVENTS } from "../components/Events/__mockData";
 
 const Homepage: React.FC = () => (

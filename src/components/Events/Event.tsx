@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import { Box, Grid } from "~ui/primitives/layout";
-import { Text } from "~ui/primitives/typography";
+import { Box, Grid, Text } from "~ui/primitives";
 import { Button } from "~components";
 
 type SinglesType = [string];
