@@ -13,8 +13,8 @@ const Title: React.FC<Props> = ({ children }) => (
       height={1}
       backgroundColor="background.dark"
       boxShadow="box.shallow"
-      marginTop={5}
-      marginBottom={7}
+      marginTop={7}
+      marginBottom={9}
     />
   </>
 );

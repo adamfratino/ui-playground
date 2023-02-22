@@ -3,7 +3,7 @@ import { Box, Text } from "~ui/primitives";
 import variants from "./variants";
 
 type Props = {
-  variant: {};
+  variant: keyof typeof variants;
   onClick?: () => void;
   children?: React.ReactNode;
 };

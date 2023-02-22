@@ -49,12 +49,12 @@ export default Text;
 
 const StyledText = styled.span<StyledProps>`
   display: block;
+  ${({ variants }) =>
+    variant({ variants: { ...coreVariants, ...(variants && variants) } })}
   ${color}
   ${shadow}
   ${space}
   ${typography}
-  ${({ variants }) =>
-    variant({ variants: { ...coreVariants, ...(variants && variants) } })}
   ${({ textTransform }) => textTransform && `text-transform: ${textTransform}`};
   strong,
   b {

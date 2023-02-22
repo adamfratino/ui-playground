@@ -1,6 +1,6 @@
 import { Meta } from "@storybook/react";
 import HomepageComponent from "./index";
-import { Navigation } from "~/modules";
+import { Navigation, Footer } from "~/modules";
 import { pages } from "~storybook/configs";
 
 export default {
@@ -12,5 +12,6 @@ export const Homepage = () => (
   <>
     <Navigation />
     <HomepageComponent />
+    <Footer />
   </>
 );

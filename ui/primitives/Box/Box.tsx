@@ -73,6 +73,9 @@ const StyledBox = styled.div<StyledProps>`
     cursor: pointer;
   `}
 
+  ${({ variants }) =>
+    variant({ variants: { ...coreVariants, ...(variants && variants) } })}
+
   ${border}
   ${color}
   ${flexbox}
@@ -81,9 +84,6 @@ const StyledBox = styled.div<StyledProps>`
   ${shadow}
   ${space}
   ${typography}
-
-  ${({ variants }) =>
-    variant({ variants: { ...coreVariants, ...(variants && variants) } })}
 
   ${({ trimEdges }) =>
     trimEdges &&

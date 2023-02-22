@@ -14,6 +14,7 @@ export type EventProps = {
   frames: 4 | 8 | 12 | 16;
   cap?: number;
   stakes?: number;
+  date?: string;
 };
 
 export const Event: React.FC<EventProps> = ({
@@ -22,8 +23,10 @@ export const Event: React.FC<EventProps> = ({
   frames,
   cap,
   stakes,
+  date,
 }) => (
   <>
+    <TableCell>{date ?? "-"}</TableCell>
     <TableCell>{type}</TableCell>
     <TableCell>
       {Array.from(players[0]).map((player, i) => (
@@ -46,9 +49,7 @@ export const Event: React.FC<EventProps> = ({
 );
 
 const PlayerName = styled.span`
-  font-weight: 600;
   &:not(:last-child)::after {
     content: " & ";
-    font-weight: 500;
   }
 `;

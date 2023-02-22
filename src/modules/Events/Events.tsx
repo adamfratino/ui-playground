@@ -11,32 +11,34 @@ import { Event, EventProps } from "./Event";
 export type Props = {
   events?: EventProps[];
   title?: string;
+  headlines?: string[];
 };
 
-const Events: React.FC<Props> = ({ events, title }) => (
-  <section id="singles-and-doubles-matches">
+const Events: React.FC<Props> = ({ events, title, headlines }) => (
+  <Box as="section" marginBottom={8}>
     {title && (
-      <Text variant="eyebrow" as="h2" marginBottom={2}>
+      <Text variant="eyebrow" as="h2" marginBottom={4}>
         {title}
       </Text>
     )}
     <Box borderWidth={1} borderStyle="solid" borderColor="greys.lightest">
       <Table
         variant="events"
-        gridTemplateColumns="1fr 2fr 2fr repeat(3, 1fr)"
+        gridTemplateColumns="repeat(2, 1fr) 2fr 2fr repeat(3, 1fr)"
         width="100%"
         boxShadow="box.shallow"
       >
-        <TableGroup type="head">
-          <TableRow minHeight={72}>
-            <TableCell type="head">Match Type</TableCell>
-            <TableCell type="head">Player(s) 1</TableCell>
-            <TableCell type="head">Player(s) 2</TableCell>
-            <TableCell type="head">Length</TableCell>
-            <TableCell type="head">Score Cap?</TableCell>
-            <TableCell type="head">Stakes?</TableCell>
-          </TableRow>
-        </TableGroup>
+        {headlines && (
+          <TableGroup type="head">
+            <TableRow minHeight={72}>
+              {headlines.map((headline, i) => (
+                <TableCell type="head" key={i}>
+                  {headline}
+                </TableCell>
+              ))}
+            </TableRow>
+          </TableGroup>
+        )}
         <TableGroup type="body">
           {events?.map((event) => (
             <TableRow minHeight={72} key={event.id}>
@@ -46,7 +48,7 @@ const Events: React.FC<Props> = ({ events, title }) => (
         </TableGroup>
       </Table>
     </Box>
-  </section>
+  </Box>
 );
 
 export default Events;

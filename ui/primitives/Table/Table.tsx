@@ -40,10 +40,10 @@ Table.displayName = "Table";
 export default Table;
 
 const StyledTable = styled(Box)<StyledProps>`
-  ${layout}
-  ${shadow}
   ${({ variants }) =>
     variant({ variants: { ...coreVariants, ...(variants && variants) } })}
+  ${layout}
+  ${shadow}
   border-collapse: collapse;
   border-spacing: 0;
 
