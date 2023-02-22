@@ -9,7 +9,8 @@ const outer = {
   display: "flex",
   flexDirection: "column",
   minHeight: "100vh",
-  padding: 8,
+  paddingY: 8,
+  paddingX: 2,
   width: "100%",
 };
 

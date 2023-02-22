@@ -16,7 +16,7 @@ export default {
 } as Meta;
 
 export const Default: Story = (args) => (
-  <Button variant="join" {...args}>
+  <Button variant="primary" {...args}>
     Button
   </Button>
 );

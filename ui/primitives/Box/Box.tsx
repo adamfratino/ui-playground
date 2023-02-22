@@ -65,6 +65,14 @@ const Box = forwardRef<HTMLDivElement, Props>(
 Box.displayName = "Box";
 
 const StyledBox = styled.div<StyledProps>`
+  ${({ as }) =>
+    as === "button" &&
+    `
+    border: none;
+    appearance: none;
+    cursor: pointer;
+  `}
+
   ${border}
   ${color}
   ${flexbox}
@@ -73,6 +81,7 @@ const StyledBox = styled.div<StyledProps>`
   ${shadow}
   ${space}
   ${typography}
+
   ${({ variants }) =>
     variant({ variants: { ...coreVariants, ...(variants && variants) } })}
 
@@ -103,14 +112,6 @@ const StyledBox = styled.div<StyledProps>`
     display: flex;
     align-items: center;
     justify-content: center;
-  `}
-
-  ${({ as }) =>
-    as === "button" &&
-    `
-    border: none;
-    appearance: none;
-    cursor: pointer;
   `}
 `;
 

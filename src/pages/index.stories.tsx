@@ -1,5 +1,6 @@
-import { Meta, Story } from "@storybook/react";
+import { Meta } from "@storybook/react";
 import HomepageComponent from "./index";
+import { Navigation } from "~/modules";
 import { pages } from "~storybook/configs";
 
 export default {
@@ -7,4 +8,9 @@ export default {
   parameters: { ...pages },
 } as Meta;
 
-export const Homepage = () => <HomepageComponent />;
+export const Homepage = () => (
+  <>
+    <Navigation />
+    <HomepageComponent />
+  </>
+);

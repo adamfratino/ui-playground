@@ -36,7 +36,7 @@ export const Event: React.FC<EventProps> = ({
           <PlayerName key={i}>{player}</PlayerName>
         ))
       ) : (
-        <Button variant="join">Accept the Challenge!</Button>
+        <Button variant="primary">Accept the Challenge!</Button>
       )}
     </TableCell>
     <TableCell>{frames}</TableCell>

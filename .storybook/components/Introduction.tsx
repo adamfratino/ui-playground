@@ -31,7 +31,7 @@ const Introduction: React.FC<Props> = ({ title, description }) => (
         )}
       </Box>
     </Grid>
-    <Line variant="docs" />
+    <Line backgroundColor="greys.lightest" height={1} marginY={10} />
   </>
 );
 export default Introduction;

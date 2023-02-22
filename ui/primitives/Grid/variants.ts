@@ -1,11 +1,9 @@
+const stacked = {
+  gridAutoFlow: "row",
+};
+
 const variants = {
-  docs: {
-    gridTemplateColumns: "300px 1fr",
-    gap: 12,
-  },
-  stacked: {
-    gridAutoFlow: "row",
-  },
+  stacked,
 };
 
 export default variants;
