@@ -1,31 +1,22 @@
-const thick = {
-  padding: 4,
-};
+/** @todo figure out folder structure for multiple variants (Table, TableCell, etc.) */
 
-const leftAlign = {
-  textAlign: "left",
-};
-
-const invert = {
-  backgroundColor: "background.dark",
-  color: "background.light",
-};
-
-const alternateColors = {
+const events = {
   th: {
-    ...invert,
+    backgroundColor: "background.dark",
+    color: "background.light",
+    boxShadow: "box.shallow",
   },
   "th, td": {
-    ...thick,
-    ...leftAlign,
+    padding: 4,
+    textAlign: "left",
   },
-  "& tbody tr:nth-child(even)": {
+  "tbody tr:nth-child(even)": {
     backgroundColor: "background.light",
   },
 };
 
 const variants = {
-  alternateColors,
+  events,
 };
 
 export default variants;

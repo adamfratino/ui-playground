@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 import ReactMarkdown from "react-markdown";
-import styled from "styled-components";
+import styled, { CSSProperties } from "styled-components";
 import { color, space, shadow, typography, variant } from "styled-system";
 import type {
   ColorProps,
@@ -15,6 +15,7 @@ type StyledProps = ColorProps &
   SpaceProps &
   TypographyProps & {
     variants?: {};
+    textTransform?: CSSProperties["textTransform"];
   };
 
 export type Props = StyledProps & {
@@ -48,15 +49,15 @@ export default Text;
 
 const StyledText = styled.span<StyledProps>`
   display: block;
-
   ${color}
   ${shadow}
   ${space}
   ${typography}
   ${({ variants }) =>
     variant({ variants: { ...coreVariants, ...(variants && variants) } })}
-
-  strong, b {
+  ${({ textTransform }) => textTransform && `text-transform: ${textTransform}`};
+  strong,
+  b {
     font-weight: bold;
   }
 

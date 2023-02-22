@@ -13,17 +13,24 @@ import coreVariants from "./variants";
 type StyledProps = Omit<LayoutProps, "width"> &
   ShadowProps & {
     variants?: {};
+    variant?: {};
     width?: CSSProperties["width"];
+    gridTemplateColumns?: CSSProperties["gridTemplateColumns"];
   };
 
 export type Props = StyledProps & {
   children?: React.ReactNode;
-  variant?: {};
 };
 
 const Table = forwardRef<HTMLTableElement, Props>(
-  ({ children, variants, ...props }, ref) => (
-    <StyledTable as="table" variants={variants} ref={ref} {...props}>
+  ({ children, variants, variant, ...props }, ref) => (
+    <StyledTable
+      as="table"
+      variants={variants}
+      variant={variant}
+      ref={ref}
+      {...props}
+    >
       {children}
     </StyledTable>
   )
@@ -39,4 +46,12 @@ const StyledTable = styled(Box)<StyledProps>`
     variant({ variants: { ...coreVariants, ...(variants && variants) } })}
   border-collapse: collapse;
   border-spacing: 0;
+
+  ${({ gridTemplateColumns }) =>
+    gridTemplateColumns &&
+    `
+    tr {
+      grid-template-columns: ${gridTemplateColumns};
+    }
+  `}
 `;

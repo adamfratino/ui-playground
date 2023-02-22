@@ -1,4 +1,4 @@
-import { EventProps } from "./Event";
+import { EventProps } from "./src/modules/Events/Event";
 
 export const MOCK_EVENTS = [
   {

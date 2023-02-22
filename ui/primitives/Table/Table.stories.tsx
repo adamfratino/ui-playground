@@ -11,7 +11,7 @@ export default {
 } as Meta;
 
 export const Table: Story<Props> = (args) => (
-  <TableComponent {...args} boxShadow="box.shallow" width="100%">
+  <TableComponent {...args}>
     <thead>
       <tr>
         <th>1</th>

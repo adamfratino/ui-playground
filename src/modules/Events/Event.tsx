@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import { Box, Grid, Text } from "~ui/primitives";
+import { TableCell } from "~ui/primitives";
 import { Button } from "~components";
 
+/** @todo these types should prob live somewhere else */
 type SinglesType = [string];
 type DoublesType = [string, string];
 type TournamentType = string[];
@@ -23,13 +24,13 @@ export const Event: React.FC<EventProps> = ({
   stakes,
 }) => (
   <>
-    <EventText>{type}</EventText>
-    <EventText>
+    <TableCell>{type}</TableCell>
+    <TableCell>
       {Array.from(players[0]).map((player, i) => (
         <PlayerName key={i}>{player}</PlayerName>
       ))}
-    </EventText>
-    <EventText>
+    </TableCell>
+    <TableCell>
       {players[1] ? (
         Array.from(players[1]).map((player, i) => (
           <PlayerName key={i}>{player}</PlayerName>
@@ -37,47 +38,12 @@ export const Event: React.FC<EventProps> = ({
       ) : (
         <Button variant="join">Accept the Challenge!</Button>
       )}
-    </EventText>
-    <EventText>{frames}</EventText>
-    <EventText>{cap ?? "-"}</EventText>
-    <EventText>{stakes ? `$${stakes}.00` : "-"}</EventText>
+    </TableCell>
+    <TableCell>{frames}</TableCell>
+    <TableCell>{cap ?? "-"}</TableCell>
+    <TableCell>{stakes ? `$${stakes}.00` : "-"}</TableCell>
   </>
 );
-
-export const EventRow: React.FC<{
-  children: React.ReactNode;
-  backgroundColor?: string;
-}> = ({ children, backgroundColor }) => (
-  <Grid
-    as="tr"
-    gridTemplateColumns="1fr 2fr 2fr repeat(3, 1fr)"
-    minHeight={72}
-    backgroundColor={backgroundColor}
-  >
-    {children}
-  </Grid>
-);
-
-export const EventText: React.FC<{
-  children: React.ReactNode;
-  isHeader?: boolean;
-}> = ({ isHeader, children }) => {
-  const fontWeight = isHeader ? 600 : null;
-  const element = isHeader ? "th" : "td";
-
-  return (
-    <Box display="flex" alignItems="center" as={element}>
-      <Text
-        variant="label"
-        fontWeight={fontWeight}
-        textAlign="left"
-        padding={3}
-      >
-        {children}
-      </Text>
-    </Box>
-  );
-};
 
 const PlayerName = styled.span`
   font-weight: 600;
