@@ -6,15 +6,17 @@ import { Button } from "~components";
 type SinglesType = [string];
 type DoublesType = [string, string];
 type TournamentType = string[];
+type PlayersType = SinglesType[] | DoublesType[] | TournamentType;
 
 export type EventProps = {
   id: number;
   type: "singles" | "doubles" | "tournament";
-  players: SinglesType[] | DoublesType[] | TournamentType;
+  players: PlayersType;
   frames: 4 | 8 | 12 | 16;
   cap?: number;
   stakes?: number;
   date?: string;
+  winners?: PlayersType;
 };
 
 export const Event: React.FC<EventProps> = ({
@@ -24,6 +26,7 @@ export const Event: React.FC<EventProps> = ({
   cap,
   stakes,
   date,
+  winners,
 }) => (
   <>
     <TableCell>{date ?? "-"}</TableCell>

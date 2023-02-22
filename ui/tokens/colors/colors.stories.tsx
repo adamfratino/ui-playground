@@ -11,8 +11,28 @@ export default {
 } as Meta;
 
 /** We need to strip the color aliases added by the theme for some reason */
-const { reds, oranges, yellows, greens, blues, purples, greys } = colors;
-const palette = { reds, oranges, yellows, greens, blues, purples, greys };
+const {
+  reds,
+  oranges,
+  yellows,
+  greens,
+  blues,
+  purples,
+  greys,
+  blacks,
+  whites,
+} = colors;
+const palette = {
+  reds,
+  oranges,
+  yellows,
+  greens,
+  blues,
+  purples,
+  greys,
+  blacks,
+  whites,
+};
 
 const gap = 4;
 
@@ -44,7 +64,9 @@ export const Colors: React.FC = () => (
               width="100%"
               centered
             >
-              <Text variant="eyebrow">{color[0]}</Text>
+              <Text variant="eyebrow" fontSize={5}>
+                {color[0]}
+              </Text>
             </Box>
             {Object.values(color[1]).map((shade, i) => (
               <Box
@@ -58,7 +80,7 @@ export const Colors: React.FC = () => (
               >
                 <Box
                   backgroundColor="background.dark"
-                  color="background.light"
+                  color="text.light"
                   boxShadow="box.shallow"
                   p={2}
                 >
@@ -84,7 +106,9 @@ const Headers: React.FC = () => (
         p={4}
         centered
       >
-        <Text variant="eyebrow">{color}</Text>
+        <Text variant="eyebrow" fontSize={5}>
+          {color}
+        </Text>
       </Box>
     ))}
   </Grid>

@@ -10,7 +10,7 @@ const Introduction: React.FC<Props> = ({ title, description }) => (
   <>
     <Grid>
       <Box maxWidth="580px">
-        <Text variant="title" mb="superthick">
+        <Text variant="title" mb={8}>
           {title}
         </Text>
         {typeof description === "string" ? (

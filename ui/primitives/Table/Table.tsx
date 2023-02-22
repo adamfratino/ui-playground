@@ -13,7 +13,7 @@ import coreVariants from "./variants";
 type StyledProps = Omit<LayoutProps, "width"> &
   ShadowProps & {
     variants?: {};
-    variant?: {};
+    variant?: keyof typeof coreVariants | {};
     width?: CSSProperties["width"];
     gridTemplateColumns?: CSSProperties["gridTemplateColumns"];
   };

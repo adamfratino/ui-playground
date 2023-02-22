@@ -8,29 +8,29 @@ import {
 } from "~ui/tokens";
 
 /** Breakpoints */
-breakpoints.sm = breakpoints[0];
-breakpoints.md = breakpoints[1];
-breakpoints.lg = breakpoints[2];
-breakpoints.xl = breakpoints[3];
+breakpoints.xs = breakpoints[0];
+breakpoints.sm = breakpoints[1];
+breakpoints.md = breakpoints[2];
+breakpoints.lg = breakpoints[3];
+breakpoints.xl = breakpoints[4];
 
 /** Colors */
-colors.background = { light: "#eee", dark: "#222" };
-colors.text = {
-  body: { light: "#eee", dark: "#222" },
+colors.white = colors.whites.light;
+colors.black = colors.blacks.dark;
+colors.background = { light: colors.white, dark: colors.black };
+colors.text = { light: colors.white, dark: colors.dark };
+colors.brand = { primary: colors.reds.dark };
+colors.notification = {
+  alert: colors.reds.dark,
+  warning: colors.yellows.base,
+  success: colors.greens.light,
 };
-colors.primary = colors.reds.dark;
-colors.red = colors.blue;
 
 /** Space */
-space.superThin = space[1];
 space.thin = space[3];
 space.thick = space[4];
-space.superthick = space[8];
 
-/** Typography */
-fontSizes.base = fontSizes[4];
-fontSizes.body = fontSizes.base;
-
+/** Theme */
 const theme = {
   colors,
   breakpoints,

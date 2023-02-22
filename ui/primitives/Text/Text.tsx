@@ -18,15 +18,19 @@ type StyledProps = ColorProps &
     textTransform?: CSSProperties["textTransform"];
   };
 
+/**
+ * @todo make `as` prop required?
+ * @todo figure out how to make react markdown wrapper a fragment (instead of `h1`)
+ * */
 export type Props = StyledProps & {
   children: React.ReactNode;
   as?: React.ElementType;
-  variant?: any;
+  variant?: keyof typeof coreVariants | {};
   markdown?: boolean;
 };
 
 const Text = forwardRef<HTMLElement, Props>(
-  ({ as, variant, variants, markdown, children, ...props }, ref) => (
+  ({ as = "p", variant, variants, markdown, children, ...props }, ref) => (
     <StyledText
       as={as}
       variants={variants}
@@ -49,6 +53,7 @@ export default Text;
 
 const StyledText = styled.span<StyledProps>`
   display: block;
+
   ${({ variants }) =>
     variant({ variants: { ...coreVariants, ...(variants && variants) } })}
   ${color}
@@ -56,6 +61,7 @@ const StyledText = styled.span<StyledProps>`
   ${space}
   ${typography}
   ${({ textTransform }) => textTransform && `text-transform: ${textTransform}`};
+
   strong,
   b {
     font-weight: bold;

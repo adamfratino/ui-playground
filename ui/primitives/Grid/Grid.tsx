@@ -19,7 +19,7 @@ type StyledProps = ColorProps &
 export type Props = StyledProps & {
   as?: React.ElementType;
   children: React.ReactNode;
-  variant?: any;
+  variant?: keyof typeof coreVariants | {};
   gap?: CSSProperties["gap"];
 };
 

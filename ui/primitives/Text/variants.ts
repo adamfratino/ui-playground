@@ -13,7 +13,7 @@ const label = {
 
 const paragraph = {
   fontFamily: "sans",
-  fontSize: "body",
+  fontSize: 4,
   lineHeight: 1.4,
 };
 

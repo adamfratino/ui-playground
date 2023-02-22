@@ -39,7 +39,7 @@ type StyledProps = BorderProps &
 
 export type Props = StyledProps & {
   children?: React.ReactNode;
-  variant?: {};
+  variant?: keyof typeof coreVariants | {};
   onClick?: () => void;
 };
 

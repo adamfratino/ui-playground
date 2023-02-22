@@ -12,6 +12,7 @@ export const MOCK_EVENTS = [
     cap: 75,
     stakes: 10,
     date: "2023-01-20",
+    winners: ["Bret Hart", "Owen Hart"],
   },
   {
     id: 2,
@@ -19,6 +20,7 @@ export const MOCK_EVENTS = [
     players: [["Edge"], ["Christian"]],
     frames: 16,
     date: "2023-02-14",
+    winners: undefined,
   },
   {
     id: 3,
@@ -27,6 +29,7 @@ export const MOCK_EVENTS = [
     frames: 8,
     stakes: 1,
     date: "2023-04-20",
+    winners: undefined,
   },
   {
     id: 4,
@@ -37,6 +40,7 @@ export const MOCK_EVENTS = [
     ],
     frames: 4,
     stakes: 100,
+    winners: undefined,
   },
   {
     id: 5,
@@ -48,6 +52,7 @@ export const MOCK_EVENTS = [
     frames: 16,
     stakes: 2,
     cap: 50,
+    winners: undefined,
   },
   {
     id: 6,
@@ -55,6 +60,7 @@ export const MOCK_EVENTS = [
     players: [["Macho Man Randy Savage"], ["Miss Elizabeth"]],
     frames: 16,
     date: "2023-02-14",
+    winners: undefined,
   },
   {
     id: 7,
@@ -63,6 +69,7 @@ export const MOCK_EVENTS = [
     frames: 16,
     stakes: 20,
     date: "2023-04-20",
+    winners: undefined,
   },
   {
     id: 8,
@@ -71,5 +78,6 @@ export const MOCK_EVENTS = [
     players: [["The Undertaker", "Mankind"]],
     frames: 4,
     stakes: 50,
+    winners: undefined,
   },
 ] as EventProps[];

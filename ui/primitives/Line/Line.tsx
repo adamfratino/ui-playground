@@ -23,6 +23,7 @@ type StyledProps = BackgroundColorProps &
   ShadowProps;
 
 export type Props = StyledProps & {
+  /** @todo extend variants */
   variant?: keyof typeof variants;
 };
 
@@ -32,15 +33,15 @@ const Line = forwardRef<HTMLHRElement, Props>(({ ...props }, ref) => (
 Line.displayName = "Line";
 
 const StyledHr = styled.hr<StyledProps>`
+  display: block;
+  border: 0;
+  width: 100%;
   ${variant({ variants: variants })}}
   ${system({ backgroundColor: true })}
   ${height}
   ${margin}
   ${backgroundColor}
   ${shadow}
-  display: block;
-  border: 0;
-  width: 100%;
 `;
 
 export default Line;

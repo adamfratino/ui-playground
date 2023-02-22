@@ -8,6 +8,8 @@ export const green = `#00AF91`;
 export const blue = `#3DB2FF`;
 export const purple = `#6E1DBC`;
 export const grey = `#7F7F7F`;
+export const black = `#222`;
+export const white = `#DDD`;
 
 export const generatePalette = (key: string, color: string) => ({
   [key]: {
@@ -29,6 +31,8 @@ const colors: TokensType = {
   ...generatePalette("blues", blue),
   ...generatePalette("purples", purple),
   ...generatePalette("greys", grey),
+  ...generatePalette("blacks", black),
+  ...generatePalette("whites", white),
 };
 
 export default colors;

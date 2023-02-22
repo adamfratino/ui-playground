@@ -1,4 +1,4 @@
-/** @todo figure out folder structure for multiple variants (Table, TableCell, etc.) */
+/** @todo figure out folder structure for multiple variants? (Table, TableCell, etc.) */
 
 const events = {
   th: {

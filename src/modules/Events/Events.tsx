@@ -1,11 +1,13 @@
 import {
   Box,
+  Grid,
   Table,
   TableCell,
   TableGroup,
   TableRow,
   Text,
 } from "~ui/primitives";
+import { Button } from "~components";
 import { Event, EventProps } from "./Event";
 
 export type Props = {
@@ -16,11 +18,29 @@ export type Props = {
 
 const Events: React.FC<Props> = ({ events, title, headlines }) => (
   <Box as="section" marginBottom={8}>
-    {title && (
-      <Text variant="eyebrow" as="h2" marginBottom={4}>
-        {title}
-      </Text>
-    )}
+    <Box
+      display="flex"
+      justifyContent="space-between"
+      alignItems="center"
+      mb={4}
+    >
+      {title && (
+        <Text variant="eyebrow" as="h2">
+          {title}
+        </Text>
+      )}
+      <Grid gap="thin">
+        <Button variant="filter" backgroundColor="notification.alert">
+          Past Matches
+        </Button>
+        <Button variant="filter" backgroundColor="notification.warning">
+          Upcoming Matches
+        </Button>
+        <Button variant="filter" backgroundColor="notification.success">
+          Open Matches
+        </Button>
+      </Grid>
+    </Box>
     <Box borderWidth={1} borderStyle="solid" borderColor="greys.lightest">
       <Table
         variant="events"
@@ -47,6 +67,12 @@ const Events: React.FC<Props> = ({ events, title, headlines }) => (
           ))}
         </TableGroup>
       </Table>
+    </Box>
+    <Box display="flex" mt="thin">
+      <Grid gap={2} ml="auto">
+        <Button variant="arrow">&larr;</Button>
+        <Button variant="arrow">&rarr;</Button>
+      </Grid>
     </Box>
   </Box>
 );

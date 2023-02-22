@@ -1,18 +1,33 @@
+/** @todo figure out how to separate helpers from variants */
+
+const box = {
+  hover: {
+    filter: "saturate(85%)",
+    transform: "scale(1.02)",
+  },
+};
+const text = {
+  condensed: {
+    fontSize: 2,
+    textTransform: "uppercase",
+    fontFamily: "sans",
+    fontWeight: 600,
+    letterSpacing: "0.075em",
+  },
+};
+
 const primary = {
   box: {
     paddingX: 5,
     paddingY: 2,
-    backgroundColor: "reds.dark",
+    backgroundColor: "brand.primary",
     color: "white",
     borderRadius: 4,
     boxShadow: "box.shallow",
-    transition: "all 100ms ease",
-    "&:hover": {
-      backgroundColor: "reds.darker",
-      transform: "scale(1.05)",
-    },
+    "&:hover": box.hover,
   },
   text: {
+    ...text.condensed,
     textShadow: "text.medium",
   },
 };
@@ -27,11 +42,40 @@ const secondary = {
       backgroundColor: "rgba(255,255,255,0.2)",
     },
   },
+  text: primary.text,
+};
+
+const filter = {
+  box: {
+    padding: 2,
+    borderRadius: 8,
+    boxShadow: "box.shallow",
+    "&:hover": box.hover,
+  },
+  text: {
+    ...text.condensed,
+    fontSize: 1,
+  },
+};
+
+const arrow = {
+  box: {
+    padding: 3,
+    backgroundColor: "background.dark",
+    "&:hover": box.hover,
+  },
+  text: {
+    color: "text.light",
+    fontWeight: "bold",
+    fontSize: 6,
+  },
 };
 
 const variants = {
   primary,
   secondary,
+  filter,
+  arrow,
 };
 
 export default variants;
