@@ -9,6 +9,7 @@ const eyebrow = {
 const label = {
   fontSize: 3,
   fontFamily: "sans",
+  lineHeight: 1.4,
 };
 
 const paragraph = {
@@ -28,11 +29,16 @@ const title = {
   // }),
 };
 
+const winner = {
+  backgroundColor: "background.dark",
+};
+
 const variants = {
   eyebrow,
   label,
   paragraph,
   title,
+  winner,
 };
 
 export default variants;

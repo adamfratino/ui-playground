@@ -2,7 +2,7 @@
 
 const box = {
   hover: {
-    filter: "saturate(85%)",
+    filter: "saturate(115%)",
     transform: "scale(1.02)",
   },
 };
@@ -22,14 +22,10 @@ const primary = {
     paddingY: 2,
     backgroundColor: "brand.primary",
     color: "white",
-    borderRadius: 4,
     boxShadow: "box.shallow",
     "&:hover": box.hover,
   },
-  text: {
-    ...text.condensed,
-    textShadow: "text.medium",
-  },
+  text: text.condensed,
 };
 
 const secondary = {
@@ -48,7 +44,6 @@ const secondary = {
 const filter = {
   box: {
     padding: 2,
-    borderRadius: 8,
     boxShadow: "box.shallow",
     "&:hover": box.hover,
   },
@@ -58,16 +53,30 @@ const filter = {
   },
 };
 
+const big = {
+  box: {
+    padding: 6,
+    boxShadow: "box.shallow",
+    "&:hover": box.hover,
+  },
+  text: {
+    ...text.condensed,
+    fontSize: 5,
+    lineHeight: 1,
+  },
+};
+
 const arrow = {
   box: {
-    padding: 3,
+    height: 48,
+    width: 48,
     backgroundColor: "background.dark",
     "&:hover": box.hover,
   },
   text: {
     color: "text.light",
     fontWeight: "bold",
-    fontSize: 6,
+    fontSize: 4,
   },
 };
 
@@ -76,6 +85,7 @@ const variants = {
   secondary,
   filter,
   arrow,
+  big,
 };
 
 export default variants;

@@ -1,6 +1,8 @@
-import styled from "styled-components";
-import { TableCell } from "~ui/primitives";
+import { colors } from "~ui/tokens";
+import { Box, Text, TableCell } from "~ui/primitives";
 import { Button } from "~components";
+
+const { blacks, whites, yellows } = colors;
 
 /** @todo these types should prob live somewhere else */
 type SinglesType = [string];
@@ -27,32 +29,41 @@ export const Event: React.FC<EventProps> = ({
   stakes,
   date,
   winners,
-}) => (
-  <>
-    <TableCell>{date ?? "-"}</TableCell>
-    <TableCell>{type}</TableCell>
-    <TableCell>
-      {Array.from(players[0]).map((player, i) => (
-        <PlayerName key={i}>{player}</PlayerName>
-      ))}
-    </TableCell>
-    <TableCell>
-      {players[1] ? (
-        Array.from(players[1]).map((player, i) => (
-          <PlayerName key={i}>{player}</PlayerName>
-        ))
-      ) : (
-        <Button variant="primary">Accept the Challenge!</Button>
-      )}
-    </TableCell>
-    <TableCell>{frames}</TableCell>
-    <TableCell>{cap ?? "-"}</TableCell>
-    <TableCell>{stakes ? `$${stakes}.00` : "-"}</TableCell>
-  </>
-);
+}) => {
+  const firstTeamWins = JSON.stringify(winners) === JSON.stringify(players[0]);
+  const secondTeamWins =
+    players[1] && JSON.stringify(winners) === JSON.stringify(players[1]);
 
-const PlayerName = styled.span`
-  &:not(:last-child)::after {
-    content: " & ";
-  }
-`;
+  return (
+    <>
+      <TableCell>{date ?? "TBD"}</TableCell>
+      <TableCell textTransform="capitalize">{type}</TableCell>
+      <TableCell
+        boxShadow={firstTeamWins ? "box.inset" : undefined}
+        backgroundColor={firstTeamWins ? "yellows.light" : "transparent"}
+      >
+        {Array.from(players[0]).map((player, i) => (
+          <Text key={i}>{player}</Text>
+        ))}
+      </TableCell>
+      <TableCell
+        boxShadow={secondTeamWins ? "box.inset" : undefined}
+        backgroundColor={secondTeamWins ? "yellows.light" : "transparent"}
+        centered={!players[1]}
+      >
+        {players[1] ? (
+          Array.from(players[1]).map((player, i) => (
+            <Text key={i}>{player}</Text>
+          ))
+        ) : (
+          <Button variant="primary" width="100%">
+            Accept the Challenge!
+          </Button>
+        )}
+      </TableCell>
+      <TableCell>{frames}</TableCell>
+      <TableCell>{cap ?? "-"}</TableCell>
+      <TableCell>{stakes ? `$${stakes}` : "-"}</TableCell>
+    </>
+  );
+};

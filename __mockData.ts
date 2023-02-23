@@ -20,7 +20,7 @@ export const MOCK_EVENTS = [
     players: [["Edge"], ["Christian"]],
     frames: 16,
     date: "2023-02-14",
-    winners: undefined,
+    winners: ["Christian"],
   },
   {
     id: 3,
@@ -45,10 +45,7 @@ export const MOCK_EVENTS = [
   {
     id: 5,
     type: "doubles",
-    players: [
-      ["The Rock", "Roman Reigns"],
-      ["Seth Rollins", "Dean Ambrose"],
-    ],
+    players: [["The Rock", "Roman Reigns"]],
     frames: 16,
     stakes: 2,
     cap: 50,

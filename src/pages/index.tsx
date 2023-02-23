@@ -1,12 +1,17 @@
 import { Box } from "~ui/primitives";
-import { Title } from "~/components";
-import { Events } from "~modules";
+import { Divider, Title } from "~/components";
+import { JoinTheClub, ChooseYourAdventure, Events } from "~modules";
 import { MOCK_EVENTS } from "../../__mockData";
 
 const Homepage: React.FC = () => (
   <Box variant="outer" as="main">
     <Box variant="section">
       <Title>shuff.club</Title>
+      <Divider />
+      <JoinTheClub />
+      <Divider />
+      <ChooseYourAdventure />
+      <Divider />
       <Events
         title="Singles & Doubles Matches"
         headlines={[
@@ -19,6 +24,8 @@ const Homepage: React.FC = () => (
           "Stakes?",
         ]}
         events={MOCK_EVENTS}
+        rowHeight={72}
+        visibleRows={6}
       />
     </Box>
   </Box>

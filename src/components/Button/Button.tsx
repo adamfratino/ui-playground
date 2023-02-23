@@ -3,13 +3,17 @@ import { flattenVariant } from "~ui/helpers";
 import { Box, Text } from "~ui/primitives";
 import variants from "./variants";
 
+/** @todo make ui primitive */
 type StyledProps = {
   backgroundColor?: CSSProperties["backgroundColor"];
   color?: CSSProperties["color"];
+  fontSize?: CSSProperties["fontSize"];
+  border?: CSSProperties["border"];
+  width?: CSSProperties["width"];
 };
 
 type Props = StyledProps & {
-  variant: keyof typeof variants;
+  variant?: keyof typeof variants;
   onClick?: () => void;
   children?: React.ReactNode;
 };
@@ -20,6 +24,9 @@ const Button: React.FC<Props> = ({
   children,
   backgroundColor,
   color,
+  fontSize,
+  border,
+  width,
 }) => (
   <Box
     variants={flattenVariant(variants, "box")}
@@ -27,11 +34,15 @@ const Button: React.FC<Props> = ({
     as="button"
     onClick={onClick}
     backgroundColor={backgroundColor}
+    border={border}
+    width={width}
   >
     <Text
+      as="span"
       variants={flattenVariant(variants, "text")}
       variant={variant}
       color={color}
+      fontSize={fontSize}
     >
       {children}
     </Text>

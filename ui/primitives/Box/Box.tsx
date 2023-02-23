@@ -6,6 +6,7 @@ import {
   flexbox,
   grid,
   layout,
+  position,
   shadow,
   space,
   typography,
@@ -17,6 +18,7 @@ import type {
   FlexboxProps,
   GridProps,
   LayoutProps,
+  PositionProps,
   ShadowProps,
   SpaceProps,
   TypographyProps,
@@ -28,6 +30,7 @@ type StyledProps = BorderProps &
   FlexboxProps &
   GridProps &
   LayoutProps &
+  PositionProps &
   SpaceProps &
   ShadowProps &
   TypographyProps & {
@@ -81,6 +84,7 @@ const StyledBox = styled.div<StyledProps>`
   ${flexbox}
   ${grid}
   ${layout}
+  ${position}
   ${shadow}
   ${space}
   ${typography}
