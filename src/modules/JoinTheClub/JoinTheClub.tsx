@@ -6,27 +6,34 @@ const JoinTheClub: React.FC = () => (
     <Text as="h2" variant="eyebrow" mb="thick">
       Join The Club
     </Text>
-    <Grid gap={8} mb="thick" minHeight={120}>
-      <Button variant="big" backgroundColor="brand.primary" fontSize={7}>
-        Sign Up
-      </Button>
-      <Button
-        variant="big"
-        backgroundColor="transparent"
-        border="4px solid black"
-        fontSize={7}
-      >
-        Log In
-      </Button>
-    </Grid>
-    <Grid gap={8}>
-      <Text variant="paragraph" mr={4}>
-        Lorem ipsum dolor, sit amet consectetur.
-      </Text>
-      <Text variant="paragraph" mr={4}>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos adipisci
-        qui, inventore totam suscipit praesentium facere!
-      </Text>
+    <Grid gap={8} mb="thick">
+      <Box>
+        <Button
+          variant="big"
+          backgroundColor="notification.success"
+          fontSize={7}
+          width={1}
+        >
+          Sign Up
+        </Button>
+        <Text variant="paragraph" mr={4} mt={4} markdown>
+          **It only takes a few seconds**, and you can verify your account
+          later.
+        </Text>
+      </Box>
+      <Box>
+        <Button
+          variant="big"
+          backgroundColor="notification.warning"
+          fontSize={7}
+          width={1}
+        >
+          Log In
+        </Button>
+        <Text variant="paragraph" mr={4} mt={4}>
+          Happy to have you back!
+        </Text>
+      </Box>
     </Grid>
   </Box>
 );

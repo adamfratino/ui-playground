@@ -52,8 +52,6 @@ Text.displayName = "Text";
 export default Text;
 
 const StyledText = styled.span<StyledProps>`
-  display: block;
-
   ${({ variants }) =>
     variant({ variants: { ...coreVariants, ...(variants && variants) } })}
   ${color}

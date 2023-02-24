@@ -3,9 +3,9 @@ import { Line } from "~ui/primitives";
 const Divider: React.FC = () => (
   <Line
     height={1}
-    backgroundColor="background.dark"
+    backgroundColor="greys.lighter"
     boxShadow="box.shallow"
-    marginY={8}
+    marginY={10}
   />
 );
 

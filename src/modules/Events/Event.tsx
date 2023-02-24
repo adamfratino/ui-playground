@@ -1,8 +1,5 @@
-import { colors } from "~ui/tokens";
-import { Box, Text, TableCell } from "~ui/primitives";
+import { Text, TableCell } from "~ui/primitives";
 import { Button } from "~components";
-
-const { blacks, whites, yellows } = colors;
 
 /** @todo these types should prob live somewhere else */
 type SinglesType = [string];
@@ -31,39 +28,42 @@ export const Event: React.FC<EventProps> = ({
   winners,
 }) => {
   const firstTeamWins = JSON.stringify(winners) === JSON.stringify(players[0]);
-  const secondTeamWins =
-    players[1] && JSON.stringify(winners) === JSON.stringify(players[1]);
+  const secondTeamWins = JSON.stringify(winners) === JSON.stringify(players[1]);
 
   return (
     <>
-      <TableCell>{date ?? "TBD"}</TableCell>
-      <TableCell textTransform="capitalize">{type}</TableCell>
-      <TableCell
-        boxShadow={firstTeamWins ? "box.inset" : undefined}
-        backgroundColor={firstTeamWins ? "yellows.light" : "transparent"}
-      >
-        {Array.from(players[0]).map((player, i) => (
-          <Text key={i}>{player}</Text>
-        ))}
-      </TableCell>
-      <TableCell
-        boxShadow={secondTeamWins ? "box.inset" : undefined}
-        backgroundColor={secondTeamWins ? "yellows.light" : "transparent"}
-        centered={!players[1]}
-      >
-        {players[1] ? (
-          Array.from(players[1]).map((player, i) => (
-            <Text key={i}>{player}</Text>
-          ))
-        ) : (
-          <Button variant="primary" width="100%">
-            Accept the Challenge!
+      <TableCell>
+        {date ?? (
+          <Button variant="primary" fontSize={1}>
+            Set Date
           </Button>
         )}
       </TableCell>
+      <TableCell textTransform="capitalize">{type}</TableCell>
+      <PlayerNames players={players[0]} didYaWin={firstTeamWins} />
+      <PlayerNames players={players[1]} didYaWin={secondTeamWins} />
       <TableCell>{frames}</TableCell>
       <TableCell>{cap ?? "-"}</TableCell>
       <TableCell>{stakes ? `$${stakes}` : "-"}</TableCell>
     </>
   );
 };
+
+const PlayerNames: React.FC<{
+  players: string | SinglesType | DoublesType;
+  didYaWin: boolean;
+}> = ({ players, didYaWin }) => (
+  <TableCell centered={!players}>
+    {players ? (
+      Array.from(players).map((player, i) => (
+        <Text as="span" key={i} fontWeight={didYaWin ? 600 : 500}>
+          {i !== players.length - 1 ? `${player} & ` : player}
+        </Text>
+      ))
+    ) : (
+      <Button variant="primary" fontSize={1} width={1}>
+        Accept the Challenge!
+      </Button>
+    )}
+  </TableCell>
+);

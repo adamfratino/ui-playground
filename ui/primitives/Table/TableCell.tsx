@@ -1,5 +1,5 @@
 import { CSSProperties } from "styled-components";
-import { Box, Text } from "~ui/primitives";
+import { Box } from "~ui/primitives";
 
 type Props = {
   type?: "head" | "body";
@@ -13,31 +13,24 @@ type Props = {
 const TableCell: React.FC<Props> = ({
   type = "body",
   children,
-  textTransform,
   backgroundColor,
   centered,
   boxShadow,
 }) => {
   const element = type === "head" ? "th" : "td";
-  const fontWeight = type === "head" ? 600 : 500;
 
   return (
     <Box
       as={element}
       display="flex"
-      alignItems="center"
+      flexDirection="column"
+      justifyContent="center"
       backgroundColor={backgroundColor}
       boxShadow={boxShadow}
       centered={centered}
+      width={1}
     >
-      <Text
-        as="span"
-        variant="label"
-        fontWeight={fontWeight}
-        textTransform={textTransform}
-      >
-        {children}
-      </Text>
+      {children}
     </Box>
   );
 };

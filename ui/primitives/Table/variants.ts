@@ -9,6 +9,9 @@ const events = {
   "th, td": {
     padding: 4,
     textAlign: "left",
+    fontFamily: "sans",
+    fontSize: 3,
+    lineHeight: 1.2,
   },
   "tbody tr:nth-child(even)": {
     backgroundColor: "background.light",

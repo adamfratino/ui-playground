@@ -3,7 +3,7 @@ import { flattenVariant } from "~ui/helpers";
 import { Box, Text } from "~ui/primitives";
 import variants from "./variants";
 
-/** @todo make ui primitive */
+/** @todo convert to ui primitive with styled system, etc. */
 type StyledProps = {
   backgroundColor?: CSSProperties["backgroundColor"];
   color?: CSSProperties["color"];
