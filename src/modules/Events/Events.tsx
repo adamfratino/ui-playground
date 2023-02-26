@@ -46,15 +46,19 @@ const Events: React.FC<Props> = ({
   const [tableOffset, setTableOffset] = useState(0);
   const showControls = visibleRows && events.length > visibleRows;
 
+  /**
+   * @todo make not wonky
+   * try replacing pagination (prefer scroll) with a scroll invite that hides/toggles at the end
+   * @note needs to observe scroll (introduce react-use?)
+   * */
   const handlePagination = (direction: "up" | "down") => {
-    direction === "down"
-      ? setTableOffset(tableOffset + rowHeight)
-      : setTableOffset(tableOffset - rowHeight);
+    direction === "up"
+      ? setTableOffset(0)
+      : setTableOffset(scrollRef.current!.getBoundingClientRect().height);
   };
 
   useEffect(() => {
-    const table = scrollRef.current!;
-    table.scrollTop = tableOffset;
+    scrollRef.current!.scrollTop = tableOffset;
   }, [tableOffset]);
 
   return (
@@ -70,7 +74,7 @@ const Events: React.FC<Props> = ({
               {title}
             </Text>
           )}
-          {controls && (
+          {!disabled && controls && (
             <Grid gap="thin" ml={[null, "auto"]} mt={[null, "16px"]} mb={4}>
               {controls.map((control, i) => (
                 <Button

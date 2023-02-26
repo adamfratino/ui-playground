@@ -9,7 +9,7 @@ const JoinTheClub: React.FC = () => (
     <Grid gap={8} mb="thick">
       <Box>
         <Button
-          variant="big"
+          variant="realBig"
           backgroundColor="notification.success"
           fontSize={7}
           width={1}
@@ -23,7 +23,7 @@ const JoinTheClub: React.FC = () => (
       </Box>
       <Box>
         <Button
-          variant="big"
+          variant="realBig"
           backgroundColor="notification.warning"
           fontSize={7}
           width={1}

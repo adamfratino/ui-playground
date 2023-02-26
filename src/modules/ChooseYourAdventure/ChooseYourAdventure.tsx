@@ -4,7 +4,7 @@ import { Button } from "~components";
 const ChooseYourAdventure: React.FC = () => (
   <Box as="section" my={8}>
     <Text as="h2" variant="eyebrow" mb="thick">
-      Choose Your Adventure
+      Choose Your Adventure:
     </Text>
     <Grid gap={8} mb="thick">
       <Box>

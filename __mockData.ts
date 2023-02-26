@@ -29,8 +29,8 @@ type MatchType =
 export type EventType = MatchType & {
   id: number;
   type: MatchType["type"];
+  frames: 4 | 8 | 12 | 16;
   date?: Date;
-  frames?: 4 | 8 | 12 | 16;
   scoreCap?: number;
   stakes?: number;
 };
@@ -54,7 +54,6 @@ export const MOCK_EVENTS = [
     players1: ["Rob Van Dam", "Booker T"],
     frames: 8,
     scoreCap: 50,
-    stakes: 5,
     date: new Date("2004-03-14"),
   },
   {
@@ -82,7 +81,66 @@ export const MOCK_EVENTS = [
     players: ["Adrian Neville", "Tyler Breeze", "Sami Zayn"],
     frames: 4,
     spots: 4,
-    stakes: 10,
     date: new Date("2014-09-11"),
+  },
+  {
+    id: 5,
+    type: "singles",
+    player1: "The Great Sasuke",
+    player2: "Wild Pegasus",
+    whoWon: "Wild Pegasus",
+    frames: 4,
+    scoreCap: 100,
+    stakes: 25,
+    date: new Date("1996-04-16"),
+  },
+  {
+    id: 6,
+    type: "doubles",
+    players1: ["Mitsuharu Misawa", "Kenta Kobashi"],
+    players2: ["Toshiaki Kawada", "Akira Taue"],
+    frames: 12,
+    stakes: 10,
+  },
+  {
+    id: 7,
+    type: "bracket",
+    players: [
+      "Chris Jericho",
+      "Shawn Michaels",
+      "Randy Orton",
+      "Kevin Nash",
+      "Triple H",
+      "Goldberg",
+    ],
+    spots: 8,
+    frames: 16,
+    stakes: 5,
+  },
+  {
+    id: 8,
+    type: "singles",
+    player1: "Ric Flair",
+    player2: "Ricky Steamboat",
+    frames: 8,
+    cap: 100,
+    stakes: 1,
+  },
+  {
+    id: 9,
+    type: "doubles",
+    players1: ["Genichiro Tenryu", "Toshiaki Kawada"],
+    players2: ["Stan Hansen", "Terry Gordy"],
+    whoWon: ["Stan Hansen", "Terry Gordy"],
+    frames: 12,
+    date: new Date("1988-12-16"),
+  },
+  {
+    id: 10,
+    type: "singles",
+    player1: "Big Van Vader",
+    frames: 16,
+    scoreCap: 80,
+    stakes: 5,
   },
 ] as EventType[];

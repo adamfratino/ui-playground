@@ -61,7 +61,7 @@ export const Event: React.FC<EventType> = ({
           </TableCell>
         </>
       )}
-      <TableCell>{frames}</TableCell>
+      <TableCell>{frames ?? "-"}</TableCell>
       <TableCell>{scoreCap ?? "-"}</TableCell>
       <TableCell>{stakes ? `$${stakes}` : "-"}</TableCell>
     </>
@@ -98,26 +98,30 @@ const MatchPlayersCell: React.FC<{
   player?: SinglesPlayerType;
   players: DoublesPlayersType;
   whoWon?: SinglesPlayerType | DoublesPlayersType;
-}> = ({ player, players, whoWon }) => (
-  <TableCell centered={!player && !players}>
-    {player && (
-      <Text as="span" fontWeight={player === whoWon ? 600 : 500}>
-        {player}
-      </Text>
-    )}
-    {players &&
-      Array.from(players).map((player, i) => (
-        <Text as="span" key={i} fontWeight={player === whoWon ? 600 : 500}>
+}> = ({ player, players, whoWon }) => {
+  const isWinner = JSON.stringify(whoWon) === JSON.stringify(players);
+
+  return (
+    <TableCell centered={!player && !players}>
+      {player && (
+        <Text as="span" fontWeight={player === whoWon ? 600 : 500}>
           {player}
         </Text>
-      ))}
-    {!player && !players && (
-      <Button variant="primary" fontSize={1} width={1}>
-        Accept the Challenge!
-      </Button>
-    )}
-  </TableCell>
-);
+      )}
+      {players &&
+        Array.from(players).map((player, i) => (
+          <Text as="span" key={i} fontWeight={isWinner ? 600 : 500}>
+            {player}
+          </Text>
+        ))}
+      {!player && !players && (
+        <Button variant="primary" fontSize={1} width={1}>
+          Accept the Challenge!
+        </Button>
+      )}
+    </TableCell>
+  );
+};
 
 const TournamentPlayersCell: React.FC<{
   players: TournamentPlayersType;

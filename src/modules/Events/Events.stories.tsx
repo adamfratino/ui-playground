@@ -9,9 +9,9 @@ export default {
 export const Default = () => (
   <EventsComponent
     controls={[
-      { text: "Open Matches", backgroundColor: "notification.success" },
-      { text: "Upcoming Matches", backgroundColor: "notification.warning" },
-      { text: "Past Matches", backgroundColor: "notification.alert" },
+      { text: "Open", backgroundColor: "notification.success" },
+      { text: "Upcoming", backgroundColor: "notification.warning" },
+      { text: "Past", backgroundColor: "notification.alert" },
     ]}
     events={MOCK_EVENTS}
   />

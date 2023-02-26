@@ -35,8 +35,8 @@ const Homepage: React.FC = () => (
     <Box variant="section">
       <Title>shuff.club</Title>
       <Divider />
-      <JoinTheClub />
-      <Divider />
+      {/* <JoinTheClub />
+      <Divider /> */}
       <ChooseYourAdventure />
       <Divider />
       <Events
@@ -47,7 +47,7 @@ const Homepage: React.FC = () => (
           (ev) => ev.type === "singles" || ev.type === "doubles"
         )}
         rowHeight={72}
-        visibleRows={8}
+        visibleRows={6}
         gridTemplateColumns="1fr 1fr repeat(2, 2fr) repeat(3, 1fr)"
       />
       <Divider />
@@ -55,12 +55,12 @@ const Homepage: React.FC = () => (
         title="Round Robin & Bracket Tournaments"
         controls={EVENT_FILTERS}
         headlines={TOURNAMENT_HEADLINES}
-        gridTemplateColumns="2fr 2fr 1fr 5fr 4fr repeat(3, 1fr)"
+        gridTemplateColumns="2fr 2fr 1fr 5fr 3fr repeat(3, 1fr)"
         events={MOCK_EVENTS.filter(
           (ev) => ev.type === "round robin" || ev.type === "bracket"
         )}
-        // disabled
-        // disabledMessage="Hopefully coming Winter 2023!"
+        disabled
+        disabledMessage="Hopefully coming Winter 2023!"
       />
     </Box>
   </Box>

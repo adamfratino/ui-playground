@@ -55,7 +55,7 @@ const filter = {
 
 const big = {
   box: {
-    padding: 6,
+    padding: 8,
     boxShadow: "box.shallow",
     "&:hover": box.hover,
   },
@@ -63,6 +63,16 @@ const big = {
     ...text.condensed,
     fontSize: 5,
     lineHeight: 1,
+  },
+};
+
+const realBig = {
+  box: {
+    ...big.box,
+    padding: 10,
+  },
+  text: {
+    ...big.text,
   },
 };
 
@@ -86,6 +96,7 @@ const variants = {
   filter,
   arrow,
   big,
+  realBig,
 };
 
 export default variants;
