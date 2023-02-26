@@ -16,7 +16,7 @@ const JoinTheClub: React.FC = () => (
         >
           Sign Up
         </Button>
-        <Text variant="paragraph" mr={4} mt={4} markdown>
+        <Text as="div" variant="paragraph" mr={4} mt={4} markdown>
           **It only takes a few seconds**, and you can verify your account
           later.
         </Text>
@@ -30,7 +30,7 @@ const JoinTheClub: React.FC = () => (
         >
           Log In
         </Button>
-        <Text variant="paragraph" mr={4} mt={4}>
+        <Text as="div" variant="paragraph" mr={4} mt={4}>
           Happy to have you back!
         </Text>
       </Box>

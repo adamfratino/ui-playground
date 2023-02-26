@@ -11,7 +11,7 @@ const ChooseYourAdventure: React.FC = () => (
         <Button variant="big" backgroundColor="notification.success" width={1}>
           Open Matches
         </Button>
-        <Text variant="label" mt={4} mr={4} markdown>
+        <Text as="div" variant="label" mt={4} mr={4} markdown>
           Dive right in and find someone to play! **Some matches will have a
           date selected already.** Matches that don&apos;t have a date are
           **open challanges!**
@@ -21,7 +21,7 @@ const ChooseYourAdventure: React.FC = () => (
         <Button variant="big" backgroundColor="notification.warning" width={1}>
           Upcoming Matches
         </Button>
-        <Text variant="label" mt={4} mr={4} markdown>
+        <Text as="div" variant="label" mt={4} mr={4} markdown>
           Whether spectating or scouting, stop by and **check out the
           competition** if you&apos;re free.
         </Text>
@@ -30,7 +30,7 @@ const ChooseYourAdventure: React.FC = () => (
         <Button variant="big" backgroundColor="notification.alert" width={1}>
           Past Matches
         </Button>
-        <Text variant="label" mt={4} mr={4} markdown>
+        <Text as="div" variant="label" mt={4} mr={4} markdown>
           Browse the **match history**. *(Perfect for scouting!)*
         </Text>
       </Box>

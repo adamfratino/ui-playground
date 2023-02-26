@@ -21,12 +21,18 @@ type StyledProps = ColorProps &
 /**
  * @todo make `as` prop required?
  * @todo figure out how to make react markdown wrapper a fragment (instead of `h1`)
+ * @see https://www.npmjs.com/package/markdown-to-jsx
  * */
 export type Props = StyledProps & {
   children: React.ReactNode;
   as?: React.ElementType;
   variant?: keyof typeof coreVariants | {};
   markdown?: boolean;
+};
+
+const markdownComponents = {
+  p: ({ children }: { children: React.ReactNode }) => <p>{children}</p>,
+  fragment: ({ children }: { children: React.ReactNode }) => <>{children}</>,
 };
 
 const Text = forwardRef<HTMLElement, Props>(
@@ -39,7 +45,13 @@ const Text = forwardRef<HTMLElement, Props>(
       {...props}
     >
       {markdown ? (
-        <ReactMarkdown>{children as string}</ReactMarkdown>
+        /**
+         * if we don't explicitly undefine `className` we get a container `div`
+         * @see https://stackoverflow.com/a/74039428/2868869
+         * */
+        <ReactMarkdown className={undefined}>
+          {children as string}
+        </ReactMarkdown>
       ) : (
         children
       )}

@@ -1,80 +1,88 @@
-import { EventProps } from "./src/modules/Events/Event";
+/** Player Types */
+export type PlayerType = string;
+export type SinglesPlayerType = PlayerType;
+export type DoublesPlayersType = [PlayerType, PlayerType];
+export type TournamentPlayersType = PlayerType[];
 
+/** Match Types */
+type MatchType =
+  | {
+      type: "singles";
+      player1: SinglesPlayerType;
+      player2?: SinglesPlayerType;
+      whoWon?: SinglesPlayerType;
+    }
+  | {
+      type: "doubles";
+      players1: DoublesPlayersType;
+      players2?: DoublesPlayersType;
+      whoWon?: DoublesPlayersType;
+    }
+  | {
+      type: "round robin" | "bracket";
+      players: TournamentPlayersType;
+      spots: number;
+      whoWon?: SinglesPlayerType;
+    };
+
+/** Event Types */
+export type EventType = MatchType & {
+  id: number;
+  type: MatchType["type"];
+  date?: Date;
+  frames?: 4 | 8 | 12 | 16;
+  scoreCap?: number;
+  stakes?: number;
+};
+
+/** @todo not throwing type errors properly, figure it out bud */
 export const MOCK_EVENTS = [
   {
     id: 1,
-    type: "doubles",
-    players: [
-      ["Bret Hart", "Owen Hart"],
-      ["Shawn Michaels", "Diesel"],
-    ],
+    type: "singles",
+    player1: "John Cena",
+    player2: "Big Show",
+    whoWon: "John Cena",
     frames: 16,
-    cap: 75,
+    scoreCap: 75,
     stakes: 10,
-    date: "2023-01-20",
-    winners: ["Bret Hart", "Owen Hart"],
+    date: new Date("2004-03-14"),
   },
   {
     id: 2,
-    type: "singles",
-    players: [["Edge"], ["Christian"]],
-    frames: 16,
-    date: "2023-02-14",
-    winners: ["Christian"],
+    type: "doubles",
+    players1: ["Rob Van Dam", "Booker T"],
+    frames: 8,
+    scoreCap: 50,
+    stakes: 5,
+    date: new Date("2004-03-14"),
   },
   {
     id: 3,
-    type: "singles",
-    players: [["Stone Cold Steve Austin"]],
+    type: "bracket",
+    players: [
+      "Chavo Guerrero",
+      "Billy Kidman",
+      "Funaki",
+      "Jamie Noble",
+      "Nunzio",
+      "Rey Mysterio",
+      "Tajiri",
+      "Último Dragón",
+    ],
+    whoWon: "Chavo Guerrero",
     frames: 8,
-    stakes: 1,
-    date: "2023-04-20",
-    winners: undefined,
+    spots: 8,
+    stakes: 2,
+    date: new Date("2004-03-14"),
   },
   {
     id: 4,
-    type: "doubles",
-    players: [
-      ["Charlotte Flair", "Becky Lynch"],
-      ["Sasha Banks", "Bayley"],
-    ],
+    type: "round robin",
+    players: ["Adrian Neville", "Tyler Breeze", "Sami Zayn"],
     frames: 4,
-    stakes: 100,
-    winners: undefined,
+    spots: 4,
+    stakes: 10,
+    date: new Date("2014-09-11"),
   },
-  {
-    id: 5,
-    type: "doubles",
-    players: [["The Rock", "Roman Reigns"]],
-    frames: 16,
-    stakes: 2,
-    cap: 50,
-    winners: undefined,
-  },
-  {
-    id: 6,
-    type: "singles",
-    players: [["Macho Man Randy Savage"], ["Miss Elizabeth"]],
-    frames: 16,
-    date: "2023-02-14",
-    winners: undefined,
-  },
-  {
-    id: 7,
-    type: "singles",
-    players: [["King Kong Bundy", "Hulk Hogan"]],
-    frames: 16,
-    stakes: 20,
-    date: "2023-04-20",
-    winners: undefined,
-  },
-  {
-    id: 8,
-    type: "doubles",
-    cap: 65,
-    players: [["The Undertaker", "Mankind"]],
-    frames: 4,
-    stakes: 50,
-    winners: undefined,
-  },
-] as EventProps[];
+] as EventType[];

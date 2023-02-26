@@ -1,69 +1,140 @@
-import { Text, TableCell } from "~ui/primitives";
+import styled from "styled-components";
+import { Box, Grid, Text, TableCell } from "~ui/primitives";
 import { Button } from "~components";
+import {
+  SinglesPlayerType,
+  DoublesPlayersType,
+  TournamentPlayersType,
+  EventType,
+} from "__mockData";
 
-/** @todo these types should prob live somewhere else */
-type SinglesType = [string];
-type DoublesType = [string, string];
-type TournamentType = string[];
-type PlayersType = SinglesType[] | DoublesType[] | TournamentType;
-
-export type EventProps = {
-  id: number;
-  type: "singles" | "doubles" | "tournament";
-  players: PlayersType;
-  frames: 4 | 8 | 12 | 16;
-  cap?: number;
-  stakes?: number;
-  date?: string;
-  winners?: PlayersType;
-};
-
-export const Event: React.FC<EventProps> = ({
+/** @todo figure out these conditional types */
+export const Event: React.FC<EventType> = ({
   type,
-  players,
-  frames,
-  cap,
-  stakes,
   date,
-  winners,
+  frames,
+  scoreCap,
+  stakes,
+  player1,
+  player2,
+  players1,
+  players2,
+  players,
+  whoWon,
+  spots,
 }) => {
-  const firstTeamWins = JSON.stringify(winners) === JSON.stringify(players[0]);
-  const secondTeamWins = JSON.stringify(winners) === JSON.stringify(players[1]);
+  const matchType = type === "singles" || type === "doubles";
+  const tournamentType = type === "round robin" || type === "bracket";
 
   return (
     <>
-      <TableCell>
-        {date ?? (
-          <Button variant="primary" fontSize={1}>
-            Set Date
-          </Button>
-        )}
-      </TableCell>
+      <DateCell date={date} />
       <TableCell textTransform="capitalize">{type}</TableCell>
-      <PlayerNames players={players[0]} didYaWin={firstTeamWins} />
-      <PlayerNames players={players[1]} didYaWin={secondTeamWins} />
+      {matchType && (
+        <>
+          <MatchPlayersCell
+            player={player1}
+            players={players1}
+            whoWon={whoWon}
+          />
+          <MatchPlayersCell
+            player={player2}
+            players={players2}
+            whoWon={whoWon}
+          />
+        </>
+      )}
+      {tournamentType && (
+        <>
+          <TableCell>{spots}</TableCell>
+          <TournamentPlayersCell players={players} />
+          <TableCell>
+            {!whoWon ? (
+              <Button variant="primary" fontSize={1}>
+                Register
+              </Button>
+            ) : (
+              <Text variant="label">
+                <strong>Winner:</strong> {whoWon}
+              </Text>
+            )}
+          </TableCell>
+        </>
+      )}
       <TableCell>{frames}</TableCell>
-      <TableCell>{cap ?? "-"}</TableCell>
+      <TableCell>{scoreCap ?? "-"}</TableCell>
       <TableCell>{stakes ? `$${stakes}` : "-"}</TableCell>
     </>
   );
 };
 
-const PlayerNames: React.FC<{
-  players: string | SinglesType | DoublesType;
-  didYaWin: boolean;
-}> = ({ players, didYaWin }) => (
-  <TableCell centered={!players}>
-    {players ? (
+const DateCell: React.FC<Pick<EventType, "date">> = ({ date }) => {
+  const readableDate = date && [
+    date.toLocaleDateString("en-us", { weekday: "long" }),
+    date.toLocaleDateString("en-us", {
+      day: "numeric",
+      month: "short",
+      year: "numeric",
+    }),
+  ];
+
+  return (
+    <TableCell>
+      {readableDate ? (
+        <Grid as="time" variant="stacked">
+          <span>{readableDate[0]}</span>
+          <span>{readableDate[1]}</span>
+        </Grid>
+      ) : (
+        <Button variant="primary" fontSize={1}>
+          Set Date
+        </Button>
+      )}
+    </TableCell>
+  );
+};
+
+const MatchPlayersCell: React.FC<{
+  player?: SinglesPlayerType;
+  players: DoublesPlayersType;
+  whoWon?: SinglesPlayerType | DoublesPlayersType;
+}> = ({ player, players, whoWon }) => (
+  <TableCell centered={!player && !players}>
+    {player && (
+      <Text as="span" fontWeight={player === whoWon ? 600 : 500}>
+        {player}
+      </Text>
+    )}
+    {players &&
       Array.from(players).map((player, i) => (
-        <Text as="span" key={i} fontWeight={didYaWin ? 600 : 500}>
-          {i !== players.length - 1 ? `${player} & ` : player}
+        <Text as="span" key={i} fontWeight={player === whoWon ? 600 : 500}>
+          {player}
         </Text>
-      ))
-    ) : (
+      ))}
+    {!player && !players && (
       <Button variant="primary" fontSize={1} width={1}>
         Accept the Challenge!
       </Button>
     )}
   </TableCell>
 );
+
+const TournamentPlayersCell: React.FC<{
+  players: TournamentPlayersType;
+}> = ({ players }) => (
+  <TableCell>
+    <Box>
+      {Array.from(players).map((player, i) => (
+        <StyledTournamentName forwardedAs="span" key={i}>
+          {player}
+        </StyledTournamentName>
+      ))}
+    </Box>
+  </TableCell>
+);
+
+const StyledTournamentName = styled(Text)`
+  &:not(:last-of-type)::after {
+    content: ", ";
+  }
+`;

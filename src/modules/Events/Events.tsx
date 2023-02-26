@@ -10,7 +10,8 @@ import {
   Text,
 } from "~ui/primitives";
 import { Button } from "~components";
-import { Event, EventProps } from "./Event";
+import { Event } from "./Event";
+import { EventType } from "__mockData";
 import DisabledOverlay from "./DisabledOverlay";
 
 type ControlsType = {
@@ -19,7 +20,7 @@ type ControlsType = {
 };
 
 export type Props = {
-  events: EventProps[];
+  events: EventType[];
   title?: string;
   controls?: ControlsType[];
   headlines?: string[];
@@ -59,14 +60,18 @@ const Events: React.FC<Props> = ({
   return (
     <>
       <Box as="section" marginBottom={8} position="relative" mt={4}>
-        <Box display="flex" alignItems="center" mb={4}>
+        <Box
+          display="flex"
+          flexDirection={["column", "row"]}
+          alignItems={["flex-start", "flex-end"]}
+        >
           {title && (
-            <Text variant="eyebrow" as="h2">
+            <Text variant="eyebrow" as="h2" mb={4}>
               {title}
             </Text>
           )}
           {controls && (
-            <Grid gap="thin" ml="auto">
+            <Grid gap="thin" ml={[null, "auto"]} mt={[null, "16px"]} mb={4}>
               {controls.map((control, i) => (
                 <Button
                   variant="filter"
