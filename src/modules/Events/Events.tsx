@@ -122,11 +122,14 @@ const Events: React.FC<Props> = ({
           {disabled && <DisabledOverlay>{disabledMessage}</DisabledOverlay>}
         </Box>
       </Box>
-      {!atBottom ? (
-        <div>scroll for more matches</div>
-      ) : (
-        <div>you reached the bottom!</div>
-      )}
+      {!disabled &&
+        visibleRows &&
+        events.length > visibleRows &&
+        (!atBottom ? (
+          <div>scroll for more matches</div>
+        ) : (
+          <div>you reached the bottom!</div>
+        ))}
     </>
   );
 };

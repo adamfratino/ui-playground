@@ -57,8 +57,8 @@ const Homepage: React.FC = () => (
         events={MOCK_EVENTS.filter(
           (ev) => ev.type === "round robin" || ev.type === "bracket"
         )}
-        disabled
-        disabledMessage="Hopefully coming Winter 2023!"
+        // disabled
+        // disabledMessage="Hopefully coming Winter 2023!"
       />
     </Box>
   </Box>
