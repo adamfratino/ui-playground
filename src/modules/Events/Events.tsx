@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useScroll } from "react-use";
 import { CSSProperties } from "styled-components";
 import {
   Box,
@@ -43,23 +44,15 @@ const Events: React.FC<Props> = ({
   gridTemplateColumns,
 }) => {
   const scrollRef = useRef<HTMLTableElement>(null);
-  const [tableOffset, setTableOffset] = useState(0);
-  const showControls = visibleRows && events.length > visibleRows;
-
-  /**
-   * @todo make not wonky
-   * try replacing pagination (prefer scroll) with a scroll invite that hides/toggles at the end
-   * @note needs to observe scroll (introduce react-use?)
-   * */
-  const handlePagination = (direction: "up" | "down") => {
-    direction === "up"
-      ? setTableOffset(0)
-      : setTableOffset(scrollRef.current!.getBoundingClientRect().height);
-  };
+  const { x, y } = useScroll(scrollRef);
+  const [atBottom, setAtBottom] = useState(false);
 
   useEffect(() => {
-    scrollRef.current!.scrollTop = tableOffset;
-  }, [tableOffset]);
+    const table = scrollRef.current!;
+    const isAtBottom =
+      table.scrollTop >= table.scrollHeight - table.offsetHeight;
+    isAtBottom ? setAtBottom(true) : setAtBottom(false);
+  }, [y]);
 
   return (
     <>
@@ -128,19 +121,12 @@ const Events: React.FC<Props> = ({
           </Table>
           {disabled && <DisabledOverlay>{disabledMessage}</DisabledOverlay>}
         </Box>
-        {!disabled && showControls && (
-          <Box display="flex" mt="thin">
-            <Grid gap={2} ml="auto">
-              <Button variant="arrow" onClick={() => handlePagination("down")}>
-                &darr;
-              </Button>
-              <Button variant="arrow" onClick={() => handlePagination("up")}>
-                &uarr;
-              </Button>
-            </Grid>
-          </Box>
-        )}
       </Box>
+      {!atBottom ? (
+        <div>scroll for more matches</div>
+      ) : (
+        <div>you reached the bottom!</div>
+      )}
     </>
   );
 };

@@ -12,7 +12,7 @@ export default {
 } as Meta;
 
 export const Breakpoints: React.FC = () => (
-  <Box variant="outer" backgroundColor="background.light">
+  <Box variant="outer">
     <Introduction
       title="Breakpoints"
       description="Breakpoints are the foundation of **responsive design.** Always consider the **different requirements** elements like visual heirarchy, page performance and accessibility might need **across devices**."

@@ -17,7 +17,7 @@ export default {
 } as Meta;
 
 export const Typography: React.FC = () => (
-  <Box variant="outer" backgroundColor="background.light">
+  <Box variant="outer">
     <Introduction
       title="Typography"
       description="While the primary goal of typography is to **convey language**, elements of typography can also evoke **emotions** and illustrate the **sentiment of the brand**."

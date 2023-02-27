@@ -35,8 +35,6 @@ const Homepage: React.FC = () => (
     <Box variant="section">
       <Title>shuff.club</Title>
       <Divider />
-      {/* <JoinTheClub />
-      <Divider /> */}
       <ChooseYourAdventure />
       <Divider />
       <Events

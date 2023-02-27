@@ -38,7 +38,7 @@ const gap = 4;
 
 export const Colors: React.FC = () => (
   <>
-    <Box variant="outer" backgroundColor="background.light">
+    <Box variant="outer">
       <Introduction
         title="Colors"
         description={[
