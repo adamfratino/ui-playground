@@ -8,7 +8,6 @@ const section = {
 const outer = {
   display: "flex",
   flexDirection: "column",
-  paddingY: 8,
   paddingX: 2,
   width: "100%",
 };

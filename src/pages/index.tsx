@@ -1,7 +1,8 @@
 import { Box } from "~ui/primitives";
-import { Divider, Title } from "~/components";
-import { JoinTheClub, ChooseYourAdventure, Events } from "~modules";
+import { Divider } from "~/components";
+import { Hero, ChooseYourAdventure, Events } from "~modules";
 import { MOCK_EVENTS } from "../../__mockData";
+import { Element } from "react-scroll";
 
 const MATCH_HEADLINES = [
   "Date",
@@ -31,23 +32,25 @@ const EVENT_FILTERS = [
 ];
 
 const Homepage: React.FC = () => (
-  <Box variant="outer" as="main">
+  <Box variant="outer" as="main" mb={12}>
     <Box variant="section">
-      <Title>shuff.club</Title>
+      <Hero />
       <Divider />
       <ChooseYourAdventure />
       <Divider />
-      <Events
-        title="Singles & Doubles Matches"
-        controls={EVENT_FILTERS}
-        headlines={MATCH_HEADLINES}
-        events={MOCK_EVENTS.filter(
-          (ev) => ev.type === "singles" || ev.type === "doubles"
-        )}
-        rowHeight={72}
-        visibleRows={6}
-        gridTemplateColumns="1fr 1fr repeat(2, 2fr) repeat(3, 1fr)"
-      />
+      <Element name="matches">
+        <Events
+          title="Singles & Doubles Matches"
+          controls={EVENT_FILTERS}
+          headlines={MATCH_HEADLINES}
+          events={MOCK_EVENTS.filter(
+            (ev) => ev.type === "singles" || ev.type === "doubles"
+          )}
+          rowHeight={72}
+          visibleRows={6}
+          gridTemplateColumns="1fr 1fr repeat(2, 2fr) repeat(3, 1fr)"
+        />
+      </Element>
       <Divider />
       <Events
         title="Round Robin & Bracket Tournaments"
@@ -57,8 +60,8 @@ const Homepage: React.FC = () => (
         events={MOCK_EVENTS.filter(
           (ev) => ev.type === "round robin" || ev.type === "bracket"
         )}
-        // disabled
-        // disabledMessage="Hopefully coming Winter 2023!"
+        disabled
+        disabledMessage="Hopefully coming Winter 2023!"
       />
     </Box>
   </Box>

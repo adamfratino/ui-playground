@@ -44,7 +44,7 @@ const Events: React.FC<Props> = ({
   gridTemplateColumns,
 }) => {
   const scrollRef = useRef<HTMLTableElement>(null);
-  const { x, y } = useScroll(scrollRef);
+  const y = useScroll(scrollRef);
   const [atBottom, setAtBottom] = useState(false);
 
   useEffect(() => {
@@ -56,7 +56,7 @@ const Events: React.FC<Props> = ({
 
   return (
     <>
-      <Box as="section" marginBottom={8} position="relative" mt={4}>
+      <Box as="section" position="relative" mt={4}>
         <Box
           display="flex"
           flexDirection={["column", "row"]}
@@ -64,7 +64,7 @@ const Events: React.FC<Props> = ({
         >
           {title && (
             <Text variant="eyebrow" as="h2" mb={4}>
-              {title}
+              {title} {!disabled && `(${events.length})`}
             </Text>
           )}
           {!disabled && controls && (
@@ -122,16 +122,27 @@ const Events: React.FC<Props> = ({
           {disabled && <DisabledOverlay>{disabledMessage}</DisabledOverlay>}
         </Box>
       </Box>
-      {!disabled &&
-        visibleRows &&
-        events.length > visibleRows &&
-        (!atBottom ? (
-          <div>scroll for more matches</div>
-        ) : (
-          <div>you reached the bottom!</div>
-        ))}
+      {!disabled && visibleRows && events.length > visibleRows && (
+        <ScrollMessage atBottom={atBottom} />
+      )}
     </>
   );
 };
 
 export default Events;
+
+/** @todo add back to top link? */
+const ScrollMessage: React.FC<{ atBottom?: boolean }> = ({ atBottom }) => (
+  <Box
+    backgroundColor="background.dark"
+    color="background.light"
+    padding="thin"
+    centered
+  >
+    <Text variant="label">
+      <em>
+        ({atBottom ? "that's all of 'em!" : "keep scrolling for more matches!"})
+      </em>
+    </Text>
+  </Box>
+);

@@ -8,7 +8,6 @@ const inter = Inter({ subsets: ["latin"] });
  * 13 is too cutting edge for me! check here if styles don't work after the switch
  * @see https://github.com/styled-components/styled-components/issues/3856
  * */
-
 export default function Home() {
   return (
     <main className={styles.main}>

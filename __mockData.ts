@@ -143,4 +143,14 @@ export const MOCK_EVENTS = [
     scoreCap: 80,
     stakes: 5,
   },
+  {
+    id: 11,
+    type: "singles",
+    player1: "Bull Nakano",
+    player2: "Devil Masami",
+    whoWon: "Bull Nakano",
+    frames: 8,
+    scoreCap: 40,
+    stakes: 2,
+  },
 ] as EventType[];
