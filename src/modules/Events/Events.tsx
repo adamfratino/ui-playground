@@ -11,19 +11,15 @@ import {
   Text,
 } from "~ui/primitives";
 import { Button } from "~components";
-import { Event } from "./Event";
 import { EventType } from "__mockData";
-import DisabledOverlay from "./DisabledOverlay";
-
-type ControlsType = {
-  text: string;
-  backgroundColor: string;
-};
+import Event from "./components/Event";
+import DisabledOverlay from "./components/DisabledOverlay";
+import ScrollMessage from "./components/ScrollMessage";
+import FilterButton from "./components/FilterButton";
 
 export type Props = {
   events: EventType[];
   title?: string;
-  controls?: ControlsType[];
   headlines?: string[];
   rowHeight?: number;
   visibleRows?: number;
@@ -38,7 +34,6 @@ const Events: React.FC<Props> = ({
   headlines,
   rowHeight = 72,
   visibleRows,
-  controls,
   disabled,
   disabledMessage,
   gridTemplateColumns,
@@ -46,6 +41,31 @@ const Events: React.FC<Props> = ({
   const scrollRef = useRef<HTMLTableElement>(null);
   const y = useScroll(scrollRef);
   const [atBottom, setAtBottom] = useState(false);
+  const [filteredEvents, setFilteredEvents] = useState(events);
+
+  /** @todo errors are because of conditional types, figure it out bud */
+  const openEvents = events.filter(
+    (event) => event.player2 === undefined && event.players2 === undefined
+  );
+  const upcomingEvents = events.filter(
+    (event) => !event.whoWon && (event.player2 || event.players2)
+  );
+  const pastEvents = events.filter((event) => event.whoWon);
+  const isAllEvents = JSON.stringify(filteredEvents) === JSON.stringify(events);
+
+  const filters = [
+    {
+      text: "Open",
+      backgroundColor: "notification.success",
+      filter: openEvents,
+    },
+    {
+      text: "Upcoming",
+      backgroundColor: "notification.warning",
+      filter: upcomingEvents,
+    },
+    { text: "Past", backgroundColor: "notification.alert", filter: pastEvents },
+  ];
 
   useEffect(() => {
     const table = scrollRef.current!;
@@ -53,6 +73,10 @@ const Events: React.FC<Props> = ({
       table.scrollTop >= table.scrollHeight - table.offsetHeight;
     isAtBottom ? setAtBottom(true) : setAtBottom(false);
   }, [y]);
+
+  const handleFilter = (filter: Props["events"], isActive: boolean) => {
+    isActive ? setFilteredEvents(events) : setFilteredEvents(filter);
+  };
 
   return (
     <>
@@ -64,20 +88,34 @@ const Events: React.FC<Props> = ({
         >
           {title && (
             <Text variant="eyebrow" as="h2" mb={4}>
-              {title} {!disabled && `(${events.length})`}
+              {title} {!disabled && `(${filteredEvents.length})`}
             </Text>
           )}
-          {!disabled && controls && (
+          {!disabled && (
             <Grid gap="thin" ml={[null, "auto"]} mt={[null, "16px"]} mb={4}>
-              {controls.map((control, i) => (
+              {!isAllEvents && (
                 <Button
-                  variant="filter"
-                  backgroundColor={control.backgroundColor}
-                  key={i}
+                  variant="reset"
+                  color="black"
+                  onClick={() => setFilteredEvents(events)}
                 >
-                  {control.text}
+                  Reset
                 </Button>
-              ))}
+              )}
+              {filters.map(({ text, backgroundColor, filter }) => {
+                const isActive =
+                  JSON.stringify(filter) === JSON.stringify(filteredEvents);
+                return (
+                  <FilterButton
+                    key={text}
+                    text={text}
+                    backgroundColor={backgroundColor}
+                    isActive={isActive}
+                    isDisabled={!isAllEvents && !isActive}
+                    onClick={() => handleFilter(filter, isActive)}
+                  />
+                );
+              })}
             </Grid>
           )}
         </Box>
@@ -112,7 +150,7 @@ const Events: React.FC<Props> = ({
               </TableGroup>
             )}
             <TableGroup type="body">
-              {events?.map((event) => (
+              {filteredEvents?.map((event) => (
                 <TableRow minHeight={rowHeight} key={event.id}>
                   <Event {...event} />
                 </TableRow>
@@ -122,7 +160,7 @@ const Events: React.FC<Props> = ({
           {disabled && <DisabledOverlay>{disabledMessage}</DisabledOverlay>}
         </Box>
       </Box>
-      {!disabled && visibleRows && events.length > visibleRows && (
+      {!disabled && visibleRows && filteredEvents.length > visibleRows && (
         <ScrollMessage atBottom={atBottom} />
       )}
     </>
@@ -130,19 +168,3 @@ const Events: React.FC<Props> = ({
 };
 
 export default Events;
-
-/** @todo add back to top link? */
-const ScrollMessage: React.FC<{ atBottom?: boolean }> = ({ atBottom }) => (
-  <Box
-    backgroundColor="background.dark"
-    color="background.light"
-    padding="thin"
-    centered
-  >
-    <Text variant="label">
-      <em>
-        ({atBottom ? "that's all of 'em!" : "keep scrolling for more matches!"})
-      </em>
-    </Text>
-  </Box>
-);

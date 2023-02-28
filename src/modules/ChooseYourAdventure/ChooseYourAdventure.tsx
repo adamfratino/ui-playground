@@ -11,17 +11,17 @@ const ChooseYourAdventure: React.FC = () => (
       <AdventureButton
         backgroundColor="notification.success"
         buttonText="Open Matches"
-        descriptionText="Dive right in and find someone to play! **Some matches will have a date selected already.** Matches that don't have a date are **open challanges, where you and your opponent pick a date together!**"
+        descriptionText="Dive right in and **find someone to play!** Keep an eye on the first column; **if a date isn't already selected, you and your opponent can pick a date together!**"
       />
       <AdventureButton
         backgroundColor="notification.warning"
         buttonText="Upcoming Matches"
-        descriptionText="Whether spectating or scouting, stop by and **check out the competition** if you're free."
+        descriptionText="Have a look at **what's coming up** and consider visiting the club to spectate if you're in the area."
       />
       <AdventureButton
         backgroundColor="notification.alert"
         buttonText="Past Matches"
-        descriptionText="Browse the **match history**. *(Perfect for scouting!)*"
+        descriptionText="Take a trip down memory lane and browse some **recently completed matches.**"
       />
     </Grid>
   </Box>

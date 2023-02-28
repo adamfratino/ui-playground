@@ -90,12 +90,31 @@ const arrow = {
   },
 };
 
+const reset = {
+  box: {
+    paddingY: 1,
+    paddingX: 3,
+    alignSelf: "center",
+    border: "1px solid grey",
+    borderRadius: "16px",
+    backgroundColor: "transparent",
+    "&:hover": {
+      border: "2px solid grey",
+      fontWeight: "bold",
+    },
+  },
+  text: {
+    fontSize: 2,
+  },
+};
+
 const variants = {
   primary,
   secondary,
   filter,
   arrow,
   big,
+  reset,
   realBig,
 };
 

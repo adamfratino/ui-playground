@@ -125,6 +125,7 @@ export const MOCK_EVENTS = [
     frames: 8,
     cap: 100,
     stakes: 1,
+    date: new Date("1994-08-16"),
   },
   {
     id: 9,
@@ -152,5 +153,6 @@ export const MOCK_EVENTS = [
     frames: 8,
     scoreCap: 40,
     stakes: 2,
+    date: new Date("1995-04-28"),
   },
 ] as EventType[];

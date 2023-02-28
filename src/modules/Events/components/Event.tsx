@@ -9,7 +9,7 @@ import {
 } from "__mockData";
 
 /** @todo figure out these conditional types */
-export const Event: React.FC<EventType> = ({
+const Event: React.FC<EventType> = ({
   type,
   date,
   frames,
@@ -142,3 +142,5 @@ const StyledTournamentName = styled(Text)`
     content: ", ";
   }
 `;
+
+export default Event;

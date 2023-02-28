@@ -10,6 +10,9 @@ type StyledProps = {
   fontSize?: CSSProperties["fontSize"];
   border?: CSSProperties["border"];
   width?: CSSProperties["width"];
+  filter?: CSSProperties["filter"];
+  pointerEvents?: CSSProperties["pointerEvents"];
+  cursor?: CSSProperties["cursor"];
 };
 
 type Props = StyledProps & {
@@ -27,6 +30,9 @@ const Button: React.FC<Props> = ({
   fontSize,
   border,
   width,
+  filter,
+  pointerEvents,
+  cursor,
 }) => (
   <Box
     variants={flattenVariant(variants, "box")}
@@ -36,6 +42,9 @@ const Button: React.FC<Props> = ({
     backgroundColor={backgroundColor}
     border={border}
     width={width}
+    filter={filter}
+    pointerEvents={pointerEvents}
+    cursor={cursor}
   >
     <Text
       as="span"

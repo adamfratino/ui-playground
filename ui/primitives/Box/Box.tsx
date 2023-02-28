@@ -1,5 +1,5 @@
 import { forwardRef } from "react";
-import styled from "styled-components";
+import styled, { CSSProperties } from "styled-components";
 import {
   border,
   color,
@@ -37,6 +37,9 @@ type StyledProps = BorderProps &
     variants?: {};
     trimEdges?: boolean;
     centered?: boolean;
+    filter?: CSSProperties["filter"];
+    pointerEvents?: CSSProperties["pointerEvents"];
+    cursor?: CSSProperties["cursor"];
     as?: React.ElementType;
   };
 
@@ -46,9 +49,21 @@ export type Props = StyledProps & {
   onClick?: () => void;
 };
 
-const Box = forwardRef<HTMLDivElement, Props>(
+const Box = forwardRef<HTMLElement, Props>(
   (
-    { as, children, variants, variant, trimEdges, centered, onClick, ...props },
+    {
+      as,
+      children,
+      filter,
+      variants,
+      variant,
+      trimEdges,
+      cursor,
+      pointerEvents,
+      centered,
+      onClick,
+      ...props
+    },
     ref
   ) => (
     <StyledBox
@@ -57,6 +72,9 @@ const Box = forwardRef<HTMLDivElement, Props>(
       variant={variant}
       trimEdges={trimEdges}
       centered={centered}
+      filter={filter}
+      pointerEvents={pointerEvents}
+      cursor={cursor}
       onClick={onClick}
       ref={ref}
       {...props}
@@ -75,6 +93,9 @@ const StyledBox = styled.div<StyledProps>`
     appearance: none;
     cursor: pointer;
   `}
+  ${({ filter }) => filter && `filter: ${filter}`};
+  ${({ cursor }) => cursor && `cursor: ${cursor}`};
+  ${({ pointerEvents }) => pointerEvents && `pointer-events: ${pointerEvents}`};
 
   ${({ variants }) =>
     variant({ variants: { ...coreVariants, ...(variants && variants) } })}
