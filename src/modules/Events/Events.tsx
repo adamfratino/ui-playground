@@ -11,6 +11,12 @@ import {
   Text,
 } from "~ui/primitives";
 import { Button } from "~components";
+import {
+  openEvents,
+  upcomingEvents,
+  pastEvents,
+  isAllEvents as isAllEventsFunc,
+} from "~/utilities/events";
 import { EventType } from "__mockData";
 import Event from "./components/Event";
 import DisabledOverlay from "./components/DisabledOverlay";
@@ -42,29 +48,24 @@ const Events: React.FC<Props> = ({
   const y = useScroll(scrollRef);
   const [atBottom, setAtBottom] = useState(false);
   const [filteredEvents, setFilteredEvents] = useState(events);
-
-  /** @todo errors are because of conditional types, figure it out bud */
-  const openEvents = events.filter(
-    (event) => event.player2 === undefined && event.players2 === undefined
-  );
-  const upcomingEvents = events.filter(
-    (event) => !event.whoWon && (event.player2 || event.players2)
-  );
-  const pastEvents = events.filter((event) => event.whoWon);
-  const isAllEvents = JSON.stringify(filteredEvents) === JSON.stringify(events);
+  const isAllEvents = isAllEventsFunc(events, filteredEvents);
 
   const filters = [
     {
       text: "Open",
       backgroundColor: "notification.success",
-      filter: openEvents,
+      filter: openEvents(events),
     },
     {
       text: "Upcoming",
       backgroundColor: "notification.warning",
-      filter: upcomingEvents,
+      filter: upcomingEvents(events),
     },
-    { text: "Past", backgroundColor: "notification.alert", filter: pastEvents },
+    {
+      text: "Past",
+      backgroundColor: "notification.alert",
+      filter: pastEvents(events),
+    },
   ];
 
   useEffect(() => {

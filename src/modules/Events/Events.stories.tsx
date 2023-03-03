@@ -8,17 +8,17 @@ export default {
 
 export const Default = () => (
   <EventsComponent
-    controls={[
-      { text: "Open", backgroundColor: "notification.success" },
-      { text: "Upcoming", backgroundColor: "notification.warning" },
-      { text: "Past", backgroundColor: "notification.alert" },
-    ]}
-    events={MOCK_EVENTS}
+    title="Singles & Doubles Matches"
+    events={MOCK_EVENTS.filter(
+      (ev) => ev.type === "singles" || ev.type === "doubles"
+    )}
   />
 );
 export const Disabled = () => (
   <EventsComponent
-    events={MOCK_EVENTS}
+    events={MOCK_EVENTS.filter(
+      (ev) => ev.type === "bracket" || ev.type === "round robin"
+    )}
     title="Round Robin & Tournaments"
     disabled
     disabledMessage="Coming Soon!"

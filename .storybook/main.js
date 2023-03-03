@@ -17,7 +17,16 @@ module.exports = {
     builder: "@storybook/builder-webpack5",
   },
   webpackFinal: async (config, { configType }) => {
-    config.resolve.plugins = [new TsconfigPathsPlugin()];
+    config.resolve = {
+      ...config.resolve,
+      plugins: [new TsconfigPathsPlugin()],
+      fallback: {
+        ...(config.resolve || {}).fallback,
+        fs: false,
+        stream: false,
+        os: false,
+      },
+    };
     return config;
   },
 };

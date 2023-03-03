@@ -3,6 +3,7 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
-}
+  pageExtensions: ["page.tsx", "api.ts"],
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

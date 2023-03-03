@@ -11,6 +11,7 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "@next/bundle-analyzer": "^13.2.3",
     "@next/font": "13.1.4",
     "@types/node": "18.11.18",
     "@types/react": "18.0.27",
@@ -23,6 +24,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-markdown": "^8.0.5",
+    "react-modal": "^3.16.1",
     "react-scroll": "^1.8.9",
     "react-use": "^17.4.0",
     "styled-components": "^5.3.6",
@@ -39,11 +41,12 @@
     "@storybook/manager-webpack5": "^6.5.15",
     "@storybook/react": "^6.5.15",
     "@storybook/testing-library": "0.0.13",
+    "@types/react-modal": "^3.13.1",
     "@types/react-scroll": "^1.8.6",
     "@types/styled-components": "^5.1.26",
     "babel-loader": "^8.3.0",
     "eslint-plugin-storybook": "^0.6.10",
-    "storybook-addon-next": "^1.7.1",
+    "storybook-addon-next": "^1.7.3",
     "tsconfig-paths-webpack-plugin": "^4.0.0",
     "webpack": "^5.75.0"
   }

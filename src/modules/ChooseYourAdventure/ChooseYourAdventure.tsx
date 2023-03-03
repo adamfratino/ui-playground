@@ -34,6 +34,7 @@ type AdventureButtonProps = {
   buttonText: string;
   descriptionText?: string;
   backgroundColor?: string;
+  onClick?: () => void;
 };
 
 const AdventureButton: React.FC<AdventureButtonProps> = ({

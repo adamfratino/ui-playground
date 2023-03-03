@@ -4,38 +4,25 @@ export type SinglesPlayerType = PlayerType;
 export type DoublesPlayersType = [PlayerType, PlayerType];
 export type TournamentPlayersType = PlayerType[];
 
-/** Match Types */
-type MatchType =
-  | {
-      type: "singles";
-      player1: SinglesPlayerType;
-      player2?: SinglesPlayerType;
-      whoWon?: SinglesPlayerType;
-    }
-  | {
-      type: "doubles";
-      players1: DoublesPlayersType;
-      players2?: DoublesPlayersType;
-      whoWon?: DoublesPlayersType;
-    }
-  | {
-      type: "round robin" | "bracket";
-      players: TournamentPlayersType;
-      spots: number;
-      whoWon?: SinglesPlayerType;
-    };
+type MatchTypes = "singles" | "doubles" | "round robin" | "bracket";
 
 /** Event Types */
-export type EventType = MatchType & {
+export type EventType = {
   id: number;
-  type: MatchType["type"];
+  type: MatchTypes;
   frames: 4 | 8 | 12 | 16;
   date?: Date;
   scoreCap?: number;
   stakes?: number;
+  players?: TournamentPlayersType;
+  player1?: SinglesPlayerType;
+  player2?: SinglesPlayerType;
+  players1?: DoublesPlayersType;
+  players2?: DoublesPlayersType;
+  spots?: number;
+  whoWon?: SinglesPlayerType | DoublesPlayersType;
 };
 
-/** @todo not throwing type errors properly, figure it out bud */
 export const MOCK_EVENTS = [
   {
     id: 1,
@@ -46,7 +33,7 @@ export const MOCK_EVENTS = [
     frames: 16,
     scoreCap: 75,
     stakes: 10,
-    date: new Date("2004-03-14"),
+    date: "2004-03-14",
   },
   {
     id: 2,
@@ -54,7 +41,7 @@ export const MOCK_EVENTS = [
     players1: ["Rob Van Dam", "Booker T"],
     frames: 8,
     scoreCap: 50,
-    date: new Date("2004-03-14"),
+    date: "2004-03-14",
   },
   {
     id: 3,
@@ -73,7 +60,7 @@ export const MOCK_EVENTS = [
     frames: 8,
     spots: 8,
     stakes: 2,
-    date: new Date("2004-03-14"),
+    date: "2004-03-14",
   },
   {
     id: 4,
@@ -81,7 +68,7 @@ export const MOCK_EVENTS = [
     players: ["Adrian Neville", "Tyler Breeze", "Sami Zayn"],
     frames: 4,
     spots: 4,
-    date: new Date("2014-09-11"),
+    date: "2014-09-11",
   },
   {
     id: 5,
@@ -92,7 +79,7 @@ export const MOCK_EVENTS = [
     frames: 4,
     scoreCap: 100,
     stakes: 25,
-    date: new Date("1996-04-16"),
+    date: "1996-04-16",
   },
   {
     id: 6,
@@ -125,7 +112,7 @@ export const MOCK_EVENTS = [
     frames: 8,
     cap: 100,
     stakes: 1,
-    date: new Date("1994-08-16"),
+    date: "1994-08-16",
   },
   {
     id: 9,
@@ -134,7 +121,7 @@ export const MOCK_EVENTS = [
     players2: ["Stan Hansen", "Terry Gordy"],
     whoWon: ["Stan Hansen", "Terry Gordy"],
     frames: 12,
-    date: new Date("1988-12-16"),
+    date: "1988-12-16",
   },
   {
     id: 10,
@@ -153,6 +140,6 @@ export const MOCK_EVENTS = [
     frames: 8,
     scoreCap: 40,
     stakes: 2,
-    date: new Date("1995-04-28"),
+    date: "1995-04-28",
   },
 ] as EventType[];

@@ -1,11 +1,16 @@
 import { Box, Grid, Text } from "~ui/primitives";
+import ClubDetails, {
+  Props as ClubDetailsProps,
+} from "./components/ClubDetails";
 
-const Hero: React.FC = () => (
-  <Box variant="section" my={12}>
+type Props = ClubDetailsProps;
+
+const Hero: React.FC<Props> = ({ ...props }) => (
+  <Box variant="section" as="section" my={12}>
     <Text variant="title" as="h1" mb={8}>
       shuff.club
     </Text>
-    <Grid gap={12}>
+    <Grid gap={8}>
       <Grid variant="stacked" gap={3}>
         <Text variant="paragraph">
           <strong>shuff.club</strong> is an all-in-one platform that connects
@@ -18,10 +23,8 @@ const Hero: React.FC = () => (
           people together and foster a sense of community.
         </Text>
       </Grid>
-      <Box border="1px solid grey" padding="thick">
-        <Text variant="paragraph">
-          <em>(list stats of games played, open, etc., here)</em>
-        </Text>
+      <Box border="1px solid grey" p="thick">
+        <ClubDetails {...props} />
       </Box>
     </Grid>
   </Box>

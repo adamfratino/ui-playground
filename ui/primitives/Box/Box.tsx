@@ -44,6 +44,7 @@ type StyledProps = BorderProps &
   };
 
 export type Props = StyledProps & {
+  id?: string;
   children?: React.ReactNode;
   variant?: keyof typeof coreVariants | {};
   onClick?: () => void;
@@ -52,6 +53,7 @@ export type Props = StyledProps & {
 const Box = forwardRef<HTMLElement, Props>(
   (
     {
+      id,
       as,
       children,
       filter,
@@ -67,6 +69,7 @@ const Box = forwardRef<HTMLElement, Props>(
     ref
   ) => (
     <StyledBox
+      id={id}
       as={as}
       variants={variants}
       variant={variant}

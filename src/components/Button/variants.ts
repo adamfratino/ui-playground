@@ -1,5 +1,3 @@
-/** @todo figure out how to separate helpers from variants */
-
 const box = {
   hover: {
     filter: "saturate(115%)",
@@ -76,17 +74,16 @@ const realBig = {
   },
 };
 
-const arrow = {
+const icon = {
   box: {
-    height: 48,
-    width: 48,
+    height: 24,
+    width: 24,
     backgroundColor: "background.dark",
     "&:hover": box.hover,
   },
   text: {
     color: "text.light",
-    fontWeight: "bold",
-    fontSize: 4,
+    fontSize: 3,
   },
 };
 
@@ -112,7 +109,7 @@ const variants = {
   primary,
   secondary,
   filter,
-  arrow,
+  icon,
   big,
   reset,
   realBig,
