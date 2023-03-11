@@ -1,3 +1,4 @@
+import { NextPage } from "next";
 import { Element } from "react-scroll";
 import { Box } from "~ui/primitives";
 import { Divider } from "~/components";
@@ -10,8 +11,13 @@ import {
   matchEvents,
   tournamentEvents,
 } from "~/utilities/events";
+import { EventType } from "__mockData";
 
-const Homepage: React.FC = (props: any) => {
+type Props = {
+  events: EventType[];
+};
+
+const Homepage: NextPage<Props> = (props) => {
   const { events } = props;
 
   const matches = matchEvents(events);

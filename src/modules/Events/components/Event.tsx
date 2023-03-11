@@ -75,10 +75,13 @@ const Event: React.FC<EventType> = ({
           contentLabel="Example Modal"
         >
           <AcceptChallengeModal
+            type={type}
             player1={player1}
             players1={players1}
-            type={type}
             frames={frames}
+            stakes={stakes}
+            scoreCap={scoreCap}
+            date={date}
           />
         </Modal>
       )}

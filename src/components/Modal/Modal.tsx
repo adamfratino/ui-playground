@@ -47,6 +47,7 @@ const styles = {
   },
   content: {
     minWidth: "640px",
+    maxWidth: "100%",
     top: "50%",
     left: "50%",
     right: "auto",

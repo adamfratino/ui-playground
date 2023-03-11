@@ -10,6 +10,7 @@ export const AcceptChallenge: Story = () => (
   <Modal modalIsOpen={true} contentLabel="Accept Challenge">
     <AcceptChallengeModal
       players1={["Edge", "Christian"]}
+      // player1="Edge"
       type="singles"
       frames={8}
     />
