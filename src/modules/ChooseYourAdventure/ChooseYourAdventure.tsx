@@ -48,7 +48,7 @@ const AdventureButton: React.FC<AdventureButtonProps> = ({
       </Button>
     </Link>
     {descriptionText && (
-      <Text as="div" variant="label" mt={4} mr={4} markdown>
+      <Text as="div" variant="label" mt={4} mr={4} isMarkdown={true}>
         {descriptionText}
       </Text>
     )}

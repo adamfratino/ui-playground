@@ -2,7 +2,8 @@ import primary from "./primary";
 
 const event = {
   ...primary,
-  paddingX: 0,
+  paddingX: 1,
+  width: "100%",
   fontSize: 1,
 };
 

@@ -87,7 +87,7 @@ const Events: React.FC<Props> = ({
           alignItems={["flex-start", "flex-end"]}
         >
           {title && (
-            <Text variant="eyebrow" as="h2" mb={4}>
+            <Text as="h2" variant="eyebrow" mb={4}>
               {title} {!disabled && `(${filteredEvents.length})`}
             </Text>
           )}

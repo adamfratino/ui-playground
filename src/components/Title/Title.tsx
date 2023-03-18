@@ -5,7 +5,7 @@ type Props = {
 };
 
 const Title: React.FC<Props> = ({ children }) => (
-  <Text variant="title" as="h1">
+  <Text as="h1" variant="title">
     {children}
   </Text>
 );

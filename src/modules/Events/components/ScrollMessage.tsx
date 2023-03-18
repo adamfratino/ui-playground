@@ -11,7 +11,7 @@ const ScrollMessage: React.FC<{ atBottom?: boolean }> = ({ atBottom }) => (
     padding="thin"
     centered
   >
-    <Text variant="label">
+    <Text as="span" variant="label">
       <em>
         ({atBottom ? "that's all of 'em!" : "keep scrolling for more matches!"})
       </em>

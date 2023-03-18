@@ -10,18 +10,19 @@ const Introduction: React.FC<Props> = ({ title, description }) => (
   <>
     <Grid>
       <Box maxWidth="580px">
-        <Text variant="title" mb={8}>
+        <Text as="h1" variant="title" mb={8}>
           {title}
         </Text>
         {typeof description === "string" ? (
-          <Text variant="paragraph" markdown>
+          <Text as="h2" variant="paragraph" isMarkdown>
             {description}
           </Text>
         ) : (
           description.map((p, i) => (
             <Text
+              as="h2"
               variant="paragraph"
-              markdown
+              isMarkdown
               mb={(description.length - 1 > i && 2) as number}
               key={i}
             >

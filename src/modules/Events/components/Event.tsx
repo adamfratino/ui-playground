@@ -56,7 +56,7 @@ const Event: React.FC<EventType> = ({
             {!whoWon ? (
               <Button variant="event">Register</Button>
             ) : (
-              <Text variant="label">
+              <Text as="span" variant="label">
                 <strong>Winner:</strong> {whoWon}
               </Text>
             )}
@@ -122,13 +122,22 @@ const MatchPlayersCell: React.FC<{
   return (
     <TableCell centered={!player && !players}>
       {player && (
-        <Text as="span" fontWeight={player === whoWon ? 600 : 500}>
+        <Text
+          as="span"
+          variant="label"
+          fontWeight={player === whoWon ? 600 : 500}
+        >
           {player}
         </Text>
       )}
       {players &&
         Array.from(players).map((player, i) => (
-          <Text as="span" key={i} fontWeight={isWinner ? 600 : 500}>
+          <Text
+            as="p"
+            variant="label"
+            key={i}
+            fontWeight={isWinner ? 600 : 500}
+          >
             {player}
           </Text>
         ))}

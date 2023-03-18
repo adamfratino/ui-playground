@@ -9,7 +9,7 @@ const Footer: React.FC = () => (
   >
     <Box variant="section">
       <Grid gridTemplateColumns="420px 1fr" gap={8}>
-        <Text variant="paragraph" color="text.light" fontSize={3}>
+        <Text as="p" variant="paragraph" color="text.light" fontSize={3}>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam, vel
           incidunt? Alias, enim in totam modi possimus numquam sint, dolorem
           explicabo animi dolore illo ex, ipsum quos quo magni.

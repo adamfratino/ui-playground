@@ -7,17 +7,17 @@ type Props = ClubDetailsProps;
 
 const Hero: React.FC<Props> = ({ ...props }) => (
   <Box variant="section" as="section" my={12}>
-    <Text variant="title" as="h1" mb={8}>
+    <Text as="h1" variant="title" mb={8}>
       shuff.club
     </Text>
     <Grid gap={8}>
       <Grid variant="stacked" gap={3}>
-        <Text variant="paragraph">
+        <Text as="p" variant="paragraph">
           <strong>shuff.club</strong> is an all-in-one platform that connects
           people through traditional shuffleboard, empowering them to
           self-organize matches, track their stats, and climb the leaderboard.
         </Text>
-        <Text variant="paragraph">
+        <Text as="p" variant="paragraph">
           Whether you&apos;re a casual or competitive player, our goal is to
           offer a unique blend of social and competitive features to bring
           people together and foster a sense of community.

@@ -33,7 +33,7 @@ const ClubDetails: React.FC<Props> = ({
     </Grid>
     <Grid gap="thick">
       <Box>
-        <Text variant="label" fontWeight={600} mb={1}>
+        <Text as="h3" variant="label" fontWeight={600} mb={1}>
           Current Players of the Month
         </Text>
         <ol>
@@ -45,7 +45,7 @@ const ClubDetails: React.FC<Props> = ({
         </ol>
       </Box>
       <Box>
-        <Text variant="label" fontWeight={600} mb={1}>
+        <Text as="h3" variant="label" fontWeight={600} mb={1}>
           Current Players of the Year
         </Text>
         <ol>
@@ -73,10 +73,10 @@ type MatchItemProps = {
 
 const MatchItem: React.FC<MatchItemProps> = ({ label, value }) => (
   <Grid as="li" gridTemplateColumns="160px 1fr">
-    <Text variant="label" fontSize={3}>
+    <Text as="h4" variant="label" fontSize={3}>
       <strong>{label}:</strong>
     </Text>{" "}
-    <Text variant="label" fontSize={3}>
+    <Text as="h4" variant="label" fontSize={3}>
       {value}
     </Text>
   </Grid>

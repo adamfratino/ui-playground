@@ -7,11 +7,7 @@ export default {
   title: "UI/Primitives",
   argTypes: {
     variant: { control: { type: "select", options: Object.keys(variants) } },
-    onClick: {
-      table: {
-        disable: true,
-      },
-    },
+    onClick: { table: { disable: true } },
   },
   args: {
     onClick: action("clicked"),
