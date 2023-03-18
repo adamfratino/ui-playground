@@ -1,4 +1,4 @@
-import { CSSProperties } from "styled-components";
+import { CSSProperties } from "react";
 import { Box } from "~ui/primitives";
 
 type Props = {

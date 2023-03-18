@@ -1,6 +1,7 @@
 import { Meta, Story } from "@storybook/react";
 import Modal from "./Modal";
 import AcceptChallengeModal from "~/modules/Events/components/AcceptChallengeModal";
+import CreateEventForm from "~/components/CreateEventForm/CreateEventForm";
 
 export default {
   title: "App/Components/Modal",
@@ -14,5 +15,11 @@ export const AcceptChallenge: Story = () => (
       type="singles"
       frames={8}
     />
+  </Modal>
+);
+
+export const CreateEvent: Story = () => (
+  <Modal modalIsOpen={true} contentLabel="CreateEventForm">
+    <CreateEventForm />
   </Modal>
 );

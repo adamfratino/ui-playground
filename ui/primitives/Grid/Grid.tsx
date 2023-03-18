@@ -1,5 +1,5 @@
-import { forwardRef } from "react";
-import styled, { CSSProperties } from "styled-components";
+import { forwardRef, CSSProperties } from "react";
+import styled from "@emotion/styled";
 import { color, grid, layout, space, variant } from "styled-system";
 import type {
   ColorProps,

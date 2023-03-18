@@ -1,6 +1,5 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, CSSProperties } from "react";
 import { useScroll } from "react-use";
-import { CSSProperties } from "styled-components";
 import {
   Box,
   Grid,

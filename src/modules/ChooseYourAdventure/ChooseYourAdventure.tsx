@@ -1,5 +1,4 @@
-import { Box, Grid, Text } from "~ui/primitives";
-import { Button } from "~components";
+import { Box, Button, Grid, Text } from "~ui/primitives";
 import { Link } from "react-scroll";
 
 const ChooseYourAdventure: React.FC = () => (
@@ -44,7 +43,7 @@ const AdventureButton: React.FC<AdventureButtonProps> = ({
 }) => (
   <Box>
     <Link to="matches" smooth={true} duration={350}>
-      <Button variant="big" backgroundColor={backgroundColor} width={1}>
+      <Button variant="big" backgroundColor={backgroundColor}>
         {buttonText}
       </Button>
     </Link>

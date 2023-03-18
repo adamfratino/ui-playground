@@ -1,5 +1,5 @@
 import { forwardRef } from "react";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import { height, margin, shadow, system, variant } from "styled-system";
 import {
   BackgroundColorProps,

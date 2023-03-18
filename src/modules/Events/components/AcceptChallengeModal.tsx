@@ -1,5 +1,4 @@
-import { Grid, Box, Text } from "~ui/primitives";
-import { Button } from "~components";
+import { Button, Grid, Box, Text } from "~ui/primitives";
 import { EventType } from "__mockData";
 
 type Props = Omit<EventType, "id" | "players" | "whoWon" | "spots" | "whoWon">;

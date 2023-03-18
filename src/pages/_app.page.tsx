@@ -1,6 +1,6 @@
 import React from "react";
 import { AppProps } from "next/app";
-import { ThemeProvider } from "styled-components";
+import { ThemeProvider } from "@emotion/styled";
 import theme from "~ui/theme";
 import "~ui/global.css";
 // import { Navigation, Footer } from "~/modules";

@@ -1,7 +1,7 @@
 import { useState } from "react";
-import styled from "styled-components";
-import { Box, Grid, Text, TableCell } from "~ui/primitives";
-import { Button, Modal } from "~components";
+import styled from "@emotion/styled";
+import { Box, Button, Grid, Text, TableCell } from "~ui/primitives";
+import { Modal } from "~components";
 import {
   SinglesPlayerType,
   DoublesPlayersType,
@@ -54,9 +54,7 @@ const Event: React.FC<EventType> = ({
           <TournamentPlayersCell players={players} />
           <TableCell>
             {!whoWon ? (
-              <Button variant="primary" fontSize={1}>
-                Register
-              </Button>
+              <Button variant="event">Register</Button>
             ) : (
               <Text variant="label">
                 <strong>Winner:</strong> {whoWon}
@@ -107,9 +105,7 @@ const DateCell: React.FC<Pick<EventType, "date">> = ({ date }) => {
           <span>{readableDate[1]}</span>
         </Grid>
       ) : (
-        <Button variant="primary" fontSize={1}>
-          Set Date
-        </Button>
+        <Button variant="event">Set Date</Button>
       )}
     </TableCell>
   );
@@ -138,10 +134,9 @@ const MatchPlayersCell: React.FC<{
         ))}
       {!player && !players && (
         <Button
-          variant="primary"
-          fontSize={1}
-          width={1}
+          variant="event"
           onClick={acceptChallengeOnClick}
+          sx={{ width: "100%" }}
         >
           Accept the Challenge!
         </Button>
@@ -157,7 +152,7 @@ const TournamentPlayersCell: React.FC<{
     <Box>
       {players &&
         Array.from(players).map((player, i) => (
-          <StyledTournamentName forwardedAs="span" key={i}>
+          <StyledTournamentName as="span" key={i}>
             {player}
           </StyledTournamentName>
         ))}

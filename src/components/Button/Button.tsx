@@ -1,4 +1,5 @@
-import { CSSProperties } from "styled-components";
+import { CSSProperties } from "react";
+import { Button as UIButton } from "theme-ui";
 import { flattenVariant } from "~ui/helpers";
 import { Box, Text } from "~ui/primitives";
 import variants from "./variants";
@@ -59,3 +60,5 @@ const Button: React.FC<Props> = ({
 );
 
 export default Button;
+
+export const NewButton: React.FC = () => <UIButton m={1}>Test</UIButton>;

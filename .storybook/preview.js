@@ -1,4 +1,4 @@
-// import { ThemeProvider } from "styled-components";
+// import { ThemeProvider } from '@emotion/styled';
 import { ThemeProvider } from "theme-ui";
 import theme from "~ui/theme";
 import "~ui/global.css";

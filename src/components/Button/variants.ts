@@ -64,16 +64,6 @@ const big = {
   },
 };
 
-const realBig = {
-  box: {
-    ...big.box,
-    padding: 10,
-  },
-  text: {
-    ...big.text,
-  },
-};
-
 const icon = {
   box: {
     height: 24,
@@ -112,7 +102,6 @@ const variants = {
   icon,
   big,
   reset,
-  realBig,
 };
 
 export default variants;

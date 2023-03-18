@@ -1,6 +1,6 @@
-import { forwardRef } from "react";
+import { forwardRef, CSSProperties } from "react";
 import ReactMarkdown from "react-markdown";
-import styled, { CSSProperties } from "styled-components";
+import styled from "@emotion/styled";
 import { color, space, shadow, typography, variant } from "styled-system";
 import type {
   ColorProps,

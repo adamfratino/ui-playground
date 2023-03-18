@@ -1,4 +1,4 @@
-import { Button } from "~components";
+import { Button } from "~ui/primitives";
 
 type FilterButtonProps = {
   text: string;
@@ -8,19 +8,23 @@ type FilterButtonProps = {
   isDisabled?: boolean;
 };
 
-/**@todo honestly just rip the bandaid off refactor theme ui (for polished with color tokens) */
+/**
+ * @todo honestly just rip the bandaid off refactor theme ui (for polished with color tokens)
+ * @update not sure what i mean about polished/color tokens but we're on theme-ui now...
+ * */
 const FilterButton: React.FC<FilterButtonProps> = ({
   text,
   backgroundColor,
   onClick,
-  isActive,
   isDisabled,
 }) => (
   <Button
     variant="filter"
     backgroundColor={backgroundColor}
     onClick={onClick}
-    filter={isDisabled ? "brightness(0.7)" : undefined}
+    sx={{
+      filter: isDisabled ? "brightness(0.7)" : undefined,
+    }}
   >
     {text}
   </Button>

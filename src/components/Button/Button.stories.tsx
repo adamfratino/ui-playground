@@ -1,6 +1,6 @@
 import { Meta, Story } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
-import Button from "./Button";
+import Button, { NewButton } from "./Button";
 import { variantArgTypes } from "~storybook/configs";
 import variants from "./variants";
 
@@ -21,3 +21,5 @@ export const Default: Story = (args) => (
   </Button>
 );
 Default.storyName = "Button";
+
+export const Test: Story = () => <NewButton />;

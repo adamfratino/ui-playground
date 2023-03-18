@@ -6,6 +6,7 @@ import {
   shadows,
   space,
 } from "~ui/tokens";
+import buttons from "./primitives/Button/variants";
 
 /** Breakpoints */
 breakpoints.xs = breakpoints[0];
@@ -32,6 +33,7 @@ space.thick = space[4];
 
 /** Theme */
 const theme = {
+  buttons,
   colors,
   breakpoints,
   fonts,
