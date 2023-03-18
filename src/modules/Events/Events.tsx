@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, CSSProperties } from "react";
 import { useScroll } from "react-use";
 import {
+  Button,
   Box,
   Grid,
   Table,
@@ -9,7 +10,6 @@ import {
   TableRow,
   Text,
 } from "~ui/primitives";
-import { Button } from "~components";
 import {
   openEvents,
   upcomingEvents,
@@ -96,7 +96,6 @@ const Events: React.FC<Props> = ({
               {!isAllEvents && (
                 <Button
                   variant="reset"
-                  color="black"
                   onClick={() => setFilteredEvents(events)}
                 >
                   Reset

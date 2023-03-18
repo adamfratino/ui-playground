@@ -1,7 +1,6 @@
 import ReactModal from "react-modal";
 import { shadows } from "~ui/tokens";
-import { Box } from "~ui/primitives";
-import { Button } from "~components";
+import { Box, Button } from "~ui/primitives";
 
 type Props = {
   modalIsOpen: boolean;

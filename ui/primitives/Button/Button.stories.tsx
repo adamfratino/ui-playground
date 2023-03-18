@@ -15,6 +15,7 @@ export default {
   },
   args: {
     onClick: action("clicked"),
+    variant: "primary",
   },
 } as Meta;
 

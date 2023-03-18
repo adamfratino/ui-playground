@@ -1,17 +1,23 @@
 import { forwardRef } from "react";
-import { Button as ThemeUiButton, ButtonProps } from "theme-ui";
+import { Button, ButtonProps } from "theme-ui";
+import variants from "./variants";
+
+type Props = ButtonProps & {
+  variant?: keyof typeof variants;
+};
 
 /**
  * @see https://theme-ui.com/components/button
+ * @todo find best way to add default styles that still take theme
  */
-const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ children, ...props }, ref) => (
-    <ThemeUiButton ref={ref} {...props}>
+const ButtonPrimitive = forwardRef<HTMLButtonElement, Props>(
+  ({ children, variant, ...props }, ref) => (
+    <Button ref={ref} variant={variant} {...props}>
       {children}
-    </ThemeUiButton>
+    </Button>
   )
 );
 
-Button.displayName = "Button";
+ButtonPrimitive.displayName = "Button";
 
-export default Button;
+export default ButtonPrimitive;
