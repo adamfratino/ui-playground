@@ -1,20 +1,29 @@
+import { useState } from "react";
 import { Box, Grid } from "~ui/primitives";
-import { Button } from "~components";
+import { Button, CreateEventForm, Modal } from "~components";
 import variants from "./variants";
 
-type Props = {
-  children?: React.ReactNode;
-};
-
-const Navigation: React.FC<Props> = ({ children }) => (
-  <Box as="header" variants={variants} variant="outerContainer">
-    <Box as="nav" variant="section" display="flex" paddingY={1}>
-      <Grid gap={4} marginLeft="auto">
-        <Button variant="primary">Sign Up</Button>
-        <Button variant="secondary">Log In</Button>
-      </Grid>
+const Navigation: React.FC = () => {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  return (
+    <Box as="header" variants={variants} variant="outerContainer">
+      <Box as="nav" variant="section" display="flex" paddingY={1}>
+        <Grid gap={4} marginLeft="auto">
+          <Button variant="primary" onClick={() => setModalIsOpen(true)}>
+            Create Match
+          </Button>
+          <Modal
+            modalIsOpen={modalIsOpen}
+            setModalIsOpen={setModalIsOpen}
+            contentLabel="Example Modal"
+          >
+            <CreateEventForm />
+          </Modal>
+          {/* <Button variant="secondary">Log In</Button> */}
+        </Grid>
+      </Box>
     </Box>
-  </Box>
-);
+  );
+};
 
 export default Navigation;

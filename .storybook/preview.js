@@ -1,4 +1,5 @@
-import { ThemeProvider } from "styled-components";
+// import { ThemeProvider } from "styled-components";
+import { ThemeProvider } from "theme-ui";
 import theme from "~ui/theme";
 import "~ui/global.css";
 
