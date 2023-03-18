@@ -1,146 +1,54 @@
-import { forwardRef, CSSProperties } from "react";
-import styled from "@emotion/styled";
-import {
-  border,
-  color,
-  flexbox,
-  grid,
-  layout,
-  position,
-  shadow,
-  space,
-  typography,
-  variant,
-} from "styled-system";
-import type {
-  BorderProps,
-  ColorProps,
-  FlexboxProps,
-  GridProps,
-  LayoutProps,
-  PositionProps,
-  ShadowProps,
-  SpaceProps,
-  TypographyProps,
-} from "styled-system";
-import coreVariants from "./variants";
+import { forwardRef } from "react";
+import { Box, BoxProps } from "theme-ui";
+import { isCentered, trimEdges, StyleProps } from "./styles";
+import variants from "./variants";
 
-type StyledProps = BorderProps &
-  ColorProps &
-  FlexboxProps &
-  GridProps &
-  LayoutProps &
-  PositionProps &
-  SpaceProps &
-  ShadowProps &
-  TypographyProps & {
-    variants?: {};
-    trimEdges?: boolean;
-    centered?: boolean;
-    filter?: CSSProperties["filter"];
-    pointerEvents?: CSSProperties["pointerEvents"];
-    cursor?: CSSProperties["cursor"];
-    as?: React.ElementType;
-  };
-
-export type Props = StyledProps & {
-  id?: string;
-  children?: React.ReactNode;
-  variant?: keyof typeof coreVariants | {};
-  onClick?: () => void;
+type OtherProps = {
+  as?: React.ElementType<any>;
+  variant?: keyof typeof variants;
 };
 
-const Box = forwardRef<HTMLElement, Props>(
+export type Props = React.HTMLAttributes<HTMLElement> &
+  BoxProps &
+  StyleProps &
+  OtherProps;
+
+/** @todo figure out why making this an FC errors children */
+const BoxPrimitive = forwardRef<HTMLElement, Props>(
   (
     {
-      id,
-      as,
       children,
-      filter,
-      variants,
-      variant,
-      trimEdges,
-      cursor,
-      pointerEvents,
-      centered,
-      onClick,
+      as,
+      variant = undefined,
+      sx,
+      boxShadow,
+      display,
+      height,
+      width,
       ...props
     },
     ref
   ) => (
-    <StyledBox
-      id={id}
-      as={as}
-      variants={variants}
-      variant={variant}
-      trimEdges={trimEdges}
-      centered={centered}
-      filter={filter}
-      pointerEvents={pointerEvents}
-      cursor={cursor}
-      onClick={onClick}
-      ref={ref}
+    <Box
       {...props}
+      ref={ref}
+      as={as}
+      variant={variant}
+      sx={{
+        isCentered,
+        trimEdges,
+        boxShadow,
+        display,
+        height,
+        width,
+        ...sx,
+      }}
     >
       {children}
-    </StyledBox>
+    </Box>
   )
 );
-Box.displayName = "Box";
 
-const StyledBox = styled.div<StyledProps>`
-  ${({ as }) =>
-    as === "button" &&
-    `
-    border: none;
-    appearance: none;
-    cursor: pointer;
-  `}
-  ${({ filter }) => filter && `filter: ${filter}`};
-  ${({ cursor }) => cursor && `cursor: ${cursor}`};
-  ${({ pointerEvents }) => pointerEvents && `pointer-events: ${pointerEvents}`};
+BoxPrimitive.displayName = "Box";
 
-  ${({ variants }) =>
-    variant({ variants: { ...coreVariants, ...(variants && variants) } })}
-
-  ${border}
-  ${color}
-  ${flexbox}
-  ${grid}
-  ${layout}
-  ${position}
-  ${shadow}
-  ${space}
-  ${typography}
-
-  ${({ trimEdges }) =>
-    trimEdges &&
-    `
-    & > * {
-      margin-left: 0 !important;
-      margin-right: 0 !important;
-      padding-left: 0 !important;
-      padding-left: 0 !important;
-
-      &:first-child  {
-        margin-top: 0 !important;
-        padding-top: 0 !important;
-      }
-  
-      &:last-child  {
-        margin-bottom: 0 !important;
-        padding-bottom: 0 !important;
-      }
-    }
-  `}
-
-  ${({ centered }) =>
-    centered &&
-    `
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  `}
-`;
-
-export default Box;
+export default BoxPrimitive;

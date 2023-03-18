@@ -6,11 +6,11 @@ import ClubDetails, {
 type Props = ClubDetailsProps;
 
 const Hero: React.FC<Props> = ({ ...props }) => (
-  <Box variant="section" as="section" my={12}>
+  <Box as="section" variant="section" my={12}>
     <Text as="h1" variant="title" mb={8}>
       shuff.club
     </Text>
-    <Grid gap={8}>
+    <Grid gap={10}>
       <Grid variant="stacked" gap={3}>
         <Text as="p" variant="paragraph">
           <strong>shuff.club</strong> is an all-in-one platform that connects
@@ -23,7 +23,7 @@ const Hero: React.FC<Props> = ({ ...props }) => (
           people together and foster a sense of community.
         </Text>
       </Grid>
-      <Box border="1px solid grey" p="thick">
+      <Box>
         <ClubDetails {...props} />
       </Box>
     </Grid>

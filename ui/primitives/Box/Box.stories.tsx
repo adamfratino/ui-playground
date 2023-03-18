@@ -1,26 +1,24 @@
 import { Meta, Story } from "@storybook/react";
-import BoxComponent, { Props } from "./Box";
-import { themeTypes, variantArgTypes } from "~storybook/configs";
+import BoxPrimitive from "./Box";
 import variants from "./variants";
 
 export default {
   title: "UI/Primitives",
-  component: BoxComponent,
   argTypes: {
-    /** @todo clean all this up somewhere DRY */
-    ...themeTypes,
-    ...variantArgTypes(variants),
-    as: { table: { disable: true } },
+    variant: { control: { type: "select", options: Object.keys(variants) } },
     trimEdges: { control: { type: "boolean" } },
+    isCentered: { control: { type: "boolean" } },
   },
   args: {
-    backgroundColor: "text.body.light",
+    backgroundColor: "brand.primary",
     boxShadow: "box.shallow",
     width: 300,
     height: 300,
   },
 } as Meta;
 
-const Template: Story<Props> = (args) => <BoxComponent {...args} />;
-
-export const Box = Template.bind({});
+export const Box: Story = (args) => (
+  <BoxPrimitive {...args}>
+    <BoxPrimitive p={4}>lorem ipsum</BoxPrimitive>
+  </BoxPrimitive>
+);

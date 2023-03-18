@@ -5,6 +5,7 @@ const event = {
   paddingX: 1,
   width: "100%",
   fontSize: 1,
+  color: "white",
 };
 
 export default event;

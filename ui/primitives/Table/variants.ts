@@ -13,7 +13,7 @@ const events = {
     fontSize: 3,
     lineHeight: 1.2,
   },
-  "tbody tr:nth-child(even)": {
+  "tbody tr:nth-of-type(even)": {
     backgroundColor: "background.light",
   },
 };

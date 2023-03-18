@@ -1,7 +1,6 @@
 import { NextPage } from "next";
 import { Element } from "react-scroll";
 import { Box } from "~ui/primitives";
-import { Divider } from "~/components";
 import { Navigation, Hero, ChooseYourAdventure, Events } from "~modules";
 import { getEvents } from "~utilities/data";
 import {
@@ -19,7 +18,6 @@ type Props = {
 
 const Homepage: NextPage<Props> = (props) => {
   const { events } = props;
-
   const matches = matchEvents(events);
   const tournaments = tournamentEvents(events);
 
@@ -36,9 +34,7 @@ const Homepage: NextPage<Props> = (props) => {
             upcomingMatches={upcomingEvents(matches).length}
             pastMatches={pastEvents(matches).length}
           />
-          <Divider />
           <ChooseYourAdventure />
-          <Divider />
           <Element name="matches">
             <Events
               visibleRows={6}
@@ -56,24 +52,6 @@ const Homepage: NextPage<Props> = (props) => {
               events={matches}
             />
           </Element>
-          <Divider />
-          <Events
-            title="Round Robin & Bracket Tournaments"
-            headlines={[
-              "Date",
-              "Type",
-              "Spots",
-              "Players",
-              "Register?",
-              "Frames",
-              "Cap?",
-              "Stakes?",
-            ]}
-            gridTemplateColumns="repeat(2, 2fr) 1fr 5fr 3fr repeat(3, 1fr)"
-            events={tournaments}
-            disabled
-            disabledMessage="Hopefully coming Winter 2023!"
-          />
         </Box>
       </Box>
     </>

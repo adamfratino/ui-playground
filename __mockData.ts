@@ -2,9 +2,8 @@
 export type PlayerType = string;
 export type SinglesPlayerType = PlayerType;
 export type DoublesPlayersType = [PlayerType, PlayerType];
-export type TournamentPlayersType = PlayerType[];
 
-type MatchTypes = "singles" | "doubles" | "round robin" | "bracket";
+type MatchTypes = "singles" | "doubles";
 
 /** Event Types */
 export type EventType = {
@@ -14,12 +13,10 @@ export type EventType = {
   date?: Date;
   scoreCap?: number;
   stakes?: number;
-  players?: TournamentPlayersType;
   player1?: SinglesPlayerType;
   player2?: SinglesPlayerType;
   players1?: DoublesPlayersType;
   players2?: DoublesPlayersType;
-  spots?: number;
   whoWon?: SinglesPlayerType | DoublesPlayersType;
 };
 
@@ -44,33 +41,6 @@ export const MOCK_EVENTS = [
     date: "2004-03-14",
   },
   {
-    id: 3,
-    type: "bracket",
-    players: [
-      "Chavo Guerrero",
-      "Billy Kidman",
-      "Funaki",
-      "Jamie Noble",
-      "Nunzio",
-      "Rey Mysterio",
-      "Tajiri",
-      "Último Dragón",
-    ],
-    whoWon: "Chavo Guerrero",
-    frames: 8,
-    spots: 8,
-    stakes: 2,
-    date: "2004-03-14",
-  },
-  {
-    id: 4,
-    type: "round robin",
-    players: ["Adrian Neville", "Tyler Breeze", "Sami Zayn"],
-    frames: 4,
-    spots: 4,
-    date: "2014-09-11",
-  },
-  {
     id: 5,
     type: "singles",
     player1: "The Great Sasuke",
@@ -88,21 +58,6 @@ export const MOCK_EVENTS = [
     players2: ["Toshiaki Kawada", "Akira Taue"],
     frames: 12,
     stakes: 10,
-  },
-  {
-    id: 7,
-    type: "bracket",
-    players: [
-      "Chris Jericho",
-      "Shawn Michaels",
-      "Randy Orton",
-      "Kevin Nash",
-      "Triple H",
-      "Goldberg",
-    ],
-    spots: 8,
-    frames: 16,
-    stakes: 5,
   },
   {
     id: 8,

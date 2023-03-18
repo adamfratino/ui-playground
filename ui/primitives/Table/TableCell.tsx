@@ -22,13 +22,13 @@ const TableCell: React.FC<Props> = ({
   return (
     <Box
       as={element}
-      display="flex"
-      flexDirection="column"
-      justifyContent="center"
       backgroundColor={backgroundColor}
       boxShadow={boxShadow}
-      centered={centered}
-      width={1}
+      width="100%"
+      isCentered={centered}
+      sx={{
+        flexDirection: "column",
+      }}
     >
       {children}
     </Box>

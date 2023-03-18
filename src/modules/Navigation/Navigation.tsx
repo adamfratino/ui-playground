@@ -6,18 +6,22 @@ import variants from "./variants";
 const Navigation: React.FC = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   return (
-    <Box as="header" variants={variants} variant="outerContainer">
-      <Box as="nav" variant="section" display="flex" paddingY={1}>
-        <Grid gap={4} marginLeft="auto">
-          <Button onClick={() => setModalIsOpen(true)}>Create Match</Button>
-          <Modal
-            modalIsOpen={modalIsOpen}
-            setModalIsOpen={setModalIsOpen}
-            contentLabel="Example Modal"
-          >
-            <CreateEventForm />
-          </Modal>
-        </Grid>
+    <Box as="header" variant="outer" backgroundColor="background.dark" p={3}>
+      <Box as="nav" variant="section" display="flex">
+        <Button
+          variant="primary"
+          onClick={() => setModalIsOpen(true)}
+          ml="auto"
+        >
+          Create Match
+        </Button>
+        <Modal
+          modalIsOpen={modalIsOpen}
+          setModalIsOpen={setModalIsOpen}
+          contentLabel="Example Modal"
+        >
+          <CreateEventForm />
+        </Modal>
       </Box>
     </Box>
   );

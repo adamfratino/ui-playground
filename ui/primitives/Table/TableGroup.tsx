@@ -9,7 +9,7 @@ type Props = PositionProps & {
 
 const TableGroup: React.FC<Props> = ({ type, children, ...props }) => {
   return (
-    <Box as={`t${type}`} {...props} zIndex="1">
+    <Box as={`t${type}`} {...props} sx={{ zIndex: 1 }}>
       {children}
     </Box>
   );

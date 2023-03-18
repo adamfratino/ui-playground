@@ -18,7 +18,6 @@ import {
 } from "~/utilities/events";
 import { EventType } from "__mockData";
 import Event from "./components/Event";
-import DisabledOverlay from "./components/DisabledOverlay";
 import ScrollMessage from "./components/ScrollMessage";
 import FilterButton from "./components/FilterButton";
 
@@ -40,7 +39,6 @@ const Events: React.FC<Props> = ({
   rowHeight = 72,
   visibleRows,
   disabled,
-  disabledMessage,
   gridTemplateColumns,
 }) => {
   const scrollRef = useRef<HTMLTableElement>(null);
@@ -80,11 +78,13 @@ const Events: React.FC<Props> = ({
 
   return (
     <>
-      <Box as="section" position="relative" mt={4}>
+      <Box as="section" mt={4} sx={{ position: "relative" }}>
         <Box
-          display="flex"
-          flexDirection={["column", "row"]}
-          alignItems={["flex-start", "flex-end"]}
+          sx={{
+            display: "flex",
+            flexDirection: ["column", "row"],
+            alignItems: ["flex-start", "flex-end"],
+          }}
         >
           {title && (
             <Text as="h2" variant="eyebrow" mb={4}>
@@ -119,17 +119,17 @@ const Events: React.FC<Props> = ({
           )}
         </Box>
         <Box
-          position="relative"
-          borderWidth={1}
-          borderStyle="solid"
-          borderColor="greys.lightest"
-          maxHeight={
-            visibleRows
-              ? rowHeight * (headlines ? visibleRows + 1 : visibleRows) + 2
-              : "none"
-          }
-          overflowY="scroll"
           ref={scrollRef}
+          sx={{
+            overflowY: "scroll",
+            position: "relative",
+            borderWidth: 1,
+            border: (theme: any) =>
+              `1px solid ${theme.colors?.greys?.lightest}`,
+            maxHeight: visibleRows
+              ? rowHeight * (headlines ? visibleRows + 1 : visibleRows) + 2
+              : "none",
+          }}
         >
           <Table
             variant="events"
@@ -156,10 +156,9 @@ const Events: React.FC<Props> = ({
               ))}
             </TableGroup>
           </Table>
-          {disabled && <DisabledOverlay>{disabledMessage}</DisabledOverlay>}
         </Box>
       </Box>
-      {!disabled && visibleRows && filteredEvents.length > visibleRows && (
+      {visibleRows && filteredEvents.length > visibleRows && (
         <ScrollMessage atBottom={atBottom} />
       )}
     </>

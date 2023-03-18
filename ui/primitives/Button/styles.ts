@@ -3,6 +3,6 @@ const styles = {
   ":disabled": {
     cursor: "not-allowed",
   },
-};
+} as const;
 
 export default styles;

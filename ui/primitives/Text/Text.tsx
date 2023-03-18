@@ -1,14 +1,8 @@
-import { forwardRef, CSSProperties } from "react";
+import { forwardRef } from "react";
 import ReactMarkdown from "react-markdown";
 import { Text, TextProps } from "theme-ui";
-import styles from "./styles";
+import styles, { StyleProps } from "./styles";
 import variants from "./variants";
-
-type CssProps = {
-  fontSize?: CSSProperties["fontSize"];
-  fontWeight?: CSSProperties["fontWeight"];
-  color?: CSSProperties["color"];
-};
 
 type OtherProps = {
   as: React.ElementType<any>;
@@ -18,7 +12,7 @@ type OtherProps = {
 
 export type Props = React.HTMLAttributes<HTMLElement> &
   TextProps &
-  CssProps &
+  StyleProps &
   OtherProps;
 
 /**
@@ -29,7 +23,7 @@ const TextPrimitive = forwardRef<HTMLDivElement, Props>(
   (
     {
       children,
-      as,
+      as = undefined,
       variant = "paragraph",
       sx,
       isMarkdown,
@@ -47,9 +41,9 @@ const TextPrimitive = forwardRef<HTMLDivElement, Props>(
       variant={variant}
       sx={{
         ...styles,
-        color: color,
-        fontSize: fontSize,
-        fontWeight: fontWeight,
+        color,
+        fontSize,
+        fontWeight,
         ...sx,
       }}
     >

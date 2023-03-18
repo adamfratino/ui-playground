@@ -1,5 +1,4 @@
 import { useState } from "react";
-import styled from "@emotion/styled";
 import { Box, Button, Grid, Text, TableCell } from "~ui/primitives";
 import { Modal } from "~components";
 import {
@@ -20,13 +19,9 @@ const Event: React.FC<EventType> = ({
   player2,
   players1,
   players2,
-  players,
   whoWon,
-  spots,
-  ...props
 }) => {
   const matchType = type === "singles" || type === "doubles";
-  const tournamentType = type === "round robin" || type === "bracket";
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   return (
@@ -46,21 +41,6 @@ const Event: React.FC<EventType> = ({
             whoWon={whoWon}
             acceptChallengeOnClick={() => setModalIsOpen(true)}
           />
-        </>
-      )}
-      {tournamentType && (
-        <>
-          <TableCell>{spots}</TableCell>
-          <TournamentPlayersCell players={players} />
-          <TableCell>
-            {!whoWon ? (
-              <Button variant="event">Register</Button>
-            ) : (
-              <Text as="span" variant="label">
-                <strong>Winner:</strong> {whoWon}
-              </Text>
-            )}
-          </TableCell>
         </>
       )}
       <TableCell>{frames ?? "-"}</TableCell>
@@ -161,18 +141,20 @@ const TournamentPlayersCell: React.FC<{
     <Box>
       {players &&
         Array.from(players).map((player, i) => (
-          <StyledTournamentName as="span" key={i}>
+          <Text
+            as="span"
+            key={i}
+            sx={{
+              "&:not(:last-of-type)::after": {
+                content: '", "',
+              },
+            }}
+          >
             {player}
-          </StyledTournamentName>
+          </Text>
         ))}
     </Box>
   </TableCell>
 );
-
-const StyledTournamentName = styled(Text)`
-  &:not(:last-of-type)::after {
-    content: ", ";
-  }
-`;
 
 export default Event;

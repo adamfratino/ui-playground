@@ -12,7 +12,7 @@ const primary = {
   paddingX: 8,
   paddingY: 2,
   backgroundColor: "brand.primary",
-  color: "white",
+  color: "black",
   boxShadow: "box.shallow",
   "&:hover": {
     filter: "saturate(115%)",

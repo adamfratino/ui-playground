@@ -1,15 +1,16 @@
 const icon = {
+  borderRadius: 0,
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  height: 24,
-  width: 24,
+  height: 36,
+  width: 36,
   backgroundColor: "background.dark",
   color: "text.light",
   textIndent: "-9999px",
-  fontSize: 3,
+  fontSize: 4,
   "&:hover": {
-    fontWeight: "bold",
+    transform: "scale(1.02)",
   },
   "&:before": {
     content: '"x"',
