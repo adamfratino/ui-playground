@@ -1,5 +1,5 @@
 import { Meta, Story } from "@storybook/react";
-import { colors } from "~ui/tokens";
+import colors from "~ui/tokens/colors";
 import { Box } from "~ui/primitives";
 import { variantArgTypes } from "~storybook/configs";
 import GridComponent, { Props } from "./Grid";
@@ -21,14 +21,7 @@ export const Grid: Story<Props & { columns: number; columnHeight: number }> = (
       const backgroundColor = Object.values(colors.blues)[
         i % Object.values(colors.blues).length
       ] as string;
-      return (
-        <Box
-          key={i}
-          height="50vh"
-          backgroundColor={backgroundColor}
-          boxShadow="box.overlap"
-        />
-      );
+      return <Box key={i} height={200} bg={backgroundColor} />;
     })}
   </GridComponent>
 );

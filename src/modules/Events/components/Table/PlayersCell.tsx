@@ -7,7 +7,9 @@ const PlayersCell: React.FC<{
   whoWon?: SinglesPlayerType | DoublesPlayersType;
   acceptChallengeOnClick?: () => void;
 }> = ({ player, players, whoWon, acceptChallengeOnClick }) => {
-  const isWinner = JSON.stringify(whoWon) === JSON.stringify(players);
+  const isWinner =
+    JSON.stringify(whoWon) ===
+    (JSON.stringify(players) || JSON.stringify(player));
 
   return (
     <Table.Cell>

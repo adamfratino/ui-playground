@@ -1,5 +1,4 @@
 import ReactModal from "react-modal";
-import { shadows } from "~ui/tokens";
 import { Box, Button } from "~ui/primitives";
 
 type Props = {
@@ -55,7 +54,7 @@ const styles = {
     transform: "translate(-50%, -50%)",
     border: "none",
     borderRadius: 0,
-    boxShadow: shadows.box.shallow,
+    boxShadow: "box.shallow",
     padding: "8px",
   },
 };
