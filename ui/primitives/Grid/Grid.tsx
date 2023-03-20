@@ -1,54 +1,38 @@
 import { forwardRef } from "react";
-import styled, { CSSProperties } from "styled-components";
-import { color, grid, layout, space, variant } from "styled-system";
-import type {
-  ColorProps,
-  GridProps,
-  LayoutProps,
-  SpaceProps,
-} from "styled-system";
-import coreVariants from "./variants";
+import { Grid, GridProps } from "theme-ui";
+import variants from "./variants";
 
-type StyledProps = ColorProps &
-  GridProps &
-  LayoutProps &
-  SpaceProps & {
-    variants?: {};
-  };
-
-export type Props = StyledProps & {
-  as?: React.ElementType;
-  children: React.ReactNode;
-  variant?: any;
-  gap?: CSSProperties["gap"];
+type OtherProps = {
+  as?: React.ElementType<any>;
+  variant?: keyof typeof variants;
+  inline?: boolean;
 };
 
-const Grid = forwardRef<HTMLDivElement, Props>(
-  ({ as, children, variants, variant, gap, ...props }, ref) => (
-    <StyledGrid
-      gridGap={gap}
-      variants={variants}
-      variant={variant}
-      as={as}
-      ref={ref}
+export type Props = React.HTMLAttributes<HTMLDivElement> &
+  GridProps &
+  OtherProps;
+
+/**
+ * @see https://theme-ui.com/components/grid
+ */
+const GridPrimitive = forwardRef<HTMLDivElement, Props>(
+  ({ children, as, variant, gap, inline, sx, ...props }, ref) => (
+    <Grid
       {...props}
+      ref={ref}
+      as={as}
+      variant={variant}
+      sx={{
+        display: inline && "inline-grid",
+        gap,
+        ...sx,
+      }}
     >
       {children}
-    </StyledGrid>
+    </Grid>
   )
 );
-Grid.displayName = "Grid";
 
-const StyledGrid = styled.div<StyledProps>`
-  display: grid;
-  grid-auto-columns: minmax(0, 1fr);
-  grid-auto-flow: column;
-  ${({ variants }) =>
-    variant({ variants: { ...coreVariants, ...(variants && variants) } })}
-  ${color}
-  ${grid}
-  ${layout}
-  ${space}
-`;
+GridPrimitive.displayName = "Grid";
 
-export default Grid;
+export default GridPrimitive;

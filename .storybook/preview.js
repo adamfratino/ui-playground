@@ -1,6 +1,6 @@
-import { ThemeProvider } from "styled-components";
+import { BaseStyles, ThemeProvider } from "theme-ui";
 import theme from "~ui/theme";
-import '~ui/global.css';
+import "~ui/global.css";
 
 /**
  * @see https://jxnblk.com/blog/defining-component-apis-in-react/
@@ -12,7 +12,12 @@ import '~ui/global.css';
 export const parameters = {
   options: {
     storySort: {
-      order: ["UI", ["Tokens", ["Breakpoints", "Colors", "Typography"], "Primitives", "Components", "Modules"]],
+      order: [
+        "UI",
+        ["Tokens", ["Breakpoints", "Colors", "Typography"], "Primitives"],
+        "App",
+        ["Components", "Modules", "Pages"],
+      ],
     },
   },
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -27,7 +32,9 @@ export const parameters = {
 export const decorators = [
   (Story) => (
     <ThemeProvider theme={theme}>
-      <Story />
+      <BaseStyles>
+        <Story />
+      </BaseStyles>
     </ThemeProvider>
   ),
 ];

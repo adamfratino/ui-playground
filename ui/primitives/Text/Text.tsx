@@ -1,72 +1,69 @@
 import { forwardRef } from "react";
 import ReactMarkdown from "react-markdown";
-import styled from "styled-components";
-import { color, space, shadow, typography, variant } from "styled-system";
-import type {
-  ColorProps,
-  ShadowProps,
-  SpaceProps,
-  TypographyProps,
-} from "styled-system";
-import coreVariants from "./variants";
+import { Text, TextProps } from "theme-ui";
+import styles, { StyleProps } from "./styles";
+import variants from "./variants";
 
-type StyledProps = ColorProps &
-  ShadowProps &
-  SpaceProps &
-  TypographyProps & {
-    variants?: {};
-  };
-
-export type Props = StyledProps & {
-  children: React.ReactNode;
-  as?: React.ElementType;
-  variant?: any;
-  markdown?: boolean;
+type OtherProps = {
+  as: React.ElementType<any>;
+  variant?: keyof typeof variants;
+  isMarkdown?: boolean;
 };
 
-const Text = forwardRef<HTMLElement, Props>(
-  ({ as, variant, variants, markdown, children, ...props }, ref) => (
-    <StyledText
-      as={as}
-      variants={variants}
-      variant={variant}
-      ref={ref}
+export type Props = React.HTMLAttributes<HTMLElement> &
+  TextProps &
+  StyleProps &
+  OtherProps;
+
+/**
+ * @see https://theme-ui.com/components/text
+ * @todo get rid of react-markdown and figure out mdx
+ */
+const TextPrimitive = forwardRef<HTMLDivElement, Props>(
+  (
+    {
+      children,
+      as = undefined,
+      variant = "paragraph",
+      sx,
+      isMarkdown,
+      color,
+      fontFamily,
+      fontSize,
+      fontWeight,
+      ...props
+    },
+    ref
+  ) => (
+    <Text
       {...props}
+      ref={ref}
+      as={as}
+      variant={variant}
+      sx={{
+        ...styles,
+        color,
+        fontFamily,
+        fontSize,
+        fontWeight,
+        ...sx,
+      }}
     >
-      {markdown ? (
-        <ReactMarkdown>{children as string}</ReactMarkdown>
+      {isMarkdown ? (
+        /**
+         * if we don't explicitly undefine `className` we get a container `div`
+         * @see https://stackoverflow.com/a/74039428/2868869
+         * */
+        <ReactMarkdown className={undefined}>
+          {children as string}
+        </ReactMarkdown>
       ) : (
         children
       )}
-    </StyledText>
+    </Text>
   )
 );
 
-Text.displayName = "Text";
+TextPrimitive.displayName = "Text";
 
-export default Text;
-
-const StyledText = styled.span<StyledProps>`
-  display: block;
-
-  ${color}
-  ${shadow}
-  ${space}
-  ${typography}
-  ${({ variants }) =>
-    variant({ variants: { ...coreVariants, ...(variants && variants) } })}
-
-  strong, b {
-    font-weight: bold;
-  }
-
-  em,
-  i {
-    font-style: italic;
-  }
-
-  a {
-    color: inherit;
-    text-decoration: underline;
-  }
-`;
+export default TextPrimitive;

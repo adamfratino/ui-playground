@@ -23,7 +23,9 @@
     "paths": {
       "~/*": ["./src/*"],
       "~components": ["./src/components"],
+      "~modules": ["./src/modules"],
       "~ui/*": ["./ui/*"],
+      "~utilities/*": ["./src/utilities/*"],
       "~storybook/*": ["./.storybook/*"]
     }
   },
@@ -32,7 +34,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/pages/index.tsx"
+    "src/pages/index.page.tsx"
   ],
   "exclude": ["node_modules"]
 }

@@ -2,7 +2,6 @@ import theme from "~ui/theme";
 
 export const variantArgTypes = (variant: {}) => ({
   variant: { control: { type: "select", options: Object.keys(variant) } },
-  variants: { table: { disable: true } },
 });
 
 export const themeTypes = {

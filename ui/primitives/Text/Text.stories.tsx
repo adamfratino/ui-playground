@@ -1,21 +1,22 @@
 import { Meta, Story } from "@storybook/react";
-import Text, { Props } from "./Text";
+import TextPrimitive from "./Text";
 import variants from "./variants";
 
 export default {
-  title: "UI/Primitives/Text",
-  //   parameters: { layout: "fullscreen" },
+  title: "UI/Primitives",
   argTypes: {
     variant: { control: { type: "select", options: Object.keys(variants) } },
   },
+  args: {
+    variant: "paragraph",
+  },
 } as Meta;
 
-export const Default: Story<Props> = (args) => (
-  <Text markdown {...args}>
-    # Lorem ipsum dolor sit amet consectetur adipisicing elit. [Distinctio](/)
-    quia fugit **ab eaque voluptate ipsa** deserunt atque doloremque facilis
-    vero. ### Lorem ipsum dolor sit - test - test - test Lorem ipsum dolor sit
-    amet consectetur adipisicing elit. Adipisci harum culpa, consequuntur
-    obcaecati expedita aspernatur unde ut exercitationem iste eligendi.
-  </Text>
+export const Text: Story = (args) => (
+  <TextPrimitive as={args.as || "p"} {...args}>
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi nobis
+    accusantium, voluptates perspiciatis facilis explicabo dolor nam possimus
+    atque sunt ad odit, quidem temporibus, rem aspernatur facere! Quasi, natus
+    culpa.
+  </TextPrimitive>
 );
