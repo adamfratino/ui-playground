@@ -2,9 +2,8 @@ import { Meta, Story } from "@storybook/react";
 import { colors } from "~ui/tokens";
 import { Box } from "~ui/primitives";
 import { variantArgTypes } from "~storybook/configs";
-import variants from "./variants";
-
 import GridComponent, { Props } from "./Grid";
+import variants from "./variants";
 
 export default {
   title: "UI/Primitives",

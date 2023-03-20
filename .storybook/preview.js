@@ -1,4 +1,4 @@
-import { ThemeProvider } from "theme-ui";
+import { BaseStyles, ThemeProvider } from "theme-ui";
 import theme from "~ui/theme";
 import "~ui/global.css";
 
@@ -32,7 +32,9 @@ export const parameters = {
 export const decorators = [
   (Story) => (
     <ThemeProvider theme={theme}>
-      <Story />
+      <BaseStyles>
+        <Story />
+      </BaseStyles>
     </ThemeProvider>
   ),
 ];

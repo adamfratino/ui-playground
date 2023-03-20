@@ -1,8 +1,6 @@
-import { Box } from "~ui/primitives";
-import { PositionProps } from "styled-system";
-import { forwardRef } from "react";
+import { Box, BoxProps } from "~ui/primitives/Box";
 
-type Props = PositionProps & {
+type Props = BoxProps & {
   type: "head" | "body" | "foot";
   children: React.ReactNode;
 };

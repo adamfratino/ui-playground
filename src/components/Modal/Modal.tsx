@@ -23,13 +23,7 @@ const Modal: React.FC<Props> = ({
     shouldCloseOnOverlayClick={true}
     style={styles}
   >
-    <Box
-      display="flex"
-      padding="thick"
-      sx={{
-        flexDirection: "column",
-      }}
-    >
+    <Box display="flex" padding={4} sx={{ flexDirection: "column" }}>
       <Box ml="auto" mb="thin">
         <Button
           variant="icon"

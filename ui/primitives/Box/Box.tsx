@@ -1,32 +1,25 @@
-import { forwardRef } from "react";
+import { forwardRef, ElementType, HTMLAttributes } from "react";
 import { Box, BoxProps } from "theme-ui";
-import { isCentered, trimEdges, StyleProps } from "./styles";
+import { StyleProps } from "./styles";
 import variants from "./variants";
 
 type OtherProps = {
-  as?: React.ElementType<any>;
+  as?: ElementType<any>;
   variant?: keyof typeof variants;
 };
 
-export type Props = React.HTMLAttributes<HTMLElement> &
+export type Props = HTMLAttributes<HTMLElement> &
   BoxProps &
   StyleProps &
   OtherProps;
 
-/** @todo figure out why making this an FC errors children */
+/**
+ * @see https://theme-ui.com/components/box
+ * @todo figure out why making this an FC errors children as IntrinsicAttribute
+ * */
 const BoxPrimitive = forwardRef<HTMLElement, Props>(
   (
-    {
-      children,
-      as,
-      variant = undefined,
-      sx,
-      boxShadow,
-      display,
-      height,
-      width,
-      ...props
-    },
+    { children, as, variant, sx, boxShadow, display, height, width, ...props },
     ref
   ) => (
     <Box
@@ -35,8 +28,6 @@ const BoxPrimitive = forwardRef<HTMLElement, Props>(
       as={as}
       variant={variant}
       sx={{
-        isCentered,
-        trimEdges,
         boxShadow,
         display,
         height,

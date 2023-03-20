@@ -1,5 +1,4 @@
 const icon = {
-  borderRadius: 0,
   display: "flex",
   alignItems: "center",
   justifyContent: "center",

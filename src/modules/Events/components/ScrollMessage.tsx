@@ -9,7 +9,6 @@ const ScrollMessage: React.FC<{ atBottom?: boolean }> = ({ atBottom }) => (
     backgroundColor="background.dark"
     color="background.light"
     padding="thin"
-    isCentered
   >
     <Text as="span" variant="label">
       <em>

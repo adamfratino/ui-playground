@@ -3,10 +3,10 @@ import { Link } from "react-scroll";
 
 const ChooseYourAdventure: React.FC = () => (
   <Box as="section" my={12}>
-    <Text as="h2" variant="eyebrow" mb="thick">
+    <Text as="h2" variant="eyebrow" mb={4}>
       Choose Your Adventure:
     </Text>
-    <Grid gap={8} mb="thick">
+    <Grid variant="auto" gap={8} mb={4}>
       <AdventureButton
         backgroundColor="notification.success"
         buttonText="Open Matches"

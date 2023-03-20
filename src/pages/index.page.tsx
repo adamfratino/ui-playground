@@ -23,7 +23,6 @@ const Homepage: NextPage<Props> = (props) => {
 
   return (
     <>
-      <Navigation />
       <Box variant="outer" as="main" mb={12}>
         <Box variant="section">
           <Hero

@@ -3,10 +3,8 @@ import { Select } from "theme-ui";
 
 const CreateEventForm: React.FC = () => (
   <Grid variant="stacked" gap={2}>
-    <Grid gridTemplateColumns="120px 1fr" gap={1}>
-      <Box display="flex" alignItems="center">
-        <label htmlFor="matchType">match type:</label>
-      </Box>
+    <Grid columns="120px 1fr" gap={1}>
+      <label htmlFor="matchType">match type:</label>
       <Select name="matchType" defaultValue="Singles">
         <option>Singles</option>
         <option disabled>Doubles</option>
@@ -14,10 +12,8 @@ const CreateEventForm: React.FC = () => (
         <option disabled>Round Robin</option>
       </Select>
     </Grid>
-    <Grid gridTemplateColumns="120px 1fr" gap={1}>
-      <Box display="flex" alignItems="center">
-        <label htmlFor="matchType">frames:</label>
-      </Box>
+    <Grid columns="120px 1fr" gap={1}>
+      <label htmlFor="matchType">frames:</label>
       <Select name="matchType" defaultValue="Singles">
         <option>4</option>
         <option disabled>8</option>

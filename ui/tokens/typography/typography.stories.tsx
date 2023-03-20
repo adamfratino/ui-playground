@@ -32,15 +32,21 @@ const TypographyGrid: React.FC<{ font: string; family: string }> = ({
   font,
   family,
 }) => (
-  <Box display="flex" flexDirection="column" pb={12}>
-    <Text variant="eyebrow" fontSize={8} mb={2}>
+  <Box display="flex" pb={12} sx={{ flexDirection: "column" }}>
+    <Text as="h2" variant="eyebrow" fontSize={8} mb={2}>
       {family}
     </Text>
-    <Text fontFamily={sans} fontSize={14} fontWeight="normal" mb={6}>
+    <Text
+      as="h3"
+      fontSize={14}
+      fontWeight="normal"
+      mb={6}
+      sx={{ fontFamily: "sans" }}
+    >
       <strong>font-family: </strong>
       {font};
     </Text>
-    <Box display="grid" gridTemplateColumns="repeat(10, 1fr)">
+    <Box display="grid" sx={{ gridTemplateColumns: "repeat(10, 1fr)" }}>
       {characters.map((chars, i) => (
         <Characters font={font} key={i} chars={chars.split("")} />
       ))}
@@ -55,17 +61,25 @@ const Characters: React.FC<{ font: string; chars: string[] }> = ({
   <>
     {chars.map((char, i) => (
       <Box
-        margin={2}
-        boxShadow="box.shallow"
-        backgroundColor="white"
         key={i}
-        centered
-        flex="1"
-        minHeight="100px"
-        minWidth="100px"
-        alignSelf="start"
+        backgroundColor="white"
+        boxShadow="box.shallow"
+        margin={2}
+        sx={{
+          flex: "1",
+          minHeight: "100px",
+          minWidth: "100px",
+          alignSelf: "start",
+        }}
       >
-        <Text fontFamily={font} fontSize="44px" fontWeight="bold">
+        <Text
+          as="span"
+          sx={{
+            fontFamily: font,
+            fontSize: "44px",
+            fontWeight: "bold",
+          }}
+        >
           {char}
         </Text>
       </Box>

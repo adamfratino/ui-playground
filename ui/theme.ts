@@ -8,13 +8,6 @@ import {
 } from "~ui/tokens";
 import { primitiveVariants } from "./primitives";
 
-/** Breakpoints */
-breakpoints.xs = breakpoints[0];
-breakpoints.sm = breakpoints[1];
-breakpoints.md = breakpoints[2];
-breakpoints.lg = breakpoints[3];
-breakpoints.xl = breakpoints[4];
-
 /** Colors */
 colors.white = colors.whites.light;
 colors.black = colors.blacks.dark;
@@ -31,6 +24,20 @@ colors.notification = {
 space.thin = space[3];
 space.thick = space[4];
 
+/**
+ * Styles?
+ * Currently using <BaseStyles /> as a decorator to apply style defaults.
+ * */
+const styles = {
+  button: {
+    borderRadius: 0,
+    cursor: "pointer",
+    ":disabled": {
+      cursor: "not-allowed",
+    },
+  },
+};
+
 /** Theme */
 const theme = {
   ...primitiveVariants,
@@ -40,6 +47,7 @@ const theme = {
   fontSizes,
   shadows,
   space,
+  styles,
 };
 
 export default theme;

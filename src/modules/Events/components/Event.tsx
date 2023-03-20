@@ -1,12 +1,7 @@
 import { useState } from "react";
 import { Box, Button, Grid, Text, TableCell } from "~ui/primitives";
 import { Modal } from "~components";
-import {
-  SinglesPlayerType,
-  DoublesPlayersType,
-  TournamentPlayersType,
-  EventType,
-} from "__mockData";
+import { SinglesPlayerType, DoublesPlayersType, EventType } from "__mockData";
 import AcceptChallengeModal from "./AcceptChallengeModal";
 
 const Event: React.FC<EventType> = ({
@@ -100,7 +95,7 @@ const MatchPlayersCell: React.FC<{
   const isWinner = JSON.stringify(whoWon) === JSON.stringify(players);
 
   return (
-    <TableCell centered={!player && !players}>
+    <TableCell>
       {player && (
         <Text
           as="span"
@@ -133,28 +128,5 @@ const MatchPlayersCell: React.FC<{
     </TableCell>
   );
 };
-
-const TournamentPlayersCell: React.FC<{
-  players?: TournamentPlayersType;
-}> = ({ players }) => (
-  <TableCell>
-    <Box>
-      {players &&
-        Array.from(players).map((player, i) => (
-          <Text
-            as="span"
-            key={i}
-            sx={{
-              "&:not(:last-of-type)::after": {
-                content: '", "',
-              },
-            }}
-          >
-            {player}
-          </Text>
-        ))}
-    </Box>
-  </TableCell>
-);
 
 export default Event;

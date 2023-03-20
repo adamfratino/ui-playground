@@ -8,7 +8,6 @@ export const textStyles = {
 };
 
 const primary = {
-  borderRadius: 0,
   paddingX: 8,
   paddingY: 2,
   backgroundColor: "brand.primary",

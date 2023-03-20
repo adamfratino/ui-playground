@@ -1,6 +1,5 @@
 import { forwardRef } from "react";
 import { Button, ButtonProps } from "theme-ui";
-import styles from "./styles";
 import variants from "./variants";
 
 export type Props = ButtonProps & {
@@ -14,7 +13,7 @@ export type Props = ButtonProps & {
  */
 const ButtonPrimitive = forwardRef<HTMLButtonElement, Props>(
   ({ children, variant = "primary", sx, ...props }, ref) => (
-    <Button {...props} ref={ref} variant={variant} sx={{ ...styles, ...sx }}>
+    <Button {...props} ref={ref} variant={variant} sx={sx}>
       {children}
     </Button>
   )

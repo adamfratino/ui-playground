@@ -62,21 +62,19 @@ export const Colors: React.FC = () => (
               mb={gap}
               p={gap}
               width="100%"
-              centered
             >
-              <Text variant="eyebrow" fontSize={5}>
+              <Text as="h3" variant="eyebrow" fontSize={5}>
                 {color[0]}
               </Text>
             </Box>
             {Object.values(color[1]).map((shade, i) => (
               <Box
+                key={i}
                 backgroundColor={shade as string}
                 boxShadow="box.shallow"
-                minHeight={80}
-                padding="thin"
                 mb={gap}
-                key={i}
-                centered
+                padding="thin"
+                sx={{ minHeight: 80 }}
               >
                 <Box
                   backgroundColor="background.dark"
@@ -84,7 +82,9 @@ export const Colors: React.FC = () => (
                   boxShadow="box.shallow"
                   p={2}
                 >
-                  <Text variant="label">{(shade as string).toUpperCase()}</Text>
+                  <Text as="span" variant="label">
+                    {(shade as string).toUpperCase()}
+                  </Text>
                 </Box>
               </Box>
             ))}
@@ -99,14 +99,8 @@ const Headers: React.FC = () => (
   <Grid gap={gap} pb={gap}>
     <div aria-hidden />
     {Object.keys(palette.reds).map((color, i) => (
-      <Box
-        boxShadow="box.shallow"
-        backgroundColor="white"
-        key={i}
-        p={4}
-        centered
-      >
-        <Text variant="eyebrow" fontSize={5}>
+      <Box key={i} boxShadow="box.shallow" backgroundColor="white" p={4}>
+        <Text as="span" variant="eyebrow" fontSize={5}>
           {color}
         </Text>
       </Box>

@@ -92,7 +92,13 @@ const Events: React.FC<Props> = ({
             </Text>
           )}
           {!disabled && (
-            <Grid gap="thin" ml={[null, "auto"]} mt={[null, "16px"]} mb={4}>
+            <Grid
+              variant="auto"
+              gap={3}
+              ml={[null, "auto"]}
+              mt={[null, "16px"]}
+              mb={4}
+            >
               {!isAllEvents && (
                 <Button
                   variant="reset"
@@ -138,7 +144,13 @@ const Events: React.FC<Props> = ({
             boxShadow="box.shallow"
           >
             {headlines && (
-              <TableGroup type="head" position="sticky" top="0px">
+              <TableGroup
+                type="head"
+                sx={{
+                  position: "sticky",
+                  top: "0px",
+                }}
+              >
                 <TableRow minHeight={rowHeight}>
                   {headlines.map((headline, i) => (
                     <TableCell type="head" key={i}>

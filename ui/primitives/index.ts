@@ -1,6 +1,6 @@
 import { Box, boxVariants } from "./Box";
 import { Button, buttonVariants } from "./Button";
-import Grid from "./Grid/Grid";
+import { Grid, gridVariants } from "./Grid";
 import Table from "./Table/Table";
 import TableCell from "./Table/TableCell";
 import TableGroup from "./Table/TableGroup";
@@ -12,5 +12,6 @@ export { Box, Button, Grid, Table, TableCell, TableGroup, TableRow, Text };
 export const primitiveVariants = {
   ...boxVariants,
   ...buttonVariants,
+  ...gridVariants,
   ...textVariants,
 };

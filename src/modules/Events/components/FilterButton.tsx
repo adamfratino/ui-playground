@@ -9,8 +9,8 @@ type FilterButtonProps = {
 };
 
 /**
- * @todo honestly just rip the bandaid off refactor theme ui (for polished with color tokens)
- * @update not sure what i mean about polished/color tokens but we're on theme-ui now...
+ * @todo possibly replace filter with theme-ui color utils, or look into polished?
+ * @see https://theme-ui.com/packages/color
  * */
 const FilterButton: React.FC<FilterButtonProps> = ({
   text,

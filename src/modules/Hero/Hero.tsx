@@ -10,7 +10,7 @@ const Hero: React.FC<Props> = ({ ...props }) => (
     <Text as="h1" variant="title" mb={8}>
       shuff.club
     </Text>
-    <Grid gap={10}>
+    <Grid variant="auto" gap={10}>
       <Grid variant="stacked" gap={3}>
         <Text as="p" variant="paragraph">
           <strong>shuff.club</strong> is an all-in-one platform that connects

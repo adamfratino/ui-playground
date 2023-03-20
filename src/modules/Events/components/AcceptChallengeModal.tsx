@@ -13,21 +13,21 @@ const AcceptChallengeModal: React.FC<Props> = ({
   players1,
 }) => (
   <>
-    <Grid variant="stacked" gap="thick" maxWidth={840}>
-      <Grid gap="thick">
-        <Box border="1px solid grey" padding="thick" centered>
+    <Grid variant="stacked" gap={4} sx={{ maxWidth: 840 }}>
+      <Grid gap={4}>
+        <Box padding={4}>
           <Text as="span" variant="eyebrow" fontSize={6}>
             {player1 || players1}
           </Text>
         </Box>
-        <Box border="1px solid grey" padding="thick" centered>
+        <Box padding={4}>
           <Text as="p" variant="eyebrow" fontSize={6}>
             [replace this with user or log in] [replace this with user or log
             in]
           </Text>
         </Box>
       </Grid>
-      <Grid gap="thick">
+      <Grid gap={4}>
         <Text as="span">{type}</Text>
         <Text as="span">{frames}</Text>
         <Text as="span">{date?.toString()}</Text>
