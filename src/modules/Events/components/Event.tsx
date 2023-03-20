@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Box, Button, Grid, Text, TableCell } from "~ui/primitives";
+import { Button, Grid, Text, TableCell } from "~ui/primitives";
 import { Modal } from "~components";
 import { SinglesPlayerType, DoublesPlayersType, EventType } from "__mockData";
 import AcceptChallengeModal from "./AcceptChallengeModal";

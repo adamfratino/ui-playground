@@ -24,7 +24,7 @@ const Modal: React.FC<Props> = ({
     style={styles}
   >
     <Box display="flex" padding={4} sx={{ flexDirection: "column" }}>
-      <Box ml="auto" mb="thin">
+      <Box ml="auto">
         <Button
           variant="icon"
           onClick={() => setModalIsOpen && setModalIsOpen(false)}

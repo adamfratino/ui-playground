@@ -1,7 +1,13 @@
 import breakpoints from "./breakpoints/breakpoints";
-import colors from "./colors/colors";
+import colors from "./colors";
 import shadows from "./shadows/shadows";
 import space from "./space/space";
 import { fonts, fontSizes } from "./typography/typography";
 
-export { breakpoints, colors, shadows, space, fonts, fontSizes };
+const tokens = {
+  colors,
+};
+
+export default tokens;
+
+export { breakpoints, shadows, space, fonts, fontSizes };

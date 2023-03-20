@@ -7,7 +7,7 @@ type Props = Pick<GridProps, "columns" | "backgroundColor"> & {
 };
 
 const TableRow: React.FC<Props> = ({ children, minHeight, ...props }) => (
-  <Grid as="tr" {...props} sx={{ minHeight }}>
+  <Grid as="tr" variant="auto" {...props} sx={{ minHeight }}>
     {children}
   </Grid>
 );

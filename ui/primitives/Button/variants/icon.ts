@@ -4,8 +4,8 @@ const icon = {
   justifyContent: "center",
   height: 36,
   width: 36,
-  backgroundColor: "background.dark",
-  color: "text.light",
+  backgroundColor: "black",
+  color: "white",
   textIndent: "-9999px",
   fontSize: 4,
   "&:hover": {

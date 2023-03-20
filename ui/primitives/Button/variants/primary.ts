@@ -10,7 +10,7 @@ export const textStyles = {
 const primary = {
   paddingX: 8,
   paddingY: 2,
-  backgroundColor: "brand.primary",
+  backgroundColor: "red",
   color: "black",
   boxShadow: "box.shallow",
   "&:hover": {

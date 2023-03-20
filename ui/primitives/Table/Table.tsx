@@ -15,7 +15,6 @@ type StyledProps = Omit<LayoutProps, "width"> &
     variants?: {};
     variant?: keyof typeof coreVariants | {};
     width?: CSSProperties["width"];
-    gridTemplateColumns?: CSSProperties["gridTemplateColumns"];
   };
 
 export type Props = StyledProps & {
@@ -46,12 +45,4 @@ const StyledTable = styled(Box)<StyledProps>`
   ${shadow}
   border-collapse: collapse;
   border-spacing: 0;
-
-  ${({ gridTemplateColumns }) =>
-    gridTemplateColumns &&
-    `
-    tr {
-      grid-template-columns: ${gridTemplateColumns};
-    }
-  `}
 `;

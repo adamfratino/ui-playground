@@ -1,6 +1,7 @@
 import { CSSProperties } from "theme-ui";
 
 export type StyleProps = {
+  fontFamily?: CSSProperties["fontFamily"];
   fontSize?: CSSProperties["fontSize"];
   fontWeight?: CSSProperties["fontWeight"];
   color?: CSSProperties["color"];

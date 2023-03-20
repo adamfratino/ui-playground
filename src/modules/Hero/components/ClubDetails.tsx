@@ -18,8 +18,8 @@ const ClubDetails: React.FC<Props> = ({
   upcomingMatches,
   pastMatches,
 }) => (
-  <Grid variant="stacked" gap={4}>
-    <Grid variant="auto" gap={4}>
+  <Grid variant="stacked">
+    <Grid variant="auto">
       <ul>
         <MatchItem label="Total Players" value={totalPlayers} />
         <MatchItem label="Played This Month" value={playedThisMonth} />
@@ -31,9 +31,9 @@ const ClubDetails: React.FC<Props> = ({
         <MatchItem label="Past Matches" value={pastMatches} />
       </ul>
     </Grid>
-    <Grid variant="auto" gap={4}>
+    <Grid variant="auto">
       <Box>
-        <Text as="h3" variant="label" fontWeight={600} mb={1}>
+        <Text as="h3" variant="label" fontWeight="bold">
           Current Players of the Month
         </Text>
         <ol>
@@ -45,7 +45,7 @@ const ClubDetails: React.FC<Props> = ({
         </ol>
       </Box>
       <Box>
-        <Text as="h3" variant="label" fontWeight={600} mb={1}>
+        <Text as="h3" variant="label" fontWeight="bold">
           Current Players of the Year
         </Text>
         <ol>
@@ -73,10 +73,10 @@ type MatchItemProps = {
 
 const MatchItem: React.FC<MatchItemProps> = ({ label, value }) => (
   <Grid as="li" columns="160px 1fr">
-    <Text as="h4" variant="label" fontSize={3}>
-      <strong>{label}:</strong>
+    <Text as="h4" variant="label" fontWeight="bold">
+      {label}:
     </Text>{" "}
-    <Text as="h4" variant="label" fontSize={3}>
+    <Text as="h4" variant="label">
       {value}
     </Text>
   </Grid>

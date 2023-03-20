@@ -1,5 +1,5 @@
 import Text, { Props } from "./Text";
-import textVariants from "./variants";
+import text from "./variants";
 
-export { Text, textVariants };
+export { Text, text };
 export type TextProps = Props;

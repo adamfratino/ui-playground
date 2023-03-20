@@ -1,5 +1,5 @@
 import Box, { Props } from "./Box";
-import boxVariants from "./variants";
+import boxes from "./variants";
 
-export { Box, boxVariants };
+export { Box, boxes };
 export type BoxProps = Props;

@@ -2,8 +2,8 @@
 
 const events = {
   th: {
-    backgroundColor: "background.dark",
-    color: "background.light",
+    backgroundColor: "black",
+    color: "white",
     boxShadow: "box.shallow",
   },
   "th, td": {
@@ -14,7 +14,7 @@ const events = {
     lineHeight: 1.2,
   },
   "tbody tr:nth-of-type(even)": {
-    backgroundColor: "background.light",
+    backgroundColor: "white",
   },
 };
 

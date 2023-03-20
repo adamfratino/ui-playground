@@ -20,8 +20,3 @@ export const matchEvents = (events: EventsType) =>
   events.filter(
     (ev: EventType) => ev.type === "singles" || ev.type === "doubles"
   );
-
-export const tournamentEvents = (events: EventsType) =>
-  events.filter(
-    (ev: EventType) => ev.type === "round robin" || ev.type === "bracket"
-  );

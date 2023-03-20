@@ -28,6 +28,7 @@ const TextPrimitive = forwardRef<HTMLDivElement, Props>(
       sx,
       isMarkdown,
       color,
+      fontFamily,
       fontSize,
       fontWeight,
       ...props
@@ -42,6 +43,7 @@ const TextPrimitive = forwardRef<HTMLDivElement, Props>(
       sx={{
         ...styles,
         color,
+        fontFamily,
         fontSize,
         fontWeight,
         ...sx,

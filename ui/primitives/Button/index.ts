@@ -1,5 +1,5 @@
 import Button, { Props } from "./Button";
-import buttonVariants from "./variants";
+import buttons from "./variants";
 
-export { Button, buttonVariants };
+export { Button, buttons };
 export type ButtonProps = Props;

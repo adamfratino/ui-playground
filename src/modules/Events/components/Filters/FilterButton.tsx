@@ -1,8 +1,8 @@
-import { Button } from "~ui/primitives";
+import { Button, ButtonProps } from "~ui/primitives";
 
 type FilterButtonProps = {
   text: string;
-  backgroundColor: string;
+  bg: string;
   onClick?: () => void;
   isActive?: boolean;
   isDisabled?: boolean;
@@ -14,17 +14,15 @@ type FilterButtonProps = {
  * */
 const FilterButton: React.FC<FilterButtonProps> = ({
   text,
-  backgroundColor,
+  bg,
   onClick,
   isDisabled,
 }) => (
   <Button
     variant="filter"
-    backgroundColor={backgroundColor}
+    bg={bg}
     onClick={onClick}
-    sx={{
-      filter: isDisabled ? "brightness(0.7)" : undefined,
-    }}
+    sx={{ filter: isDisabled ? "brightness(0.7)" : undefined }}
   >
     {text}
   </Button>

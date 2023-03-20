@@ -1,4 +1,4 @@
-import { Box, Grid } from "~ui/primitives";
+import { Grid } from "~ui/primitives";
 import { Select } from "theme-ui";
 
 const CreateEventForm: React.FC = () => (
@@ -8,8 +8,6 @@ const CreateEventForm: React.FC = () => (
       <Select name="matchType" defaultValue="Singles">
         <option>Singles</option>
         <option disabled>Doubles</option>
-        <option disabled>Tournament</option>
-        <option disabled>Round Robin</option>
       </Select>
     </Grid>
     <Grid columns="120px 1fr" gap={1}>
@@ -18,7 +16,7 @@ const CreateEventForm: React.FC = () => (
         <option>4</option>
         <option disabled>8</option>
         <option disabled>12</option>
-        <option disabled>16 Robin</option>
+        <option disabled>16</option>
       </Select>
     </Grid>
   </Grid>

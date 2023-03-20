@@ -1,12 +1,11 @@
 import { useState } from "react";
-import { Box, Button, Grid } from "~ui/primitives";
+import { Box, Button } from "~ui/primitives";
 import { CreateEventForm, Modal } from "~components";
-import variants from "./variants";
 
 const Navigation: React.FC = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   return (
-    <Box as="header" variant="outer" backgroundColor="background.dark" p={3}>
+    <Box as="header" variant="outer" backgroundColor="black">
       <Box as="nav" variant="section" display="flex">
         <Button
           variant="primary"

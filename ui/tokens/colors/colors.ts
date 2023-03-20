@@ -1,15 +1,15 @@
 import { darken, lighten } from "polished";
 import { TokensType } from "~ui/tokens/types";
 
-export const red = `#FF4949`;
-export const orange = `#FF8D29`;
-export const yellow = `#FFC005`;
-export const green = `#00AF91`;
-export const blue = `#3DB2FF`;
-export const purple = `#6E1DBC`;
-export const grey = `#7F7F7F`;
-export const black = `#222`;
-export const white = `#DDD`;
+export const red = `#FF4949` as const;
+export const orange = `#FF8D29` as const;
+export const yellow = `#FFC005` as const;
+export const green = `#00AF91` as const;
+export const blue = `#3DB2FF` as const;
+export const purple = `#6E1DBC` as const;
+export const grey = `#7F7F7F` as const;
+export const black = `#222` as const;
+export const white = `#DDD` as const;
 
 export const generatePalette = (key: string, color: string) => ({
   [key]: {
@@ -33,6 +33,6 @@ const colors: TokensType = {
   ...generatePalette("greys", grey),
   ...generatePalette("blacks", black),
   ...generatePalette("whites", white),
-};
+} as const;
 
 export default colors;

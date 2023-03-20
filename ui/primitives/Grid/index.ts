@@ -1,5 +1,5 @@
 import Grid, { Props } from "./Grid";
-import gridVariants from "./variants";
+import grids from "./variants";
 
-export { Grid, gridVariants };
+export { Grid, grids };
 export type GridProps = Props;

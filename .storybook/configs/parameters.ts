@@ -1,4 +1,4 @@
-export const tokens = {
+export const tokenParameters = {
   layout: "fullscreen",
   options: { showPanel: false },
   previewTabs: { "storybook/docs/panel": { hidden: true } },
