@@ -1,5 +1,3 @@
-import { TokensType } from "~ui/tokens/types";
-
 export const box = {
   inset: `rgba(0, 0, 0, 0.24) 0px 3px 8px inset`,
   deep: `rgba(0, 0, 0, 0.48) 6px 2px 16px 0px, rgba(0, 0, 0, 0.8) -6px -2px 16px 0px`,
@@ -13,7 +11,7 @@ export const text = {
   light: `1px 1px 1px white`,
 };
 
-const shadows: TokensType = {
+const shadows = {
   box,
   text,
 };
