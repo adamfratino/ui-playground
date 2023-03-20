@@ -1,5 +1,5 @@
 import { Element } from "react-scroll";
-import { Box, Table, TableCell, TableGroup, TableRow } from "~ui/primitives";
+import { Box, Table } from "~ui/primitives";
 import { EventType } from "__mockData";
 import { Filters, Event } from "./components";
 
@@ -7,38 +7,32 @@ export type Props = {
   events: EventType[];
   title?: string;
   headlines?: string[];
-  rowHeight?: number;
 };
 
-const Events: React.FC<Props> = ({
-  events,
-  title,
-  headlines,
-  rowHeight = 64,
-}) => {
+const Events: React.FC<Props> = ({ events, title, headlines }) => {
   return (
     <Box as="section" variant="section">
       <Element name="matches">
         <Filters events={events} title={title} count={events.length} />
-        <Table variant="events" width="100%" boxShadow="box.shallow">
+        <Table>
           {headlines && (
-            <TableGroup type="head">
-              <TableRow minHeight={rowHeight}>
+            <Table.Group type="head">
+              <Table.Row>
                 {headlines.map((headline, i) => (
-                  <TableCell type="head" key={i}>
+                  <Table.Cell key={i} type="head">
                     {headline}
-                  </TableCell>
+                  </Table.Cell>
                 ))}
-              </TableRow>
-            </TableGroup>
+              </Table.Row>
+            </Table.Group>
           )}
-          <TableGroup type="body">
+          <Table.Group type="body">
             {events.map((event) => (
-              <TableRow minHeight={rowHeight} key={event.id}>
+              <Table.Row key={event.id}>
                 <Event {...event} />
-              </TableRow>
+              </Table.Row>
             ))}
-          </TableGroup>
+          </Table.Group>
         </Table>
       </Element>
     </Box>

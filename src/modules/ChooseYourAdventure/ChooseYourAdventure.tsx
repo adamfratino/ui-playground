@@ -1,4 +1,4 @@
-import { Box, Button, Grid, Text } from "~ui/primitives";
+import { Box, Button, Container, Grid, Text } from "~ui/primitives";
 import { BoxProps } from "~ui/primitives/Box";
 import { Link } from "react-scroll";
 
@@ -24,16 +24,16 @@ const options = [
 ];
 
 const ChooseYourAdventure: React.FC = () => (
-  <Box as="section" variant="section">
+  <Container as="section" variant="section">
     <Text as="h2" variant="eyebrow">
       Choose Your Adventure:
     </Text>
-    <Grid variant="auto" gap={3}>
+    <Grid variant="auto">
       <AdventureButton {...options[0]} />
       <AdventureButton {...options[1]} />
       <AdventureButton {...options[2]} />
     </Grid>
-  </Box>
+  </Container>
 );
 
 export default ChooseYourAdventure;

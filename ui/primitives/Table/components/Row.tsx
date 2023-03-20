@@ -6,10 +6,10 @@ type Props = Pick<GridProps, "columns" | "backgroundColor"> & {
   minHeight?: CSSProperties["minHeight"];
 };
 
-const TableRow: React.FC<Props> = ({ children, minHeight, ...props }) => (
+const Row: React.FC<Props> = ({ children, minHeight, ...props }) => (
   <Grid as="tr" variant="auto" {...props} sx={{ minHeight }}>
     {children}
   </Grid>
 );
 
-export default TableRow;
+export default Row;

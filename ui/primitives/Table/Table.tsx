@@ -1,48 +1,15 @@
-import { forwardRef, CSSProperties } from "react";
-import styled from "@emotion/styled";
-import {
-  layout,
-  shadow,
-  variant,
-  LayoutProps,
-  ShadowProps,
-} from "styled-system";
-import { Box } from "~ui/primitives";
-import coreVariants from "./variants";
+import { forwardRef, HTMLAttributes } from "react";
+import { Box, BoxProps } from "~ui/primitives";
 
-type StyledProps = Omit<LayoutProps, "width"> &
-  ShadowProps & {
-    variants?: {};
-    variant?: keyof typeof coreVariants | {};
-    width?: CSSProperties["width"];
-  };
-
-export type Props = StyledProps & {
-  children?: React.ReactNode;
-};
+export type Props = HTMLAttributes<HTMLTableElement> & BoxProps;
 
 const Table = forwardRef<HTMLTableElement, Props>(
-  ({ children, variants, variant, ...props }, ref) => (
-    <StyledTable
-      as="table"
-      variants={variants}
-      variant={variant}
-      ref={ref}
-      {...props}
-    >
+  ({ children, ...props }, ref) => (
+    <Box {...props} ref={ref} as="table">
       {children}
-    </StyledTable>
+    </Box>
   )
 );
 Table.displayName = "Table";
 
 export default Table;
-
-const StyledTable = styled(Box)<StyledProps>`
-  ${({ variants }) =>
-    variant({ variants: { ...coreVariants, ...(variants && variants) } })}
-  ${layout}
-  ${shadow}
-  border-collapse: collapse;
-  border-spacing: 0;
-`;

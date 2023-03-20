@@ -5,7 +5,7 @@ type Props = BoxProps & {
   children: React.ReactNode;
 };
 
-const TableGroup: React.FC<Props> = ({ type, children, ...props }) => {
+const Group: React.FC<Props> = ({ type, children, ...props }) => {
   return (
     <Box as={`t${type}`} {...props} sx={{ zIndex: 1 }}>
       {children}
@@ -13,4 +13,4 @@ const TableGroup: React.FC<Props> = ({ type, children, ...props }) => {
   );
 };
 
-export default TableGroup;
+export default Group;

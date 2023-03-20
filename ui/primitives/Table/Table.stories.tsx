@@ -1,13 +1,8 @@
 import { Meta, Story } from "@storybook/react";
-import { variantArgTypes } from "~storybook/configs";
 import TableComponent, { Props } from "./Table";
-import variants from "./variants";
 
 export default {
   title: "UI/Primitives",
-  argTypes: {
-    ...variantArgTypes(variants),
-  },
 } as Meta;
 
 export const Table: Story<Props> = (args) => (
