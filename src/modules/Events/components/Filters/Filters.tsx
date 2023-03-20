@@ -4,9 +4,9 @@ import FiltersTitle from "./FiltersTitle";
 import FilterButton from "./FilterButton";
 
 const filters = [
-  { text: "Open", bg: "notification.success" },
-  { text: "Upcoming", bg: "notification.warning" },
-  { text: "Past", bg: "notification.alert" },
+  { text: "Open", bg: "notifications.success" },
+  { text: "Upcoming", bg: "notifications.warning" },
+  { text: "Past", bg: "notifications.alert" },
 ];
 
 type Props = {

@@ -1,9 +1,24 @@
-import colors from "./colors";
-import notification from "./notification";
+/** Base colors */
+import reds from "./reds";
+import oranges from "./oranges";
+import yellows from "./yellows";
+import greens from "./greens";
+import blues from "./blues";
+import purples from "./purples";
+import greys from "./greys";
+
+/** Functional colors */
+import notifications from "./notifications";
 
 const tokens = {
-  colors,
-  notification,
+  reds,
+  oranges,
+  yellows,
+  greens,
+  blues,
+  purples,
+  greys,
+  notifications,
 };
 
 export default tokens;

@@ -7,19 +7,19 @@ const options = [
     buttonText: "Open Matches",
     descriptionText:
       "Dive right in and **find someone to play!** Keep an eye on the first column; **if a date isn't already selected, you and your opponent can pick a date together!**",
-    backgroundColor: "notification.success",
+    backgroundColor: "notifications.success",
   },
   {
     buttonText: "Upcoming Matches",
     descriptionText:
       "Have a look at **what's coming up** and consider visiting the club to spectate if you're in the area.",
-    backgroundColor: "notification.warning",
+    backgroundColor: "notifications.warning",
   },
   {
     buttonText: "Past Matches",
     descriptionText:
       "Take a trip down memory lane and browse some **recently completed matches.**",
-    backgroundColor: "notification.alert",
+    backgroundColor: "notifications.alert",
   },
 ];
 
